@@ -1,0 +1,213 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Operon Ehrscape Service test",
+		"_postman_id": "a0569767-f815-2756-44c8-34fc7e3dae61",
+		"description": "Runs some key Ehrscape service to check that these are alive. May generate some authnetication erros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "import",
+			"description": "Inport CSV calls.",
+			"item": [
+				{
+					"name": "Import CSV data",
+					"request": {
+						"url": "{{openEhrApi}}/rest/v1/import/csv?templateId={{templateId}}&templateLanguage=en&subjectNamespace={{subjectNamespace}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"description": ""
+							},
+							{
+								"key": "{{SessionHeader}}",
+								"value": "{{Ehr-Session}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream",
+								"description": ""
+							},
+							{
+								"key": "Auth-Token",
+								"value": "{{Auth-Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "subjectId,ctx/time,ctx/language,ctx/territory,nursing_vital_signs_observations/vital_signs:0/body_temperature:0/any_event:0/temperature|magnitude,nursing_vital_signs_observations/vital_signs:0/respirations:0/any_event:0/rate|magnitude,nursing_vital_signs_observations/vital_signs:0/indirect_oximetry:0/any_event:0/spo2|numerator,nursing_vital_signs_observations/vital_signs:0/indirect_oximetry:0/any_event:0/spo2|denominator, nursing_vital_signs_observations/vital_signs:0/pulse:0/any_event:0/heart_rate|magnitude,  nursing_vital_signs_observations/vital_signs:0/blood_pressure:0/any_event:0/systolic|magnitude,nursing_vital_signs_observations/vital_signs:0/blood_pressure:0/any_event:0/diastolic|magnitude,nursing_vital_signs_observations/vital_signs:0/national_early_warning_score_rcp_uk:0/total_score\n0001,2010-10-10T06:00:00,en,GB,36.6,15,97,100,55,150,68,0\n0001,2010-10-10T06:38:00,en,GB,36.5,16,100,100,63,135,90,0\n0001,2015-10-09T09:49:00,en,GB,36.5,16,95,100,52,139,75,0"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"Ehr-Session\", jsonData.sessionId);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{openEhrApi}}/rest/v1/session?username={{Username}}&password={{Password}}",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Logs in the specified user, creating a new session in the process.\n\n* If successful, adds the Session token to the Postman environment, which will be used by subsequent Ehrscape calls\n\nA successful call will create a new OpenEHR session for the specified user. The session ID will be returned both as a JSON response to this call, as well as in the Ehr-Session HTTP response header.\n\nIn order to ensure that this newly created session is used on subsequent REST requests, the client needs to make the calls with the HTTP request header Ehr-Session value set to the session ID.\n\nExample of a successful call response:\n\n```{\n  \"action\": \"CREATE\",\n  \"sessionId\": \"096c9d95-c434-4c97-a7ee-59e2c521ec33\"\n}\nThe response header, with the Ehr-Session set, will look like this:\n\n{\n  \"Server\": \"Jetty(9.1.1.v20140108)\",\n  \"Transfer-Encoding\": \"chunked\",\n  \"Content-Language\": \"en-US\",\n  \"Content-Type\": \"application/json;charset=UTF-8\",\n  \"Access-Control-Allow-Origin\": \"http://localhost:8082\",\n  \"Access-Control-Expose-Headers\": \"\",\n  \"Access-Control-Allow-Credentials\": \"true\",\n  \"Ehr-Session\": \"096c9d95-c434-4c97-a7ee-59e2c521ec33\"\n}```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get ehrStatus from subjectId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"ehrId\", jsonData.ehrId);",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"subjectId\", \"9999999000\");",
+							"postman.setEnvironmentVariable(\"subjectNamespace\", \"uk.nhs.nhs_number\");",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{openEhrApi}}/rest/v1/ehr/?subjectId={{subjectId}}&subjectNamespace={{subjectNamespace}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"description": ""
+					},
+					{
+						"key": "{{SessionHeader}}",
+						"value": "{{Ehr-Session}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Query Demographics for matching Party",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"partyId\", jsonData.parties[0].id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{openEhrApi}}/rest/v1/demographics/party/query/?lastNames=*cox*&firstNames=*ivor*",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"description": ""
+					},
+					{
+						"key": "{{SessionHeader}}",
+						"value": "{{Ehr-Session}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "All compositions by ehrId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"compositionId\", jsonData.resultSet[0].uid);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{openEhrApi}}/rest/v1/query?aql=select%20c%2Fcontext%2Fstart_time%2Fvalue%20as%20start_time%2C%20c%2Fname%2Fvalue%20as%20name%2C%20c%2Fuid%2Fvalue%20as%20uid%20from%20EHR%20e%20%5Behr_id%2Fvalue%3D'{{ehrId}}'%5D%20contains%20COMPOSITION%20c%20",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"description": ""
+					},
+					{
+						"key": "{{SessionHeader}}",
+						"value": "{{Ehr-Session}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,271 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Ripple - Testing script",
+		"_postman_id": "b22cd3be-7efe-8a14-3c82-8f4da3b445e6",
+		"description": "Pefroms minimum required to create EHR, upload a set of Ripple templates and associated test data.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1_init",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Session",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Ehr-Session\", jsonData.sessionId);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.setEnvironmentVariable(\"skipDeletes\", \"true\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{openEhrApi}}/rest/v1/session?username={{Username}}&password={{Password}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "{{Auth-Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Logs in the specified user, creating a new session in the process.\n\n* If successful, adds the Session token to the Postman environment, which will be used by subsequent Ehrscape calls\n\nA successful call will create a new OpenEHR session for the specified user. The session ID will be returned both as a JSON response to this call, as well as in the Ehr-Session HTTP response header.\n\nIn order to ensure that this newly created session is used on subsequent REST requests, the client needs to make the calls with the HTTP request header Ehr-Session value set to the session ID.\n\nExample of a successful call response:\n\n```{\n  \"action\": \"CREATE\",\n  \"sessionId\": \"096c9d95-c434-4c97-a7ee-59e2c521ec33\"\n}\nThe response header, with the Ehr-Session set, will look like this:\n\n{\n  \"Server\": \"Jetty(9.1.1.v20140108)\",\n  \"Transfer-Encoding\": \"chunked\",\n  \"Content-Language\": \"en-US\",\n  \"Content-Type\": \"application/json;charset=UTF-8\",\n  \"Access-Control-Allow-Origin\": \"http://localhost:8082\",\n  \"Access-Control-Expose-Headers\": \"\",\n  \"Access-Control-Allow-Credentials\": \"true\",\n  \"Ehr-Session\": \"096c9d95-c434-4c97-a7ee-59e2c521ec33\"\n}```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get ehrStatus from subjectId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"ehrId\", jsonData.ehrId);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{openEhrApi}}/rest/v1/ehr/?subjectId={{subjectId}}&subjectNamespace={{subjectNamespace}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"description": ""
+							},
+							{
+								"key": "{{SessionHeader}}",
+								"value": "{{Ehr-Session}}",
+								"description": ""
+							},
+							{
+								"key": "Auth-Token",
+								"value": "{{Auth-Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2_vital_signs",
+			"description": "IDCR - Vital signs composition and template.",
+			"item": [
+				{
+					"name": "Commit Composition JSON FLAT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"compId = jsonData.compositionUid;",
+									"postman.setEnvironmentVariable(\"compositionId\", compId);",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{openEhrApi}}/rest/v1/composition?ehrId={{ehrId}}&templateId={{templateId}}&committerName={{committerName}}&format=FLAT",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"description": ""
+							},
+							{
+								"key": "{{SessionHeader}}",
+								"value": "{{Ehr-Session}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Auth-Token",
+								"value": "{{Auth-Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ctx/composer_name\": \"Dr Ian Shannon\",\n  \"ctx/health_care_facility|id\": \"999999-345\",\n  \"ctx/health_care_facility|name\": \"Home\",\n  \"ctx/id_namespace\": \"NHS-UK\",\n  \"ctx/id_scheme\": \"2.16.840.1.113883.2.1.4.3\",\n  \"ctx/language\": \"en\",\n  \"ctx/territory\": \"GB\",\n  \"ctx/time\": \"2016-12-20T00:11:02.518+02:00\",\n  \"adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/causative_agent|code\": \"91936005\",\n   \"adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/causative_agent|value\": \"allergy to penicillin\",\n   \"adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/causative_agent|terminology\": \"SNOMED-CT\",\n   \"adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/manifestation:0|code\": \"28926001\",\n   \"adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/manifestation:0|value\": \"eruption due to drug\",\n   \"adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/manifestation:0|terminology\": \"SNOMED-CT\",\n   \"adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/comment\": \"History unclear\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Read Composition JSON FLAT",
+					"request": {
+						"url": "{{openEhrApi}}/rest/v1/composition/{{compositionId}}?format=FLAT",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"description": ""
+							},
+							{
+								"key": "{{SessionHeader}}",
+								"value": "{{Ehr-Session}}",
+								"description": ""
+							},
+							{
+								"key": "Auth-Token",
+								"value": "{{Auth-Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Run query",
+					"request": {
+						"url": "{{openEhrApi}}/rest/v1/query",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"description": ""
+							},
+							{
+								"key": "{{SessionHeader}}",
+								"value": "{{Ehr-Session}}",
+								"description": ""
+							},
+							{
+								"key": "Auth-Token",
+								"value": "{{Auth-Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aql\": \"select   a/uid/value as uid,   a/composer/name as author,   a/context/start_time/value as date_created,   b_a/data[at0001]/items[at0002]/value/value as cause,   b_a/data[at0001]/items[at0002]/value/defining_code/code_string as cause_code,   b_a/data[at0001]/items[at0002]/value/defining_code/terminology_id/value as cause_terminology,   b_a/data[at0001]/items[at0009]/items[at0011]/value/value as reaction,   b_a/data[at0001]/items[at0009]/items[at0011]/value/defining_code/code_string as reaction_code,   b_a/data[at0001]/items[at0009]/items[at0011]/value/terminology_id/value as reaction_terminology  from EHR e [ehr_id/value = '{{ehrId}}']   contains COMPOSITION a[openEHR-EHR-COMPOSITION.adverse_reaction_list.v1]   contains EVALUATION b_a[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]  where   a/name/value='Adverse reaction list'\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Composition",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (postman.getEnvironmentVariable(\"skipDeletes\")){",
+									" postman.setNextRequest(null);   ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{openEhrApi}}/rest/v1/composition/{{compositionId}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"description": ""
+							},
+							{
+								"key": "{{SessionHeader}}",
+								"value": "{{Ehr-Session}}",
+								"description": ""
+							},
+							{
+								"key": "Auth-Token",
+								"value": "{{Auth-Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
