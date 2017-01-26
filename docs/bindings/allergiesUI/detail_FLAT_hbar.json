@@ -1,0 +1,17 @@
+{
+  "ctx/composer_name": "{{author}}",
+  "ctx/health_care_facility|id": "{{healthcareFacilityId}}",
+  "ctx/health_care_facility|name": "{{healthcareFacilityName}}",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "{{dateTimeRecorded}}",
+  "adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/causative_agent|code": "{{cause}}",
+   "adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/causative_agent|value": "{{causeCode}}",
+   "adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/causative_agent|terminology": "{{causeTerminology}}",
+   "adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/manifestation:0|code": "{{reactionCode}}",
+   "adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/manifestation:0|value": "{{reaction}}",
+   "adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/manifestation:0|terminology": "{{reactionTerminology}}",
+   "adverse_reaction_list/allergies_and_adverse_reactions/adverse_reaction_risk:0/reaction_details/comment": "{{notes}}"
+}
