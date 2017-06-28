@@ -1,0 +1,101 @@
+{
+"headingGroups" : [
+  {
+    "heading" : "Allergies",
+    "templates": [
+    "IDCR - Adverse Reaction List.v1",
+    ]
+  },
+  {
+    "heading" : "Medication",
+    "templates": [
+    "IDCR - Adverse Reaction List.v1",
+    ]
+  },
+  {
+    "heading" : "Diagnoses",
+    "templates": [
+    "IDCR - Problem List.v1",
+    ]
+  },
+  {
+    "heading" : "Procedures",
+    "templates": [
+    "IDCR - Procedures List.v1",
+    ]
+  },
+  {
+    "heading" : "Vital signs",
+    "templates": [
+    "IDCR - Vital Signs Encounter.v1",
+    ]
+  },
+  {
+    "heading" : "Results",
+    "templates": [
+    "IDCR - Laboratory Test Report.v0",
+    ]
+  },
+  {
+    "heading" : "Documents",
+    "templates": [
+    "iEHR - Healthlink - Discharge Sumary.v0",
+    "iEHR - Healthlink - Referral.v0"
+    ]
+  },
+  {
+    "heading" : "Referrals",
+    "templates": [
+    "IDCR - Service Request.v0",
+    ]
+  },
+  {
+    "heading" : "MDT Reports"
+    "templates": [
+    "IDCR - Minimal MDT Output Report.v0",
+    ]
+  },
+  {
+    "heading" : "End of Life Care Preferences"
+    "templates": [
+    "IDCR - Adverse Reaction List.v1",
+    ]
+  },
+  {
+    "heading" : "Contacts"
+    "templates": [
+    "IDCR - Relevant contacts.v0",
+    ]
+  },
+  {
+    "heading" : "Orders"
+    "templates": [
+    "IDCR - Laboratory Order.v0",
+    ]
+  },
+  {
+    "heading" : "Clinical notes",
+    "templates": [
+    "RIPPLE - Clinical Notes.v1",
+    ]
+  },
+  {
+    "heading" : "Patient notes",
+    "templates": [
+    "RIPPLE - Personal Notes.v1",
+    ]
+  },
+  {
+    "heading" : "Height and Weight",
+    "templates": [
+    "RIPPLE - Height_Weight.v1",
+    ]
+  },
+  {
+    "heading" : "Immunisations",
+    "templates": [
+    "IDCR - Immunisation summary.v0",
+    ]
+  }
+]
+}

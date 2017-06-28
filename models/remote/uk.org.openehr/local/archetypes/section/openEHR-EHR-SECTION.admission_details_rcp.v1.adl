@@ -1,0 +1,56 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.admission_details_rcp.v1
+
+concept
+	[at0000]	-- Admission details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise admission details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Date of admission: Date patient admitted to hospital.
+Admission method: How the patient was admitted to hospital. Eg elective, emergency, maternity, transfer, etc.
+
+Referrer details: Name, designation, organisation and contact details of referrer. If not an individual,
+this could be, eg, GP surgery, department, specialty, subspecialty, educational institution, mental health etc. Also needs to include self-referral.
+
+Source of admission: National code. Where the patient was immediately prior to admission, eg, usual place of residence, temporary place of residence, penal establishment.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"C6DDBAB996B618E99E4D4166E7864FA5">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Admission details">
+					description = <"Admission details heading (AoMRC).">
+				>
+			>
+		>
+	>

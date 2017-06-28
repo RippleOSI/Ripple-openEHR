@@ -1,0 +1,44 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.clinical_risk_factors_rcp.v1
+
+concept
+	[at0000]	-- Clinical Risk Factors
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"6777274AF9FE2768AF3B4B69F018D7D3">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Clinical Risk Factors">
+					description = <"Clinical Risk Factors heading.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>9d1980a1-71af-434a-a6cf-bbeb2fb5ebde</id>
+  <name>NHS Scotland National Data Services Allergy API</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To demonstrate use of GP2GP archetype to underpin NDS Allergy API.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.drugallergy.v1" concept_name="Drug allergy">
+    <Rule path="/data[at0001]" hide_on_form="true" />
+    <Rule path="/data[at0001]/items[at0002]" name="Allergy" />
+    <Rule path="/data[at0001]/items[at0004]" max="0" />
+    <Rule path="/data[at0001]/items[at0003]" max="0" />
+    <Rule path="/data[at0001]/items[at0005]" max="0" />
+    <Rule path="/data[at0001]/items[at0021]" max="0" />
+    <Rule path="/data[at0001]/items[at0022]" max="0" />
+    <Rule path="/protocol[at0023]" hide_on_form="true" />
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.record_provenance.v1" concept_name="Record provenance" path="/protocol[at0023]/items[at0024]">
+      <Rule path="/items[at0001]" name="Source" />
+      <Rule path="/items[at0002]" name="RecordingProfessional" />
+      <Rule path="/items[at0006]" max="0" />
+      <Rule path="/items[at0007]" max="0" />
+      <Rule path="/items[at0003]" max="0" />
+      <Rule path="/items[at0004]" name="DateRecorded" />
+    </Items>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.drugallergy.v1">
+    <digest id="MD5-CAM-1.0.1">FBD57278DBCC612BF8FF04A47B972710</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.record_provenance.v1">
+    <digest id="MD5-CAM-1.0.1">F36B2F9FA2C4CD0B66A10C6D10B7FA00</digest>
+  </integrity_checks>
+</template>

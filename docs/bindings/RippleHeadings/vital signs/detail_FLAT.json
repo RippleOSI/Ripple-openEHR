@@ -1,0 +1,36 @@
+{
+  //Markup guidance
+  // {{author}} - substitute fieldmap variable 'author'}}
+  // {{}} - i.e empty handlebars brackets - this is a fixed value.
+  // {{author}}!Dr Ian Shannon - 'Dr Ian shannon' is an example value ! means this field is mandatory in the commit'
+  // {{notes}}|History unclear - 'History unclear' is an example value  means this field is optional in the committ'
+
+
+  "ctx/composer_name": "{{author!Dr Ian Shannon}}",
+  "ctx/composer_id": "{{}}!G33567",
+  "ctx/health_care_facility|id": "{{healthcareFacilityId}}!999999-345",
+  "ctx/health_care_facility|name": "{{healthcareFacilityName}}!Home",
+  "ctx/id_namespace": "{{}}!NHS-UK",
+  "ctx/id_scheme": "{{}}!2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "{{}}!en",
+  "ctx/territory": "{{}}!GB",
+  "ctx/time": "{{dateTimeRecorded}}!2016-12-20T00:11:02.518+02:00",
+  "vital_signs_observations/vital_signs/respirations/rate|magnitude": {{respiratoryRate}}|23,
+  "vital_signs_observations/vital_signs/respirations/rate|unit": "{{}}|/min",
+  // The openEHR data model uses onAir which is the reverse of the UI => On Suplemental oxygenSats
+  // i.e you must record the opposite value of what is in the UI.
+  "vital_signs_observations/vital_signs/respirations/inspired_oxygen/on_air": {{supplementaryOxygen}}false,
+  "vital_signs_observations/vital_signs/pulse_heart_beat/heart_rate|magnitude": {{heartRate}}45,
+  "vital_signs_observations/vital_signs/pulse_heart_beat/heart_rate|unit": "{{}}|/min",
+  "vital_signs_observations/vital_signs/body_temperature/temperature|magnitude": {{temperature}}|35.4,
+  "vital_signs_observations/vital_signs/body_temperature/temperature|unit": "{{}}|°C",
+  "vital_signs_observations/vital_signs/avpu/avpu_observation|code": {{levelOfConsciousnessCode}}|"at0005",
+  "vital_signs_observations/vital_signs/blood_pressure/systolic|magnitude": {{systolic}}|92,
+  "vital_signs_observations/vital_signs/blood_pressure/systolic|unit": "{{}}|mm[Hg]",
+  "vital_signs_observations/vital_signs/blood_pressure/diastolic|magnitude": {{diastolic}}|64,
+  "vital_signs_observations/vital_signs/blood_pressure/diastolic|unit": "{{}}|mm[Hg]",
+  "vital_signs_observations/vital_signs/indirect_oximetry/spo2|numerator": {{oxygenSats}}|97,
+  "vital_signs_observations/vital_signs/indirect_oximetry/spo2|denominator": {{}}|100,
+  "vital_signs_observations/vital_signs/news_uk_rcp/total_score": {{newsScore}}|12
+
+}

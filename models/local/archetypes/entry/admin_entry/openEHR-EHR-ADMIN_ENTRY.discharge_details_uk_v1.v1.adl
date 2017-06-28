@@ -1,0 +1,169 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.discharge_details_uk_v1.v1
+
+concept
+	[at0000]	-- Discharge details uk v1
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Tony Shannon">
+		["email"] = <"tony.shannon@frectal.com">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the Discharge Details of a patient.
+The structure is based on the RCP Standards for Clinical Structure and Content of Patient Records
+https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf">
+			use = <"">
+			misuse = <"">
+			copyright = <"Creative Commons License">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf">
+		["MD5-CAM-1.0.1"] = <"98E51CA5807F07FBBA0CFE22563A5B4A">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Discharge details uk v1
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0024] occurrences matches {0..1} matches {	-- Responsible professional
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0025] occurrences matches {0..1} matches {	-- Discharging organisation
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Date/time of discharge
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Discharge method
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0008, 	-- Patient discharged on clinical advice or with clinical consent 
+									at0009, 	-- Patient discharged him/herself or was discharged by a relative or advocate
+									at0014, 	-- Patient discharged by Mental Health Tribunal, Home Secretary or Court
+									at0010, 	-- Patient Died
+									at0011]	-- Stillbirth
+								}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Discharge destination
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015, 	-- Usual place of residence
+									at0016, 	-- Temporary Place of Residence
+									at0017, 	-- Penal Establishment or Police Station
+									at0018, 	-- NHS other hospital provider
+									at0019, 	-- NHS run Care Home
+									at0020]	-- Local Authority Residential Accomodation
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0023] occurrences matches {0..1} matches {	-- Discharge address
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Discharge details uk v1">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Date/time of discharge">
+					description = <"The date and optional time at which the patient was transferred out.">
+				>
+				["at0007"] = <
+					text = <"Discharge method">
+					description = <"The method by which the patient was discharged according to NHS England data dictionary coding.">
+				>
+				["at0008"] = <
+					text = <"Patient discharged on clinical advice or with clinical consent ">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Patient discharged him/herself or was discharged by a relative or advocate">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Patient Died">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Stillbirth">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Discharge destination">
+					description = <"The destination to which the patiet was tranferred according to NHS England data dictionaary coding.">
+				>
+				["at0014"] = <
+					text = <"Patient discharged by Mental Health Tribunal, Home Secretary or Court">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Usual place of residence">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Temporary Place of Residence">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Penal Establishment or Police Station">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"NHS other hospital provider">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"NHS run Care Home">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Local Authority Residential Accomodation">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Discharge address">
+					description = <"Details of the address to which the patient was transferred.">
+				>
+				["at0024"] = <
+					text = <"Responsible professional">
+					description = <"Details of the healthcare professional  responsible for patient care prior to transfer.">
+				>
+				["at0025"] = <
+					text = <"Discharging organisation">
+					description = <"Details of the healthcare organisation, usually at department or speciality level,  responsible for patient care prior to transfer.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,235 @@
+﻿archetype (adl_version=1.4; uid=bb0d6595-943e-49ae-891d-7511a9722bbb)
+	openEHR-EHR-CLUSTER.lcr_asc_outcomes.v0
+
+concept
+	[at0000]	-- Leeds Care Record Adult Social Care - Outcomes
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+		["date"] = <"2016-08-01">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Local archetype to capture different outcome details in Leeds Care Record Adult Social Care Summary.">
+			use = <"To be used in Leeds Care Record Adult Social Care Summary to capture outcomes of referrals and other services and assessments.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["revision"] = <"0.0.1-alpha">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["build_uid"] = <"f0c1f2c2-0742-4026-bc41-68c4f2359618">
+		["original_publisher"] = <"UK Clinical Models">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"B009403AEECDC3C2C6EE0B41D83300D3">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["custodian_organisation"] = <"UK Clinical Models">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Leeds Care Record Adult Social Care - Outcomes
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {	-- Referral outcome
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Refer to IRT
+							at0003, 	-- Refer to LD duty
+							at0004, 	-- Refer to neighbourhood team duty
+							at0005, 	-- Refer to Westgate
+							at0006, 	-- Refer to adult care
+							at0007, 	-- Refer to mental health unit
+							at0008, 	-- Refer to LD
+							at0009, 	-- Refer to reablement
+							at0010, 	-- Refer to DST
+							at0011, 	-- Refer for safeguarding
+							at0012, 	-- Non-care plan provision
+							at0013, 	-- Refer to district nurse
+							at0014, 	-- Refer to GP
+							at0015, 	-- Refer to ICT
+							at0016, 	-- Refer to stroke team
+							at0017, 	-- Refer to CIC bed
+							at0018]	-- Refer to PCAL
+						}
+					}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..*} matches {	-- Occupational therapy outcome
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0020, 	-- Equipment non-standard
+							at0021, 	-- Equipment standard
+							at0022, 	-- Major adaptations
+							at0023, 	-- Minor adaptations
+							at0024, 	-- Moving and handling
+							at0025, 	-- No further action
+							at0026, 	-- Ongoing support/case management
+							at0027, 	-- Re-housing
+							at0028, 	-- Reviewable equipment
+							at0029, 	-- Telecare
+							at0030, 	-- Visually impaired equipment
+							at0031]	-- Visually impaired services
+						}
+					}
+				}
+			}
+			ELEMENT[at0032] occurrences matches {0..1} matches {	-- Support plan service type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Leeds Care Record Adult Social Care - Outcomes">
+					description = <"Local archetype to capture outcomes and service types to be used in templates for Leeds Care Record Adult Social Care.">
+				>
+				["at0001"] = <
+					text = <"Referral outcome">
+					description = <"Statement about outcome of referral.">
+				>
+				["at0002"] = <
+					text = <"Refer to IRT">
+					description = <"Denotes a referral that has been routed to one of 3 Initial Response Teams (IRT), Mental Health Unit response team, Emergency Duty Team or Direct Access team. These referrals are concerned with short term pieces of work, triage, assessment and provision of services. These teams provide short term support to stabilise the customer then transfer to Neighbourhood teams should long term ‘care management’ support be required.">
+				>
+				["at0003"] = <
+					text = <"Refer to LD duty">
+					description = <"Denotes a referral that has been routed to one of 5 specialist Learning Disability teams for triage assessments.">
+				>
+				["at0004"] = <
+					text = <"Refer to neighbourhood team duty">
+					description = <"Denotes a referral that has been routed to one of 13 Neighbourhood Teams. These referrals are usually concerned with long term packages of support where the customer’s needs have changed and triage is required before a decision can be made.">
+				>
+				["at0005"] = <
+					text = <"Refer to Westgate">
+					description = <"Denotes a referral that has been routed to the Customer Service team, Westgate Contact Centre for initial triage work.">
+				>
+				["at0006"] = <
+					text = <"Refer to adult care">
+					description = <"Denotes a referral that has been routed to ANY of the teams currently working in Adult Social Care, except Disability Services Teams.">
+				>
+				["at0007"] = <
+					text = <"Refer to mental health unit">
+					description = <"Denotes a referral that has been routed to the Mental Health Unity duty or Emergency Duty team. These referrals are concerned with Mental Health Assessments or Requirements.">
+				>
+				["at0008"] = <
+					text = <"Refer to LD">
+					description = <"Denotes a referral that has been routed to one of the 5 specialist Learning Disability Teams.">
+				>
+				["at0009"] = <
+					text = <"Refer to reablement">
+					description = <"Denotes a referral that has been routed to one of 3 reablement teams. These referrals are usually Adult Social Care internal referrals routed to involve the Skills For Independent Living team (SkILs Team) for short term ‘rehabilitation’ support.">
+				>
+				["at0010"] = <
+					text = <"Refer to DST">
+					description = <"Denotes a referral that has been routed to Disability Services Teams. These referrals are usually to commission input from DST to provide specialist functional assessments.">
+				>
+				["at0011"] = <
+					text = <"Refer for safeguarding">
+					description = <"Denotes a referral that has been routed to ANY of the teams currently working in Adult Social Care, except Disability Services Teams. These referrals will have been triaged and will be specifically about Safeguarding Concerns.">
+				>
+				["at0012"] = <
+					text = <"Non-care plan provision">
+					description = <"Denotes a referral that has been routed to ANY of teams currently working in Adult Social Care, except Disability Services Teams. These referrals are regarding equipment and adaptations that can be provided, usually at first point of contact.">
+				>
+				["at0013"] = <
+					text = <"Refer to district nurse">
+					description = <"These referrals are purely to enable Adult Social Care teams to record Health Professional involvement.">
+				>
+				["at0014"] = <
+					text = <"Refer to GP">
+					description = <"These referrals are purely to enable Adult Social Care teams to record Health Professional involvement.">
+				>
+				["at0015"] = <
+					text = <"Refer to ICT">
+					description = <"These referrals are purely to enable Adult Social Care teams to record Health Professional involvement.">
+				>
+				["at0016"] = <
+					text = <"Refer to stroke team">
+					description = <"These referrals are purely to enable Adult Social Care teams to record Health Professional involvement.">
+				>
+				["at0017"] = <
+					text = <"Refer to CIC bed">
+					description = <"These referrals are purely to enable Adult Social Care teams to record Health Professional involvement.">
+				>
+				["at0018"] = <
+					text = <"Refer to PCAL">
+					description = <"These referrals are purely to enable Adult Social Care teams to record Health Professional involvement.">
+				>
+				["at0019"] = <
+					text = <"Occupational therapy outcome">
+					description = <"Statement about occupational therapy outcome.">
+				>
+				["at0020"] = <
+					text = <"Equipment non-standard">
+					description = <"Equipment that exceeds a certain cost and funding has to be approved.">
+				>
+				["at0021"] = <
+					text = <"Equipment standard">
+					description = <"Equipment that can be ordered from stores and needs no funding approval.">
+				>
+				["at0022"] = <
+					text = <"Major adaptations">
+					description = <"Major home adaptations such as tracking hoists, wet floor showers.">
+				>
+				["at0023"] = <
+					text = <"Minor adaptations">
+					description = <"Rails, lever taps, usually adaptations blow £1000.">
+				>
+				["at0024"] = <
+					text = <"Moving and handling">
+					description = <"Personal moving and handling training provided.">
+				>
+				["at0025"] = <
+					text = <"No further action">
+					description = <"No further action is required following the OT assessment.">
+				>
+				["at0026"] = <
+					text = <"Ongoing support/case management">
+					description = <"Customer requires ongoing input from Adult Social Care.">
+				>
+				["at0027"] = <
+					text = <"Re-housing">
+					description = <"Where disability service teams are supporting an application for re-housing due to medical reasons.">
+				>
+				["at0028"] = <
+					text = <"Reviewable equipment">
+					description = <"Equipment provided where the equipment is required to have equipment maintenance reviews to ensure it is in good working order.">
+				>
+				["at0029"] = <
+					text = <"Telecare">
+					description = <"Provision of assistive technology provided by telecare.">
+				>
+				["at0030"] = <
+					text = <"Visually impaired equipment">
+					description = <"Provision of visually impaired equipment such as talking books.">
+				>
+				["at0031"] = <
+					text = <"Visually impaired services">
+					description = <"Provision of specialist services such as travel training.">
+				>
+				["at0032"] = <
+					text = <"Support plan service type">
+					description = <"Statement about the active care package and the type of service to be provided.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,121 @@
+﻿archetype (adl_version=1.4; uid=587363d2-d7ce-4b05-8831-b2e8c2df2dcf)
+	openEHR-EHR-OBSERVATION.who_performance_status.v0
+
+concept
+	[at0000]	-- WHO Performance Status
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Wai Keong Wong">
+		["organisation"] = <"UCLH, UK">
+		["email"] = <"wongwaikeong@gmail.com">
+		["date"] = <"2015-05-27">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record assessment of WHO performance status score.
+
+">
+			use = <"The Eastern Cooperative Oncology Group (ECOG) score (published by Oken et al. in 1982), also called the WHO or Zubrod score (after C. Gordon Zubrod), runs from 0 to 5, with 0 denoting perfect health and 5 death.">
+			keywords = <"Performance Status", "WHO", "ECOG", "oncology", "cancer">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Navin Ramachandran, UCLH, UK", ...>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["revision"] = <"0.0.1-alpha">
+		["references"] = <"Performance status [Internet]. Wikipedia, the free encyclopedia. 2015 [cited 2015 May 27]. Available from: http://en.wikipedia.org/w/index.php?title=Performance_status&oldid=661884138
+">
+		["build_uid"] = <"ad877b5e-abda-4bc9-9d66-1c19bc38c7c7">
+		["original_publisher"] = <"UK Clinical Models">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"C9044F571693EF6AB420E91B52A1D12B">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["custodian_organisation"] = <"UK Clinical Models">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- WHO Performance Status
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Performance Status
+										value matches {
+											0|[local::at0005], 	-- Fully active
+											1|[local::at0006], 	-- Ambulatory and light work
+											2|[local::at0007], 	-- Ambulatory and self care only
+											3|[local::at0008], 	-- Limited selfcare
+											4|[local::at0009], 	-- Completely disabled
+											5|[local::at0010]  	-- Dead
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"WHO Performance Status">
+					description = <"WHO Performance Status Score.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any Event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Performance Status">
+					description = <"WHO Performance Status Score.">
+				>
+				["at0005"] = <
+					text = <"Fully active">
+					description = <"The patient is fully active, able to carry on all pre-disease performance without restriction.">
+				>
+				["at0006"] = <
+					text = <"Ambulatory and light work">
+					description = <"The patient is fully restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature, e.g., light house work, office work.">
+				>
+				["at0007"] = <
+					text = <"Ambulatory and self care only">
+					description = <"The patient is ambulatory and capable of all selfcare but unable to carry out any work activities. Up and about more than 50% of waking hours.">
+				>
+				["at0008"] = <
+					text = <"Limited selfcare">
+					description = <"The patient is capable of only limited selfcare, confined to bed or chair more than 50% of waking hours.">
+				>
+				["at0009"] = <
+					text = <"Completely disabled">
+					description = <"The patient is completely disabled. Cannot carry on any selfcare. Totally confined to bed or chair.">
+				>
+				["at0010"] = <
+					text = <"Dead">
+					description = <"The patient is dead.">
+				>
+			>
+		>
+	>

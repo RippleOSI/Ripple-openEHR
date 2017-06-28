@@ -1,0 +1,209 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ACTION.immunisation_procedure.v1
+
+concept
+	[at0000]	-- Immunisation procedure
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-07-17">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the process of immunisation administration, call and recall.">
+			use = <"Use to record the process of vaccination administration status, call and recall.">
+			keywords = <"vaccine", "vaccination", "immunisation">
+			misuse = <"Should not be used to record the medical administration of the vaccine.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2F1087AD325F7F9FFFD383F1158629B6">
+	>
+
+definition
+	ACTION[at0000] matches {	-- Immunisation procedure
+		ism_transition matches {
+			ISM_TRANSITION[at0010] matches {	-- Immunisation course refused
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::528]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0010]}		-- Immunisation course refused
+					}
+				}
+			}
+			ISM_TRANSITION[at0008] matches {	-- First call issued
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::529]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0008]}		-- First call issued
+					}
+				}
+			}
+			ISM_TRANSITION[at0006] matches {	-- Immunisation administered
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0006]}		-- Immunisation administered
+					}
+				}
+			}
+			ISM_TRANSITION[at0007] matches {	-- Immunisation administration deferred
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::530]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0007]}		-- Immunisation administration deferred
+					}
+				}
+			}
+			ISM_TRANSITION[at0012] matches {	-- Immunisation course discontinued
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::531]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0012]}		-- Immunisation course discontinued
+					}
+				}
+			}
+			ISM_TRANSITION[at0009] matches {	-- Immunisation course completed
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0009]}		-- Immunisation course completed
+					}
+				}
+			}
+		}
+		description matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Immunisation name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Series number
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Reason withheld
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0013] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Medication administration record
+						value matches {
+							DV_EHR_URI matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Immunisation procedure">
+					description = <"Record of a vaccine administration procedure.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Immunisation name">
+					description = <"The name or type of immunisation given, often the name of the target disease e.g. 'Hepatitis B'.">
+				>
+				["at0004"] = <
+					text = <"Series number">
+					description = <"The sequence number in a series of immunisations e.g. 3rd DTP.">
+				>
+				["at0005"] = <
+					text = <"Reason withheld">
+					description = <"The reason why a vaccination was withheld.">
+				>
+				["at0006"] = <
+					text = <"Immunisation administered">
+					description = <"The immunisation has been administered.">
+				>
+				["at0007"] = <
+					text = <"Immunisation administration deferred">
+					description = <"Administration of the immunisation has been deferred.">
+				>
+				["at0008"] = <
+					text = <"First call issued">
+					description = <"The first call for immunisation has been issued.">
+				>
+				["at0009"] = <
+					text = <"Immunisation course completed">
+					description = <"The immunisation course has been completed.">
+				>
+				["at0010"] = <
+					text = <"Immunisation course refused">
+					description = <"The course of immunisations has been refused.">
+				>
+				["at0012"] = <
+					text = <"Immunisation course discontinued">
+					description = <"The immunisation course has been permanently discontinued.">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Medication administration record">
+					description = <"A link to an associated medication administration record.">
+				>
+				["at0015"] = <
+					text = <"Comment">
+					description = <"An additional comment about the vaccination process.">
+				>
+			>
+		>
+	>

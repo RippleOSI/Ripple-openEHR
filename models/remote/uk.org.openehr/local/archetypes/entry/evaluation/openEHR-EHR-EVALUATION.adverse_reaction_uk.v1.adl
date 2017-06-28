@@ -1,0 +1,263 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.adverse_reaction_uk.v1
+
+concept
+	[at0000]	-- Adverse reaction
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"SCIMP, NHS Scotland">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2012-09-12">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of a known or suspected allergy, other adverse reaction, intolerance to a drug or medicinal substance, drug group or trade family group of drugs.
+
+Whilst this is a primarily a record of the adverse reaction event, it should also be regarded as a statement of 'propensity to future similar reactions', intended to appear quite distinctly within systems and to trigger appropriate prescribing decision support.">
+			use = <"This archetype is a superset of the HSCIC GP2GP Drug allergy archetype and can be used for GP2GP purposes, with suitable templating to record allergies, intolerances and adverse reactions to drugs and other medicinal substances. This archetype reflects the behaviour of current UK GP systems which make no distinction between the concepts of 'adverse reaction event' and 'propensity to future adverse reaction'.  It is aligned with the RCP 'core headings' definitions for allergy recording.
+
+It is designed primarily for use with in a UK primary care context but may be suitable for use within secondary care, particularly where the prime requirement is to record propensity to adverse reactions to drugs and other medicinal substances for decision support purposes.">
+			keywords = <"allergy", "adverse", "intolerance", "sensitivity", "hypersensitivity", "immune", "drug", "medication", "reaction", "anaphylaxis">
+			misuse = <"This archetype is not designed to support adverse reaction reporting requirements e.g 'Yellow Card' scheme.
+It should not be used to record negated statements such as \"No history of adverse reactions\" or \"Allergy to Penicillin refuted by challenge testing\". A specific 'Exclusion of adverse reaction' archetype is used for this purpose to ensure that negated statements are clearly separated from positive statements.
+
+It should not be used to record 'absence' statements such as \"No information available on adverse reactions\" . A different 'Absence of information' archetype is used for this purpose to ensure that 'absence' statements are clearly separated from positive statements.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"Published">
+	other_contributors = <"Steve Bentley, HSCIC, United Kingdom", "Colin Brown, SCIMP, United Kingdom", "Rachel Clements, Cegedim Rx Ltd, United Kingdom", "Richard Cottrell, NHS Ayrshire and Arran, United Kingdom", "Leo Fogarty, GP2GP project, NHS England", "Gurminder Khamba, NHS CFH, United Kingdom", "Heather Leslie, Ocean Informatics, Australia", "Dawn MacDermid, United Kingdom", "Ian McNicoll, Ocean Informatics, United Kingdom (Editor)", "Barry Melia, NHS Lothian, United Kingdom", "Paul Miller, SCIMP, United Kingdom (Editor)", "Sam Patel, NHS Lanarkshire, United Kingdom", "Mike Robinson, INPS, United Kingdom", "Laura Sato, Health and Social Care Information Centre, United Kingdom", "Ian Thompson, SCIMP, United Kingdom (Editor)", "John Thomson, NHS Grampian, United Kingdom", "John Williams, GP2GP, United Kingdom (Editor)">
+	other_details = <
+		["references"] = <"NHS Scotland SCI-XML schema http://www.sci.scot.nhs.uk/products/gateway/gate_down_xml.htm
+NWIS Wales SCI-XML schema
+HSCIC England  NHS Message Implementation Guidance, http://www.uktcregistration.nss.cfh.nhs.uk/trud3/
+HL7 Patient Care work on Allergy and Intolerance - http://wiki.hl7.org/index.php?title=Allergy_%26_Intolerance
+NEHTA draft 'Adverse Reaction' archetype: http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.868_7
+openEHR draft 'Adverse Reaction' archetype http://www.openehr.org/ckm/#showArchetype_1013.1.197
+ISB England, Representation in Electronic Patient Records of Allergic Reactions, Adverse Reactions, and Intolerance of Pharmaceutical Products http://www.isb.nhs.uk/documents/isb-1582/amd-24-2011/1582242011npfitepdb.pdf
+RCP London, Standards for the clinical structure and content of patient records, http://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf
+RCP London, Standards for core clinical information, http://www.rcplondon.ac.uk/sites/default/files/core_clinical_headings_for_electronic_health_records_v1.4.pdf">
+		["MD5-CAM-1.0.1"] = <"7B4C23C53B0DB170B8D24F1888FA2A97">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Adverse reaction
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] matches {	-- Causative agent
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[ac0002]}		-- Causative Agent
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0025] occurrences matches {0..1} matches {	-- Reaction details
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- Reaction
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {[ac0001]}		-- Clinical Finding
+									}
+								}
+							}
+							ELEMENT[at0021] occurrences matches {0..1} matches {	-- Date recorded
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Severity
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0009, 	-- Mild
+											at0010, 	-- Moderate
+											at0011, 	-- Severe
+											at0014, 	-- Life-threatening
+											at0026]	-- Fatal
+										}
+									}
+								}
+							}
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- Certainty
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0015, 	-- Unlikely
+											at0017, 	-- Likely
+											at0020, 	-- Certain
+											at0018]	-- Confirmed by challenge testing
+										}
+									}
+								}
+							}
+							ELEMENT[at0022] occurrences matches {0..1} matches {	-- Comment
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0023] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0024] occurrences matches {0..1} matches {	-- Record provenance
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.record_provenance(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED", "SNOMED-CT">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Adverse reaction">
+					description = <"Details of a harmful or undesirable effect, including allergy and intolerance, associated with known or suspected exposure to a drug or other medicinal substance.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Causative agent">
+					description = <"Details of the agent or medicinal substance believed to be the cause of the adverse reaction or allergy.">
+					comment = <"For GP2GP V2 use, it is currently anticipated that there will be 4 permissible ways to express a Causative agent: 
+Drug Group (SNOMED-CT),
+dm+d VMP/AMP (dm+d), 
+Ingredient (SNOMED-CT),
+ TradeFamily/TradeFamilyGroup (SNOMED-CT).
+ It is MANDATORY that one and only one of these must always be selected. Optionally, in addition a SNOMED AllergyCode may be sent as a mapping, but can never be sent on its own. 
+For legacy use other codes are permissible such as FDB Agent codes, EMIS Drug codes and READ codes but these should be carried as simple free text and the coded information carried in mappings/translation attributes. This kind of coding is not regarded as being safe to trigger decision support outwith the native GP system.
+The exact subset definitions have not yet been agreed and may change prior to full implementation.">
+				>
+				["at0003"] = <
+					text = <"Certainty">
+					description = <"The certainty with which the reaction is deemed to be be due to allergy to the agent.">
+					comment = <"This item has a Translation Set between Read Codes (V2 or CTV3) and Snomed Codes to ensure forwards and backwards compatibility.">
+				>
+				["at0004"] = <
+					text = <"Reaction">
+					description = <"An optional pre-coordinated unqualified SNOMED-CT code for the nature of the reaction produced by the  drug allergy.">
+				>
+				["at0005"] = <
+					text = <"Severity">
+					description = <"The severity of the reaction.">
+					comment = <"This item has a Translation Set = Read Code (V2 or CTV3) and Snomed Code to ensure forwards and backwards compatability.">
+				>
+				["at0009"] = <
+					text = <"Mild">
+					description = <"The reaction was mild.">
+				>
+				["at0010"] = <
+					text = <"Moderate">
+					description = <"The reaction was moderate.">
+				>
+				["at0011"] = <
+					text = <"Severe">
+					description = <"The reaction was severe.">
+				>
+				["at0014"] = <
+					text = <"Life-threatening">
+					description = <"The reaction was life-threatening.">
+				>
+				["at0015"] = <
+					text = <"Unlikely">
+					description = <"The reaction is thought unlikely to have been caused by the agent.">
+				>
+				["at0017"] = <
+					text = <"Likely">
+					description = <"The reaction is thought likely to have been caused by the agent.">
+				>
+				["at0018"] = <
+					text = <"Confirmed by challenge testing">
+					description = <"The reaction to the agent has been confirmed by challenge testing or other concrete evidence.">
+				>
+				["at0020"] = <
+					text = <"Certain">
+					description = <"The agent is thought to be certain to have caused the reaction but this has not been confirmed by challenge testing.">
+				>
+				["at0021"] = <
+					text = <"Date recorded">
+					description = <"The date that the reaction was clinically recorded/asserted. This will  often equate to the date of onset of the reaction but this may not be wholly clear from source data.">
+					comment = <"From Welsh IHR / openHR model.">
+				>
+				["at0022"] = <
+					text = <"Comment">
+					description = <"Any additional comment or clarification about the adverse reaction.">
+					comment = <"From Welsh IHR model">
+				>
+				["at0023"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0024"] = <
+					text = <"Record provenance">
+					description = <"Details of the provenance of the record e.g. source, name and role of author, care setting.">
+				>
+				["at0025"] = <
+					text = <"Reaction details">
+					description = <"Details of a single reaction thought to be due to the causative agent.">
+				>
+				["at0026"] = <
+					text = <"Fatal">
+					description = <"The reaction was fatal.">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0001"] = <
+					text = <"Clinical Finding">
+					description = <"Any SNOMED-CT term in the Clinical Finding hierarchy.">
+				>
+				["ac0002"] = <
+					text = <"Causative Agent">
+					description = <"A causative agent term from one of the approved terminology subsets - dm+d Ingredient/ VTM/AMP/VMP; SNOMED-CT Allergy codes/Trade family/Trade Family Group codes.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0002"] = <[SNOMED-CT::246075003]>
+				["at0003"] = <[SNOMED-CT::255544004]>
+				["at0004"] = <[SNOMED-CT::282100009]>
+				["at0005"] = <[SNOMED-CT::272141005]>
+				["at0009"] = <[SNOMED-CT::255604002]>
+				["at0010"] = <[SNOMED-CT::6736007]>
+				["at0011"] = <[SNOMED-CT::24484000]>
+				["at0014"] = <[SNOMED-CT::442452003]>
+				["at0015"] = <[SNOMED-CT::1491118016]>
+				["at0017"] = <[SNOMED-CT::5961011]>
+				["at0018"] = <[SNOMED-CT::410605003]>
+				["at0020"] = <[SNOMED-CT::255545003]>
+			>
+		>
+	>
+	constraint_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["ac0001"] = <terminology:SNOMED-CT?subset=ClinicalFinding>
+				["ac0002"] = <terminology:SNOMED-CT?subset=CausativeAgents>
+			>
+		>
+	>

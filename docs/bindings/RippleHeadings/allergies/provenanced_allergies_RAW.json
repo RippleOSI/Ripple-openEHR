@@ -1,0 +1,215 @@
+{
+  "@class": "COMPOSITION",
+  "name": {
+    "@class": "DV_TEXT",
+    "value": "Adverse reaction list"
+  },
+  "archetype_details": {
+    "@class": "ARCHETYPED",
+    "archetype_id": {
+      "@class": "ARCHETYPE_ID",
+      "value": "openEHR-EHR-COMPOSITION.adverse_reaction_list.v1"
+    },
+    "template_id": {
+      "@class": "TEMPLATE_ID",
+      "value": "IDCR - Adverse Reaction List.v1"
+    },
+    "rm_version": "1.0.1"
+  },
+  "archetype_node_id": "openEHR-EHR-COMPOSITION.adverse_reaction_list.v1",
+  "language": {
+    "@class": "CODE_PHRASE",
+    "terminology_id": {
+      "@class": "TERMINOLOGY_ID",
+      "value": "ISO_639-1"
+    },
+    "code_string": "en"
+  },
+  "territory": {
+    "@class": "CODE_PHRASE",
+    "terminology_id": {
+      "@class": "TERMINOLOGY_ID",
+      "value": "ISO_3166-1"
+    },
+    "code_string": "GB"
+  },
+  "category": {
+    "@class": "DV_CODED_TEXT",
+    "value": "event",
+    "defining_code": {
+      "@class": "CODE_PHRASE",
+      "terminology_id": {
+        "@class": "TERMINOLOGY_ID",
+        "value": "openehr"
+      },
+      "code_string": "433"
+    }
+  },
+  "composer": {
+    "@class": "PARTY_IDENTIFIED",
+    "name": "Dr Tony Shannon"
+  },
+  "context": {
+    "@class": "EVENT_CONTEXT",
+    "start_time": {
+      "@class": "DV_DATE_TIME",
+      "value": "2016-12-08T15:55:47Z"
+    },
+    "setting": {
+      "@class": "DV_CODED_TEXT",
+      "value": "other care",
+      "defining_code": {
+        "@class": "CODE_PHRASE",
+        "terminology_id": {
+          "@class": "TERMINOLOGY_ID",
+          "value": "openehr"
+        },
+        "code_string": "238"
+      }
+    },
+    "health_care_facility": {
+      "@class": "PARTY_IDENTIFIED",
+      "external_ref": {
+        "@class": "PARTY_REF",
+        "id": {
+          "@class": "GENERIC_ID",
+          "value": "999999-345",
+          "scheme": "2.16.840.1.113883.2.1.4.3"
+        },
+        "namespace": "NHS-UK",
+        "type": "PARTY"
+      },
+      "name": "Rippleburgh GP Practice"
+    }
+  },
+  "content": [
+    {
+      "@class": "SECTION",
+      "name": {
+        "@class": "DV_TEXT",
+        "value": "Allergies and adverse reactions"
+      },
+      "archetype_details": {
+        "@class": "ARCHETYPED",
+        "archetype_id": {
+          "@class": "ARCHETYPE_ID",
+          "value": "openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1"
+        },
+        "rm_version": "1.0.1"
+      },
+      "archetype_node_id": "openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1",
+      "items": [
+        {
+          "@class": "EVALUATION",
+          "name": {
+            "@class": "DV_TEXT",
+            "value": "Adverse reaction risk"
+          },
+          "feeder_audit": {
+            "@class": "FEEDER_AUDIT",
+            "original_content": {
+              "@class": "DV_MULTIMEDIA",
+              "uri": {
+                "@class": "DV_URI",
+                "value": "http://showcase.1.rippleosi.org/1234567"
+                },
+              "media_type": {
+                "@class": "CODE_PHRASE",
+                "terminology_id": {
+                  "@class": "TERMINOLOGY_ID",
+                  "value": "IANA_media-types"
+                },
+                "code_string": "text/html"
+              },
+              "size" : 1
+            },
+            "originating_system_audit": {
+              "@class": "FEEDER_AUDIT_DETAILS",
+              "system_id": "HEALTHLINK"
+            }
+          },
+          "archetype_details": {
+            "@class": "ARCHETYPED",
+            "archetype_id": {
+              "@class": "ARCHETYPE_ID",
+              "value": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1"
+            },
+            "rm_version": "1.0.1"
+          },
+          "archetype_node_id": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1",
+          "language": {
+            "@class": "CODE_PHRASE",
+            "terminology_id": {
+              "@class": "TERMINOLOGY_ID",
+              "value": "ISO_639-1"
+            },
+            "code_string": "en"
+          },
+          "encoding": {
+            "@class": "CODE_PHRASE",
+            "terminology_id": {
+              "@class": "TERMINOLOGY_ID",
+              "value": "IANA_character-sets"
+            },
+            "code_string": "UTF-8"
+          },
+          "subject": {
+            "@class": "PARTY_SELF"
+          },
+          "data": {
+            "@class": "ITEM_TREE",
+            "name": {
+              "@class": "DV_TEXT",
+              "value": "Tree"
+            },
+            "archetype_node_id": "at0001",
+            "items": [
+              {
+                "@class": "ELEMENT",
+                "name": {
+                  "@class": "DV_TEXT",
+                  "value": "Causative agent"
+                },
+                "archetype_node_id": "at0002",
+                "value": {
+                  "@class": "DV_CODED_TEXT",
+                  "value": "Aspirin",
+                  "defining_code": {
+                    "@class": "CODE_PHRASE",
+                    "terminology_id": {
+                      "@class": "TERMINOLOGY_ID",
+                      "value": "SNOMED-CT"
+                    },
+                    "code_string": "1239085"
+                  }
+                }
+              },
+              {
+                "@class": "CLUSTER",
+                "name": {
+                  "@class": "DV_TEXT",
+                  "value": "Reaction details"
+                },
+                "archetype_node_id": "at0009",
+                "items": [
+                  {
+                    "@class": "ELEMENT",
+                    "name": {
+                      "@class": "DV_TEXT",
+                      "value": "Manifestation"
+                    },
+                    "archetype_node_id": "at0011",
+                    "value": {
+                      "@class": "DV_TEXT",
+                      "value": "Nasty facial swelling"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

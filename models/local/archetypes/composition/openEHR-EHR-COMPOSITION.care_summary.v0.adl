@@ -1,0 +1,87 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.care_summary.v0
+
+concept
+	[at0000]	-- Care summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"HANDIHealth,UK">
+		["email"] = <"ian@handihealth.org">
+		["date"] = <"2015-02-22">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record summaries of care intened to be valid over an epsidoe of care and generally managed or actively curated over that period.">
+			use = <"This composition should be used to record summarised or curated details during an episode of care. In some circumstances e.g primary care, renal care or a patient-curated summary the episode of care covered by the summary might be longitudinal i.e life-long.
+
+Examples are problem lists, current allergies lists, medications lists.
+
+These lists would normally be curated i.e. regularly updated and maintained throughout the episode of care.
+
+The internal representation of the Care Summary may differ by implementation e.g in some circumstances the content held in ENTRY archetypes would be physically contained within the Care summary COMPOSITION, eith as a primary record or containing secondary copies of data whose original record was in a different COMPOSITION such as an Encounter. In other implmentations the Care Summary may not  physically contain copies of Entry data made elsewhewre but rather references that original data via LINKs.
+
+In most cases, only a single 'current' instance of a Care Summary is likely to be available i.e when the Care Summary is updated, any previous version should be over-written, with that previous version kept within the system for adit purposes but not generally accessible via querying.
+
+
+
+">
+			misuse = <"Do not use to record details of an encounter (primary record) between patient and care professional, use the Encounter (Composition) for this purpose.
+
+Do not use to record formal reports between different organisations or care professionals, such as lab reports, imaging reports of transfer of care summaries, use the Report (composition) for this purpose.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Ian McNicoll, HANDIHealth,UK<ian@handihealth.org>">
+		["MD5-CAM-1.0.1"] = <"019B674EFABAF5E7F45D461F842CBA99">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Care summary
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {	-- Extension
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Care summary">
+					description = <"Generic composition container for summaries of care.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with FHIR or CIMI equivalents.">
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+				>
+			>
+		>
+	>

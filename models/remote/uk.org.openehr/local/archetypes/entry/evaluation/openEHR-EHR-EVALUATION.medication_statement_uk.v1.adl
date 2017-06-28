@@ -1,0 +1,103 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.medication_statement_uk.v1
+
+concept
+	[at0000]	-- Medication statement
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-09-24">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a summary of a medication item as reported by a patient or by one clinician to another, including details of issues, repeat authorisations, dispensing and administration where appropriate. This is most often used when a summary extract is required, such as an unscheduled care summary or for referral and discharge documentation.">
+			use = <"Used with appropriately filled slots to record details of the medication item and specific medication events such as issues, repeat authorisations, dispensing or administration events.">
+			keywords = <"medication", "prescription">
+			misuse = <"Not to be used to record the original individual medication records in a native application or shared medication database, or where a full, faithful 'event-based' extract is required for transfer to another system e.g. a GP2GP type transfer.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"NHS England Messaging Implementation Manual (GP2GP messages) http://www.uktcregistration.nss.cfh.nhs.uk/trud3/user/guest/group/0/pack/11
+NHS Scotland SCI-XML (SCI-Gateway, ECS, ePharmacy)  http://www.sci.scot.nhs.uk/products/gateway/gate_down_xml.htm
+NHS Wales Informatics Service, Integrated Health Record http://www.wales.nhs.uk/nwis/page/52553
+DM+D drug dictionary: http://www.dmd.nhs.uk/
+Royal College of Physicians, Core Clinical Headings, http://www.rcplondon.ac.uk/projects/standards-core-clinical-information">
+		["MD5-CAM-1.0.1"] = <"B484628D972812857F047E0C5D63B0C3">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Medication statement
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0002] occurrences matches {0..1} matches {	-- Medication item
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.medication_item(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0006] occurrences matches {0..1} matches {	-- Medication event summary
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.medication_event_summary(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0007] occurrences matches {0..1} matches {	-- Medication reconciliation
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.medication_reconciliation_admit_uk(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0003] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0004] occurrences matches {0..1} matches {	-- Record provenance
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.record_provenance(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication statement">
+					description = <"Record of a single medication item for summary purposes in clinical communications, including information on past issues, authorisations, dispensing and administration.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Medication item">
+					description = <"Core details of the medication item.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Record provenance">
+					description = <"Details of the provenance of the record e.g. source, name and role of author, care setting.">
+				>
+				["at0006"] = <
+					text = <"Medication event summary">
+					description = <"Summary of key medication events and related dates e.g. Date last issued, Date last dispensed.">
+				>
+				["at0007"] = <
+					text = <"Medication reconciliation">
+					description = <"Additional information relating to medication reconciliation.">
+				>
+			>
+		>
+	>

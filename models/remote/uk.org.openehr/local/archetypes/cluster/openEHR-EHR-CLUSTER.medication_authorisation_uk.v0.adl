@@ -1,0 +1,264 @@
+﻿archetype (adl_version=1.4; uid=df5c1244-de32-452d-b02d-50368836fa6b)
+	openEHR-EHR-CLUSTER.medication_authorisation_uk.v0
+
+concept
+	[at0000]	-- Medication authorisation - UK
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2012-12-17">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record aspects of medicaiton authorisation unique to UK professional practice and legislation.">
+			use = <"">
+			keywords = <"medication", "prescription", "supply">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Marcus Baw, openGPSoC / Baw Medical Ltd, United Kingdom (Editor)", "Leo Fogarty, SCIMP/HSCIC, United Kingdom (Editor)", "RCP Health Informatics Unit, UK", "Dr John Williams, GP2GP project, UK", "Dr Leo Fogarty, GP2GP project, UK", "Ian McNicoll, Ocean Informatics, United Kingdom (Editor)", "Paul Miller, SCIMP, United Kingdom (Editor)", "Ian Thompson, SCIMP, United Kingdom (Editor)", "John Williams, GP2GP, United Kingdom (Editor)">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"HSCIC Messaging Implementation Manual (GP2GP messages) http://www.uktcregistration.nss.cfh.nhs.uk/trud3/
+NHS Scotland SCI-XML (SCI-Gateway, ECS, ePharmacy)  http://www.sci.scot.nhs.uk/products/gateway/gate_down_xml.htm
+NHS Wales Informatics Service, Integrated Health Record http://www.wales.nhs.uk/nwis/page/52553
+DM+D drug dictionary: http://www.dmd.nhs.uk/
+Royal College of Physicians, Core Clinical Headings, http://www.rcplondon.ac.uk/projects/standards-core-clinical-information">
+		["current_contact"] = <"Ian McNicoll, Ocean Informatics UK, ian.mcnicoll@oceaninformatics.com">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"196F443A901C78DB95CE0C381E9C7F26">
+		["build_uid"] = <"429668b7-0516-493c-9f03-fcfd68f3adfb">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Medication authorisation - UK
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0004] occurrences matches {0..*} matches {	-- Prescription endorsement
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0061, 	-- Contraceptive
+							at0062, 	-- SLS (Schedule 2)
+							at0063, 	-- ACBS
+							at0064, 	-- Assorted flavours
+							at0065, 	-- Private
+							at0066, 	-- Hospital only
+							at0141]	-- Schedule 1 product
+						}
+					}
+				}
+			}
+			ELEMENT[at0036] occurrences matches {0..1} matches {	-- Prescribing method
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0132, 	-- Printed
+							at0137, 	-- Issued without script
+							at0133, 	-- Handwritten
+							at0138, 	-- Electronic
+							at0140, 	-- Dispensed
+							at0139, 	-- Repeat dispensed
+							at0116, 	-- Over the counter (OTC)
+							at0077, 	-- NHS Scotland Minor Ailments Service (MAS)
+							at0078, 	-- NHS Scotland Acute Medication Service (AMS)
+							at0079, 	-- NHS Scotland Chronic Medication Service (CMS)
+							at0080, 	-- NHS Scotland Unscheduled Care (CPUS)
+							at0081, 	-- NHS England  Electronic Prescription Service 1 (EPS1)
+							at0082]	-- NHS England  Electronic Prescription Service 2 (EPS2)
+						}
+					}
+				}
+			}
+			ELEMENT[at0113] occurrences matches {0..1} matches {	-- Prescribing agency
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0114, 	-- Registered GP practice
+							at0115, 	-- Outside
+							at0117, 	-- Outside - Hospital
+							at0118, 	-- Outside - Other GP practice
+							at0131]	-- Outside - Out of Hours service
+						}
+					}
+				}
+			}
+			ELEMENT[at0142] occurrences matches {0..1} matches {	-- Self-administration authorisation
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0143, 	-- Level 1
+							at0144, 	-- Level 2
+							at0145]	-- Level 3
+						}
+					}
+				}
+			}
+			ELEMENT[at0146] occurrences matches {0..1} matches {	-- Date starting self-administrarion
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication authorisation - UK">
+					description = <"Additional UK specific medicaiton authorisation requirements.">
+				>
+				["at0004"] = <
+					text = <"Prescription endorsement">
+					description = <"A coded value describing the kind of 'contract' in place under which the medication was supplied. Multiple endorsements / contracts are allowed.">
+					comment = <"e.g.\"ACBS\" or “Private”
+Assume \"Standard\" as default ">
+				>
+				["at0036"] = <
+					text = <"Prescribing method">
+					description = <"The contract or scheme which applies to this medication.">
+				>
+				["at0061"] = <
+					text = <"Contraceptive">
+					description = <"Contraceptive endorsed product.">
+				>
+				["at0062"] = <
+					text = <"SLS (Schedule 2)">
+					description = <"SLS endorsed product included in Part XVIIIB of the Drug Tariff.">
+				>
+				["at0063"] = <
+					text = <"ACBS">
+					description = <"ACBS endorsed product  included in Part XV (Borderline Substances) of the Drug Tariff. May not be prescribed privately.">
+				>
+				["at0064"] = <
+					text = <"Assorted flavours">
+					description = <"Assorted flavours endorsed product.">
+				>
+				["at0065"] = <
+					text = <"Private">
+					description = <"The medication was supplied privately.">
+				>
+				["at0066"] = <
+					text = <"Hospital only">
+					description = <"The medication can only be supplied by a hospital.">
+				>
+				["at0077"] = <
+					text = <"NHS Scotland Minor Ailments Service (MAS)">
+					description = <"NHS Scotland Minor Ailments Service (MAS).">
+				>
+				["at0078"] = <
+					text = <"NHS Scotland Acute Medication Service (AMS)">
+					description = <"NHS SCotland Acute Medication Service (AMS).">
+				>
+				["at0079"] = <
+					text = <"NHS Scotland Chronic Medication Service (CMS)">
+					description = <"NHS Scotland Chronic Medication Service (CMS).">
+				>
+				["at0080"] = <
+					text = <"NHS Scotland Unscheduled Care (CPUS)">
+					description = <"NHS Scotland Unscheduled Care (CPUS).">
+				>
+				["at0081"] = <
+					text = <"NHS England  Electronic Prescription Service 1 (EPS1)">
+					description = <"NHS England  Electronic Prescription Service 1 (EPS1).">
+				>
+				["at0082"] = <
+					text = <"NHS England  Electronic Prescription Service 2 (EPS2)">
+					description = <"NHS England  Electronic Prescription Service 2 (EPS2).">
+				>
+				["at0113"] = <
+					text = <"Prescribing agency">
+					description = <"The agency responsible for authorising or issuing the medication.">
+				>
+				["at0114"] = <
+					text = <"Registered GP practice">
+					description = <"The medication was issued or authorised by the general practice.">
+				>
+				["at0115"] = <
+					text = <"Outside">
+					description = <"The medication was authorised or issued outside the patient's registered general practice. The exact agency is unknown.">
+				>
+				["at0116"] = <
+					text = <"Over the counter (OTC)">
+					description = <"The patient  is self--prescribing i.e. Over-the-counter prescribing.">
+				>
+				["at0117"] = <
+					text = <"Outside - Hospital">
+					description = <"A hospital department is responsible for the medication.">
+				>
+				["at0118"] = <
+					text = <"Outside - Other GP practice">
+					description = <"A health carer in another practice is responsible for the medication.">
+				>
+				["at0131"] = <
+					text = <"Outside - Out of Hours service">
+					description = <"The prescription was issued or authorised by an Out of Hours service.">
+				>
+				["at0132"] = <
+					text = <"Printed">
+					description = <"The prescription was issued solely on a paper prescription.">
+				>
+				["at0133"] = <
+					text = <"Handwritten">
+					description = <"The prescription was issued on a handwritten prescription.">
+				>
+				["at0137"] = <
+					text = <"Issued without script">
+					description = <"The medication was marked as issued without a printed prescription or electronic token being created.">
+				>
+				["at0138"] = <
+					text = <"Electronic">
+					description = <"The prescription was issued elctronically.">
+				>
+				["at0139"] = <
+					text = <"Repeat dispensed">
+					description = <"The prescription was issued via a repeat dispensing arrangement.">
+				>
+				["at0140"] = <
+					text = <"Dispensed">
+					description = <"The prescription was dispensed.">
+				>
+				["at0141"] = <
+					text = <"Schedule 1 product">
+					description = <"Product pack is included in Part XVIIIA of the Drug Tariff  i.e. Schedule 1.">
+				>
+				["at0142"] = <
+					text = <"Self-administration authorisation">
+					description = <"The caetgory of allowed self-administration ( UK guidance).">
+				>
+				["at0143"] = <
+					text = <"Level 1">
+					description = <"UK Self administration Level 1.">
+				>
+				["at0144"] = <
+					text = <"Level 2">
+					description = <"UK Self-administration Level 2.">
+				>
+				["at0145"] = <
+					text = <"Level 3">
+					description = <"UK Self administration Level 3.">
+				>
+				["at0146"] = <
+					text = <"Date starting self-administrarion">
+					description = <"The date at which self-administration should commence.">
+				>
+			>
+		>
+	>

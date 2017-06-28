@@ -1,0 +1,115 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.outpatient_details_rcp.v1
+
+concept
+	[at0000]	-- Outpatient administration
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record outpatient administration details in accordance with recommended AoMRC Clinical headings.">
+			use = <"Some AoMRC subheadings are carried in other archeypes or in other parts of the record e.g. the Composition header in EN13606 or openEHR systems.
+e.g.
+Patient location
+Time patient seen
+Time consultation finished
+Specialty
+Service
+Responsible healthcare professional
+Seen by
+Care professionals present
+Person accompanying patient.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"B772FA12BEE0AEACA86ACB172D9F6139">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Outpatient administration
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Contact type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0007, 	-- Scheduled first contact
+									at0008, 	-- Scheduled follow-up contact
+									at0009]	-- Unscheduled contact
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Purpose of contact
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Appointment time
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Outpatient administration">
+					description = <"Outpatient administration details (AoMRC).">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Contact type">
+					description = <"The type of contact with the outpatient service.">
+				>
+				["at0004"] = <
+					text = <"Purpose of contact">
+					description = <"Explanatory statement of the purpose of the contact.">
+					comment = <"e.g. unscheduled contact because patient concerned, monitoring, screening, diagnosis, assessment, pre-admission assessment, etc.
+">
+				>
+				["at0005"] = <
+					text = <"Appointment time">
+					description = <"The time the patient was due to be seen.">
+				>
+				["at0007"] = <
+					text = <"Scheduled first contact">
+					description = <"The contact was scheduled and the first for this episode of care.">
+				>
+				["at0008"] = <
+					text = <"Scheduled follow-up contact">
+					description = <"The contact was scheduled and is a follow-up appointment for this episode of care.">
+				>
+				["at0009"] = <
+					text = <"Unscheduled contact">
+					description = <"The contacft was not sheduled.">
+				>
+			>
+		>
+	>

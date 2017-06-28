@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>0c953079-41e0-4d55-b61d-6c7550a53b22</id>
+  <name>IDCR - Generic Referral.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.request.v1" concept_name="Request for service" name="Referral">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.referral_details_rcp.v1" concept_name="Referral details" path="/content">
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-referral.v1" concept_name="Referral request" max="1" path="/items">
+        <Rule path="/activities[at0001]" max="1" />
+        <Rule path="/activities[at0001]/description[at0009]" hide_on_form="true" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0121]" name="Referral to" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0135]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0062]" name="Reason for referral" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0064]" name="Clinical summary" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0065]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0068]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0040]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0144]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0010]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0011]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0127]" max="0" />
+        <Rule path="/protocol[at0008]/items[at0.2]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/protocol[at0008]/items[at0141]" name="Referral from">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0002]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.address.v1" concept_name="Address" max="1" path="/protocol[at0008]/items[at0142]" name="Receiver">
+          <Rule path="/items[at0001]/items[at0006]">
+            <constraint xsi:type="textConstraint">
+              <excludedValues>local::at0011</excludedValues>
+              <excludedValues>local::at0012</excludedValues>
+              <excludedValues>local::at0014</excludedValues>
+            </constraint>
+          </Rule>
+          <Rule path="/items[at0001]/items[at0002]" name="Location" />
+          <Rule path="/items[at0001]/items[at0003]" max="0" />
+          <Rule path="/items[at0001]/items[at0004]" max="0" />
+          <Rule path="/items[at0001]/items[at0015]" max="0" />
+        </Items>
+      </Item>
+      <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.service.v0" concept_name="Service" max="1" path="/items" name="Order referral">
+        <Rule path="/description[at0001]/items[at0011]" name="Referral to" />
+        <Rule path="/description[at0001]/items[at0014]" max="0" />
+        <Rule path="/description[at0001]/items[at0025]" max="0" />
+        <Rule path="/description[at0001]/items[at0021]" max="0" />
+        <Rule path="/description[at0001]/items[at0012]" max="0" />
+        <Rule path="/description[at0001]/items[at0028]" max="0" />
+        <Rule path="/protocol[at0015]" hide_on_form="true" />
+        <Rule path="/protocol[at0015]/items[at0016]" max="0" />
+        <Rule path="/protocol[at0015]/items[at0018]" max="0" />
+      </Item>
+      <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.service.v0" concept_name="Service" max="1" path="/items" name="Schedule appointment">
+        <Rule path="/description[at0001]/items[at0011]" name="Referral to" />
+        <Rule path="/description[at0001]/items[at0014]" max="0" />
+        <Rule path="/description[at0001]/items[at0025]" max="0" />
+        <Rule path="/description[at0001]/items[at0021]" max="0" />
+        <Rule path="/description[at0001]/items[at0012]" max="0" />
+        <Rule path="/description[at0001]/items[at0028]" max="0" />
+        <Rule path="/protocol[at0015]" hide_on_form="true" />
+        <Rule path="/protocol[at0015]/items[at0016]" max="0" />
+        <Rule path="/protocol[at0015]/items[at0018]" max="0" />
+      </Item>
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.request.v1">
+    <digest id="MD5-CAM-1.0.1">69CC362BBFD99F2F13E741761797FD68</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.referral_details_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">1486F82A2601CDF0D7F2BBB7626997D7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-referral.v1">
+    <digest id="MD5-CAM-1.0.1">25C16B28A60F9903D55831244227C979</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.person_name.v1">
+    <digest id="MD5-CAM-1.0.1">2D8CF370D3AEC6DDC6F9847963051B89</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.address.v1">
+    <digest id="MD5-CAM-1.0.1">18D2B0E9FACF5C8F0094A5EDDFC97B09</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.service.v0">
+    <digest id="MD5-CAM-1.0.1">06C589DF719D7EBD5F6ED1AA617CBDB9</digest>
+  </integrity_checks>
+</template>

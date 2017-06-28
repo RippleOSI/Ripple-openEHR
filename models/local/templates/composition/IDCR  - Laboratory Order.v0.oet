@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>6df44507-ae50-495b-aee4-f01a31774f50</id>
+  <name>IDCR - Laboratory Order.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.request.v1" concept_name="Request for service" name="Laboratory order">
+    <Content xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-lab_test.v1" concept_name="Laboratory Test request" max="1" path="/content">
+      <Rule path="/activities[at0001]/description[at0009]" hide_on_form="true" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0135]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0065]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0040.1]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0144.1]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+      <Rule path="/protocol[at0008]" hide_on_form="true" />
+      <Rule path="/protocol[at0008]/items[at0010]" max="0" />
+      <Rule path="/protocol[at0008]/items[at0011]" max="0" />
+      <Rule path="/protocol[at0008]/items[at0127]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" path="/activities[at0001]/description[at0009]/items[at0.145]">
+        <Rule path="/items[at0007]" max="0" />
+        <Rule path="/items[at0079]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0067]" max="0" />
+        <Rule path="/items[at0070]" max="0" />
+        <Rule path="/items[at0080]" max="0" />
+        <Rule path="/items[at0039]" max="0" />
+        <Rule path="/items[at0046]" max="0" />
+        <Rule path="/items[at0081]" max="0" />
+      </Items>
+    </Content>
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.laboratory_test.v0" concept_name="Laboratory test tracker" path="/content" />
+    <Context>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.request.v1">
+    <digest id="MD5-CAM-1.0.1">359240E886E60B5DF8FF06904482F72E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-lab_test.v1">
+    <digest id="MD5-CAM-1.0.1">3D2186771DC2666AF39652CC7E76E684</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.specimen.v0">
+    <digest id="MD5-CAM-1.0.1">328C511116FD83D7F25973284D8D9F60</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.laboratory_test.v0">
+    <digest id="MD5-CAM-1.0.1">9A982E2F7053986B2D9D3969D10187B7</digest>
+  </integrity_checks>
+</template>

@@ -1,0 +1,122 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ACTION.medication_supply_uk.v1
+
+concept
+	[at0000]	-- Inpatient medication supply
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"HANDIHealth,UK">
+		["email"] = <"ian@handihealth.org">
+		["date"] = <"2015-03-22">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of inpatient medication supply.">
+			use = <"">
+			keywords = <"medication", ...>
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["current_contact"] = <"Ian McNicoll, HANDIHealth,UK, ian@handihealth.org">
+		["MD5-CAM-1.0.1"] = <"65789698ECAABB601FAB7C50716AA7FA">
+	>
+
+definition
+	ACTION[at0000] matches {	-- Inpatient medication supply
+		ism_transition matches {
+			ISM_TRANSITION[at0007] matches {	-- Supply requested
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::529]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0007]}		-- Supply requested
+					}
+				}
+			}
+			ISM_TRANSITION[at0006] matches {	-- Dispensed
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0006]}		-- Dispensed
+					}
+				}
+			}
+		}
+		description matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Link to medication order
+						value matches {
+							DV_EHR_URI matches {*}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Self supply available
+						value matches {
+							DV_DURATION matches {
+								value matches {PD/|>=P0D|}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Supply required
+						value matches {
+							DV_DURATION matches {
+								value matches {PD/|>=P0D|}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Inpatient medication supply">
+					description = <"Inpatient medication supply details.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Self supply available">
+					description = <"The number of days available of the patient's own medication supply.">
+				>
+				["at0003"] = <
+					text = <"Supply required">
+					description = <"The number of days of medicaiton to complete the course.">
+				>
+				["at0004"] = <
+					text = <"Link to medication order">
+					description = <"Link to the original medication record.">
+				>
+				["at0006"] = <
+					text = <"Dispensed">
+					description = <"The medication supply has been dispensed.">
+				>
+				["at0007"] = <
+					text = <"Supply requested">
+					description = <"The medication supply has been requested.">
+				>
+			>
+		>
+	>

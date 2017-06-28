@@ -1,0 +1,144 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.healthcare_funding_status_uk.v1
+
+concept
+	[at0000]	-- Healthcare funding status (UK)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-10-31">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The patient's current status with respect to healthcare funding arrangements.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"ISB End of Life Care Co-ordination: Core content Standard Specification http://www.isb.nhs.uk/library/standard/236">
+		["MD5-CAM-1.0.1"] = <"B58D8A572E5BE734B9A464ECA68B51F7">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Healthcare funding status (UK)
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Healthcare funding status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0004, 	-- Continuing healthcare funding in place
+									at0010]	-- Continuing healthcare funding refused
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Fast-track healthcare funding status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Continuing healthcare fast track funding granted
+									at0005]	-- Continuing healthcare fast track funding refused
+								}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- DS1500 Disability living allowance status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0009]}		-- DS 1500 Disability living allowance (terminal care) completed
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Date last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"READ2", "RCD99">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Healthcare funding status (UK)">
+					description = <"The patient's current status with respect to healthcare funding arrangements.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Healthcare funding status">
+					description = <"The status of the patient's ongoing continuing healthcare funding.">
+				>
+				["at0003"] = <
+					text = <"Fast-track healthcare funding status">
+					description = <"The status of the patient's fast-track healthcare funding arrangements.">
+				>
+				["at0004"] = <
+					text = <"Continuing healthcare funding in place">
+					description = <"The patient's continuing healthcare funding arrangements are in place.">
+				>
+				["at0005"] = <
+					text = <"Continuing healthcare fast track funding refused">
+					description = <"NHS continuing healthcare fast track funding refused.">
+				>
+				["at0006"] = <
+					text = <"Continuing healthcare fast track funding granted">
+					description = <"NHS continuing healthcare fast track funding granted.">
+				>
+				["at0007"] = <
+					text = <"Date last updated">
+					description = <"The date at which the healthcare funding status was last updated.">
+				>
+				["at0008"] = <
+					text = <"DS1500 Disability living allowance status">
+					description = <"The status of DS1500 disability living allowance application.">
+				>
+				["at0009"] = <
+					text = <"DS 1500 Disability living allowance (terminal care) completed">
+					description = <"DS 1500 Disability living allowance (terminal care) application has been completed.">
+				>
+				["at0010"] = <
+					text = <"Continuing healthcare funding refused">
+					description = <"The patient's continuing healthcare funding has been refused.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["READ2"] = <
+			items = <
+				["at0004"] = <[READ2::9RL5.]>
+				["at0005"] = <[READ2::9RL60]>
+				["at0006"] = <[READ2::9RL50]>
+				["at0009"] = <[READ2::9EB5.]>
+			>
+		>
+		["RCD99"] = <
+			items = <
+				["at0004"] = <[RCD99::XaXUh]>
+				["at0005"] = <[RCD99::XaXUf]>
+				["at0006"] = <[RCD99::XaXUe]>
+			>
+		>
+	>

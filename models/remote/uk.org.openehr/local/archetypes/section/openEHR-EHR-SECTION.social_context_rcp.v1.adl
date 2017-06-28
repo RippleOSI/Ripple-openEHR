@@ -1,0 +1,71 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.social_context_rcp.v1
+
+concept
+	[at0000]	-- Social context
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Social context details within a standardised record subheading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested content ...
+
+Household composition:
+eg, lives alone, lives with family, lives with partner, etc. This may be
+plain text.
+
+Lives alone:
+Yes/no/don't know (Y/N/DK).
+
+Lifestyle:
+The record of lifestyle choices made by the patient which are pertinent
+to his or her health and wellbeing eg the record of the patient’s
+physical activity level, pets, hobbies, sexual habits and the current and previous use of recreational drugs.
+
+Smoking:
+Latest or current smoking observation.
+
+Alcohol intake:
+Latest or current alcohol consumption observation.
+
+Occupational history:
+The current and/or previous relevant occupation(s) of the
+patient/individual.
+">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"FCDFD8ACFE564C4642A239E65445EE44">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Social context">
+					description = <"Social context heading (AoMRC).">
+				>
+			>
+		>
+	>

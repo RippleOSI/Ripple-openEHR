@@ -1,0 +1,120 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.end_of_life_register_uk.v1
+
+concept
+	[at0000]	-- End of life care register
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-10-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of registration on an end of life care register.">
+			use = <"">
+			keywords = <"palliatve", "terminal">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"ISB End of Life Care Co-ordination: Core Content http://www.isb.nhs.uk/library/standard/236">
+		["MD5-CAM-1.0.1"] = <"279C878E501A26085457F01722423534">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- End of life care register
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Registration status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0005, 	-- On end of life care register
+									at0006]	-- Not suitable for end of life care register
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Date register status last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Planned review date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"READ2", "RCD99">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"End of life care register">
+					description = <"Details of registration on an end of life care register.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Registration status">
+					description = <"The patient's registration status.">
+				>
+				["at0004"] = <
+					text = <"Date register status last updated">
+					description = <"The date at which the end of life care register status was last updated.">
+				>
+				["at0005"] = <
+					text = <"On end of life care register">
+					description = <"The patient is currently on an end of life care register.">
+				>
+				["at0006"] = <
+					text = <"Not suitable for end of life care register">
+					description = <"The patient is not suitable for an end of life care register.">
+				>
+				["at0007"] = <
+					text = <"Comment">
+					description = <"Any additional comment.">
+				>
+				["at0026"] = <
+					text = <"Planned review date">
+					description = <"The date at which the end of life care register record should be reviewed.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["READ2"] = <
+			items = <
+				["at0005"] = <[READ2::9Ng7.]>
+			>
+		>
+		["RCD99"] = <
+			items = <
+				["at0005"] = <[RCD99::XaRFG]>
+			>
+		>
+	>

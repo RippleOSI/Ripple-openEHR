@@ -1,0 +1,212 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.advanced_care_planning_uk.v1
+
+concept
+	[at0000]	-- Advanced care planning
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-10-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of the care planning and pathway aspects of an End of Life Care Coordination record.">
+			use = <"">
+			keywords = <"palliative", ...>
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"ISB End of Life Care Co-ordination: Core content Standard Specification http://www.isb.nhs.uk/library/standard/236">
+		["MD5-CAM-1.0.1"] = <"877CAF63FD249CDEAA9B94712F3C4585">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Advanced care planning
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..*} matches {	-- Care pathway status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- Has end of life advanced care plan
+									at0011, 	-- Has end of life care plan
+									at0012, 	-- On integrated care pathway
+									at0013, 	-- Preferred priorities for care document completed
+									at0014, 	-- On gold standards palliative care framework
+									at0026]	-- Discussion about advance care plan
+								}
+							}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- End of life tool
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0022, 	-- On Liverpool care pathway for the dying
+									at0023, 	-- Liverpool Care Pathway declined
+									at0014, 	-- On gold standards palliative care framework
+									at0024]	-- End of Life tool not used
+								}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Care staging
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- Gold standards framework supportive care stage 1 - advancing disease
+									at0017, 	-- Gold standards framework supportive care stage 2 - increasing decline
+									at0018, 	-- Gold standards framework supportive care stage 3 - last days: category B - months prognosis
+									at0019, 	-- Gold standards framework supportive care stage 3 - last days: category C - weeks prognosis
+									at0020]	-- Gold standards framework supportive care stage 3 - last days: category D - days prognosis
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Date last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"RCD99", "READ2", "SNOMED-CT">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Advanced care planning">
+					description = <"Care planning and pathway aspects of an End of Life Care Coordination record.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Care pathway status">
+					description = <"The status of advanced care planning.">
+				>
+				["at0010"] = <
+					text = <"Has end of life advanced care plan">
+					description = <"The patient has an advanced care plan.">
+				>
+				["at0011"] = <
+					text = <"Has end of life care plan">
+					description = <"The patient has an end of life care plan.">
+				>
+				["at0012"] = <
+					text = <"On integrated care pathway">
+					description = <"The patient is on an end of life integrated care pathway.">
+				>
+				["at0013"] = <
+					text = <"Preferred priorities for care document completed">
+					description = <"The preferred priorities for care document has been completed.">
+				>
+				["at0014"] = <
+					text = <"On gold standards palliative care framework">
+					description = <"The patient is on the gold standards palliative care framework.">
+				>
+				["at0015"] = <
+					text = <"Care staging">
+					description = <"The estimated stage of clinical care, slected from the GSF categories or via free text.">
+				>
+				["at0016"] = <
+					text = <"Gold standards framework supportive care stage 1 - advancing disease">
+					description = <"The patient is estimated to be at Gold standards framework supportive care stage 1.">
+				>
+				["at0017"] = <
+					text = <"Gold standards framework supportive care stage 2 - increasing decline">
+					description = <"The patient is estimated to be at Gold standards framework supportive care stage 2.">
+				>
+				["at0018"] = <
+					text = <"Gold standards framework supportive care stage 3 - last days: category B - months prognosis">
+					description = <"The patient is estimated to be at Gold standards framework supportive care stage 3A.">
+				>
+				["at0019"] = <
+					text = <"Gold standards framework supportive care stage 3 - last days: category C - weeks prognosis">
+					description = <"The patient is estimated to be at Gold standards framework supportive care stage 3C.">
+				>
+				["at0020"] = <
+					text = <"Gold standards framework supportive care stage 3 - last days: category D - days prognosis">
+					description = <"The patient is estimated to be at Gold standards framework supportive care stage 3D.">
+				>
+				["at0021"] = <
+					text = <"End of life tool">
+					description = <"The use, or otherwise of a specific end of life pathway tool.">
+				>
+				["at0022"] = <
+					text = <"On Liverpool care pathway for the dying">
+					description = <"The patient is on the Liverpool care pathway for the dying.">
+				>
+				["at0023"] = <
+					text = <"Liverpool Care Pathway declined">
+					description = <"The patient has declined the Liverpool care pathway.">
+				>
+				["at0024"] = <
+					text = <"End of Life tool not used">
+					description = <"An end of life tool is not used.">
+				>
+				["at0025"] = <
+					text = <"Date last updated">
+					description = <"The date at which the advanced care plan status was last updated.">
+				>
+				["at0026"] = <
+					text = <"Discussion about advance care plan">
+					description = <"An advance care plan is under discussion.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["RCD99"] = <
+			items = <
+				["at0010"] = <[RCD99::XaRFF]>
+				["at0014"] = <[RCD99::XaJv2]>
+				["at0016"] = <[RCD99::XaR50]>
+				["at0017"] = <[RCD99::XaR53]>
+				["at0018"] = <[RCD99::XaX46]>
+				["at0019"] = <[RCD99::XaR5A]>
+				["at0020"] = <[RCD99::XaR5B]>
+				["at0022"] = <[RCD99::XaMhi]>
+				["at0026"] = <[RCD99::XaXb6]>
+			>
+		>
+		["READ2"] = <
+			items = <
+				["at0010"] = <[READ2::8CME.]>
+				["at0014"] = <[READ2::8CM1.]>
+				["at0016"] = <[READ2::8CM10]>
+				["at0017"] = <[READ2::8CM11]>
+				["at0018"] = <[READ2::8CM14]>
+				["at0019"] = <[READ2::8CM12]>
+				["at0020"] = <[READ2::8CM13]>
+				["at0022"] = <[READ2::8CM4.]>
+			>
+		>
+		["SNOMED-CT"] = <
+			items = <
+				["at0012"] = <[SNOMED-CT::818241000000105]>
+				["at0014"] = <[SNOMED-CT::414937009]>
+				["at0022"] = <[SNOMED-CT::818221000000103]>
+			>
+		>
+	>

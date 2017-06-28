@@ -1,0 +1,71 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.service_tracker.v0
+
+concept
+	[at0000]	-- Service tracker
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["email"] = <"ian@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics UK">
+		["date"] = <"2017-05-31">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To track Action caresteps not naturally handled in a more clinical composition. ">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B0D50D2C2BF5B65B4CC5270FAF70234A">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Service tracker
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {	-- Extension
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Service tracker">
+					description = <"To track Action caresteps not naturally handled in a more clinical composition. ">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Extension">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,63 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.outpatient_details_rcp.v1
+
+concept
+	[at0000]	-- Outpatient details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Outpatient administration details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Contact type: First contact, follow-up contact. Also scheduled, unscheduled. This is always a coded response.	
+Consultation method: Face to face, telephone, teleconference, etc.	
+Purpose of contact:	Explanatory statement of the purpose of the contact. Eg unscheduled contact because patient concerned, monitoring, screening, diagnosis, assessment, pre-admission assessment, etc.
+Patient location: This is the physical location of the patient. For inpatient, eg, hospital ward, bed, theatre. For ambulatory care, eg, health centre, clinic, resource centre, patient’s home.	
+Appointment time: The time the patient was due to be seen.	
+Time patient seen: The time the patient was seen.	
+Time consultation finished: To calculate duration of consultation.	
+Specialty: Specialties designated by royal colleges and faculties. Eg orthopaedics, renal medicine, endocrinology, etc.	
+Service: Subspecialties, treatment functions or services. Eg hand surgery, back surgery, hand clinic, TIA clinic, falls clinic, speech and language therapy, dialysis, family therapy, pre-admission assessment clinic, etc.	
+Responsible healthcare professional: The name and designation of the consultant, nurse consultant, midwife, physiotherapist, etc. who has overall responsibility for the patient (may not actually see the patient).	
+Seen by: 	Doctor, nurse or other healthcare professional who sees the patient. Record the most senior member of staff present (eg ward round or where there is a junior member of staff being supervised by a more senior staff member). Includes:	
+Care professional(s) present:The name and designation of the additional individuals or team members including consultant(s), nurse consultant(s), physiotherapist(s), surgeon(s), social worker(s), etc. Eg where two or more care professionals are jointly running a session	
+Person accompanying patient:	Identify others accompanying the patient eg relative, friend, informal carer, advocate. If the patient was not present was an authorised representative	
+">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"763ADC0DBE5744E572E8DE1B0CF2BE35">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Outpatient details">
+					description = <"Outpatient adminstration heading (AoMRC).">
+				>
+			>
+		>
+	>

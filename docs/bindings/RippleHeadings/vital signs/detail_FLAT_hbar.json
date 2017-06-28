@@ -1,0 +1,27 @@
+"ctx/composer_name": "{{author}}",
+"ctx/composer_id": "{{authorId}}",
+"ctx/health_care_facility|id": "{{healthcareFacilityId}}",
+"ctx/health_care_facility|name": "{{healthcareFacilityName}}",
+"ctx/id_namespace": "NHS-UK",
+"ctx/id_scheme": "{{}}!2.16.840.1.113883.2.1.4.3",
+"ctx/language": "en",
+"ctx/territory": "GB",
+"ctx/time": "{{dateTimeRecorded}}",
+"vital_signs_observations/vital_signs/respirations/rate|magnitude": {{respiratoryRate}},
+"vital_signs_observations/vital_signs/respirations/rate|unit": "/min",
+// The openEHR data model uses onAir which is the reverse of the UI => On Suplemental oxygenSats
+// i.e you must record the opposite value of what is in the UI.
+"vital_signs_observations/vital_signs/respirations/inspired_oxygen/on_air": {{supplementaryOxygen}},
+"vital_signs_observations/vital_signs/pulse_heart_beat/heart_rate|magnitude": {{heartRate}},
+"vital_signs_observations/vital_signs/pulse_heart_beat/heart_rate|unit": "/min",
+"vital_signs_observations/vital_signs/body_temperature/temperature|magnitude": {{temperature}},
+"vital_signs_observations/vital_signs/body_temperature/temperature|unit": "{{}}|°C",
+"vital_signs_observations/vital_signs/avpu/avpu_observation|code": {{levelOfConsciousnessCode}},
+"vital_signs_observations/vital_signs/blood_pressure/systolic|magnitude": {{systolic}},
+"vital_signs_observations/vital_signs/blood_pressure/systolic|unit": "mm[Hg]",
+"vital_signs_observations/vital_signs/blood_pressure/diastolic|magnitude": {{diastolic}},
+"vital_signs_observations/vital_signs/blood_pressure/diastolic|unit": "mm[Hg]",
+"vital_signs_observations/vital_signs/indirect_oximetry/spo2|numerator": {{oxygenSats}},
+"vital_signs_observations/vital_signs/indirect_oximetry/spo2|denominator": 100,
+"vital_signs_observations/vital_signs/news_uk_rcp/total_score": {{newsScore}}
+}

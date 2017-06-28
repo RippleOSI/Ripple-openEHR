@@ -1,0 +1,53 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.problems_issues_rcp.v1
+
+concept
+	[at0000]	-- Problems and issues
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Problems and Issues details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Problems and issues:
+Summary of problems that require investigation or treatment. This
+would include significant examination findings which are likely to have relevance, yet are not a diagnosis.
+In mental health and psychiatry, this may be the place for formulation.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"80D546B22F1720E6FE5AEE4216764A74">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Problems and issues">
+					description = <"Problems and issues heading (AoMRC).">
+				>
+			>
+		>
+	>

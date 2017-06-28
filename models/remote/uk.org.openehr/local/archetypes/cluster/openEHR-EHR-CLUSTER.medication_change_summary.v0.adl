@@ -1,0 +1,124 @@
+﻿archetype (adl_version=1.4; uid=01359354-bc25-4a8e-b147-6412f14d7e35)
+	openEHR-EHR-CLUSTER.medication_change_summary.v0
+
+concept
+	[at0000]	-- Medication change summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2015-10-22">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a summary of changes made to a medication between the capture of the admission medication list and preparation of the transfer of care medication list. This will include medications that have been added, removed or amended.">
+			use = <"">
+			misuse = <"Nit currently designed to capture disparities between the GP medication list at admission and the final transfer of care medication list. ">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["revision"] = <"0.0.1-alpha">
+		["build_uid"] = <"87e08655-49d5-4a8d-b302-37747afbf037">
+		["original_publisher"] = <"UK Clinical Models">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"51EE03A9602E6CE35995296D96ED2E8B">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["custodian_organisation"] = <"UK Clinical Models">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Medication change summary
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Status
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Continued
+							at0003, 	-- Added
+							at0004, 	-- Amended
+							at0007]	-- Removed
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Indication
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Date of latest change
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Description of amendment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication change summary">
+					description = <"Records the changes made to a medication since admission.">
+				>
+				["at0001"] = <
+					text = <"Status">
+					description = <"The nature of any change made to the medication since admission.">
+					comment = <"No additional information is required">
+				>
+				["at0002"] = <
+					text = <"Continued">
+					description = <"The medicine present on both history and discharge with no amendments.">
+				>
+				["at0003"] = <
+					text = <"Added">
+					description = <"The medicine is present on discharge but not on admission history.">
+				>
+				["at0004"] = <
+					text = <"Amended">
+					description = <"Medicine present on both history and discharge with amendments.">
+				>
+				["at0005"] = <
+					text = <"Indication">
+					description = <"The clinical inidcation for any changes in medication status.">
+				>
+				["at0006"] = <
+					text = <"Date of latest change">
+					description = <"The date of the latest change - addition, amendment or removal.">
+				>
+				["at0007"] = <
+					text = <"Removed">
+					description = <"The medication was present on the admission history but not at discharge.">
+				>
+				["at0008"] = <
+					text = <"Comment">
+					description = <"Any additional comment about the medication change.">
+				>
+				["at0009"] = <
+					text = <"Description of amendment">
+					description = <"A description of any amendment.">
+				>
+			>
+		>
+	>

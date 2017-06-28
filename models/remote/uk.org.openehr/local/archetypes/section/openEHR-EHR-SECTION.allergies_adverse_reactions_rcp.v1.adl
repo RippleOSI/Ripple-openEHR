@@ -1,0 +1,62 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1
+
+concept
+	[at0000]	-- Allergies and adverse reactions
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Allergies and adverse reaction details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Causative agent:
+The agent such as food, drug or substances that has caused or may
+cause an allergy, intolerance or adverse reaction in this patient.
+
+
+Description of the reaction:
+A description of the manifestation of the allergic or adverse reaction
+experienced by the patient. This may include:
+*  manifestation, eg skin rash
+*  type of reaction (allergic, adverse, intolerance)
+*  severity of the reaction
+* certainty
+">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"0C14C375A26F565DDE90E338FBDFAE8C">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Allergies and adverse reactions">
+					description = <"Allergies and adverse reactions heading (AoMRC).">
+				>
+			>
+		>
+	>

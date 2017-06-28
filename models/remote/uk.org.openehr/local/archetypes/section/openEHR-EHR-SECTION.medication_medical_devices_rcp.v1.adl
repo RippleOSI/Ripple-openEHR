@@ -1,0 +1,108 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.medication_medical_devices_rcp.v1
+
+concept
+	[at0000]	-- Medication and medical devices
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Medication and medical devices details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Medication name:
+May be generic name or brand name (as appropriate).
+
+Medication form:
+Eg capsule, drops, tablet, lotion etc.
+
+Route:
+(intravenous), etc): may include method of administration, (eg, by
+infusion, via nebuliser, via NG (nasogastric) tube) and/or site of use (eg, ‘to wound’, 'to left eye', etc).
+
+Dose:
+This is a record of the total amount of the active ingredient(s) to be
+given at each administration.
+It should include, eg, units of measurement, number of tablets,
+volume/concentration of liquid, number of drops, etc.
+
+Medication frequency:
+Frequency of taking or administration of the therapeutic agent or
+medication.
+
+Additional instructions:
+Allows for:
+*  requirements for adherence support, eg, compliance aids, prompts and packaging requirements
+*  additional information about specific medicines, eg where specific brand required
+*  patient requirements, eg, unable to swallow tablets.
+
+Do not discontinue warning:
+To be used on a case-by-case basis if it is vital not to discontinue a medicine in a specific patient scenario.
+
+Reason for medication:
+Reason for medication being prescribed, where known.
+
+Medication recommendations:
+Suggestions about duration and/or review, ongoing monitoring
+requirements, advice on starting, discontinuing or changing medication.
+
+Medication change:
+Where a change is made to the medication, ie one drug stopped and
+another started or, eg, dose, frequency or route is changed.
+
+Reason for medication change:
+Reason for change in medication, eg sub-therapeutic dose, patient
+intolerant.
+
+Medicine administered:
+Record of administration to the patient, including self-administration.
+
+Reason for non-administration:
+Reason why drug not administered, (eg, patient refused, patient
+unavailable, drug not available).
+
+Relevant previous medications:
+Record of relevant previous medications.
+
+Medical devices:
+Record of dietary supplements, dressings and equipment that the patient is currently taking or using.
+
+
+">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"BA8A4CAF4F969BDC67687A8EF75D3523">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication and medical devices">
+					description = <"Medication and medical devices heading (AoMRC).">
+				>
+			>
+		>
+	>

@@ -1,0 +1,116 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.recommendation_response.v1
+
+concept
+	[at0000]	-- Recommendation response
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"HANDIHealth,UK">
+		["email"] = <"ian@handihealth.org">
+		["date"] = <"2015-03-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of a foral response to a clinical recommendation.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2CCB2FFAC8639C6C6626D31CAE5F3D8A">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Recommendation response
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Response
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Accepted in full
+									at0007, 	-- Partially accepted
+									at0008, 	-- Rejected
+									at0009]	-- Further discussion required
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0003] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Original recommendation entry
+						value matches {
+							DV_URI matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Recommendation response">
+					description = <"A formal response to a clinical recommendation.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Response">
+					description = <"A formal, structured response to the recommendation.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Original recommendation entry">
+					description = <"A link to the original recommendation record.">
+				>
+				["at0005"] = <
+					text = <"Comment">
+					description = <"A narrative comment in response to the recommendation.">
+				>
+				["at0006"] = <
+					text = <"Accepted in full">
+					description = <"The recommendation has been fully accepted.">
+				>
+				["at0007"] = <
+					text = <"Partially accepted">
+					description = <"The recommendation has been partially accepted.">
+				>
+				["at0008"] = <
+					text = <"Rejected">
+					description = <"The recommendation has been rejected.">
+				>
+				["at0009"] = <
+					text = <"Further discussion required">
+					description = <"Further discussion is required.">
+				>
+			>
+		>
+	>

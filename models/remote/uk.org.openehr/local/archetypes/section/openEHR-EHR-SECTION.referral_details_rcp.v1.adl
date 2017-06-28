@@ -1,0 +1,59 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.referral_details_rcp.v1
+
+concept
+	[at0000]	-- Referral details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise referral details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Referrer details: Name, designation, organisation and contact details of referrer. If not an individual, this could be, eg, GP surgery, department, specialty, subspecialty, educational institution, mental health etc. Also needs to include self-referral.
+
+Referral method: A method of referral is the form in which a referral is sent and received. This may be a letter, email, transcript of a telephone conversation, Choose and Book, in person (self-referral), unknown etc.
+
+
+Referral to: Name, designation and organisation. If not an individual, this could be a service, eg, GP surgery, department, specialty, subspecialty, educational institution, mental health etc.
+
+
+Urgency of referral: Referrer’s assessment of urgency (eg urgent/ soon/ routine). May include reason if other than routine.
+Eg two data items:*  level of urgency *  reason.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"1486F82A2601CDF0D7F2BBB7626997D7">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Referral details">
+					description = <"Referral details heading (AoMRC).">
+				>
+			>
+		>
+	>

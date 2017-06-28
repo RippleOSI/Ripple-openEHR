@@ -1,0 +1,25 @@
+select
+    a/uid/value as uid,
+    a/name/value as documentType,
+    a/context/start_time/value as dischargeDate,
+    a/composer/name as authorName,
+    a/composer/external_ref/id/value as authorId,
+    a/composer/external_ref/id/scheme as authorIdScheme,
+    a/context/health_care_facility/name as facility,
+    a/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.individual_personal_uk.v1, 'Patient identifiers']/items[at0016, 'OTH']/value/id as patientIdOTH,
+    a/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.individual_personal_uk.v1, 'Patient identifiers']/items[at0016, 'GMS']/value/id as patientIdGMS,
+    b_a/data[at0001]/items[at0002]/value/value as dateOfAdmission,
+    b_a/data[at0001]/items[openEHR-EHR-CLUSTER.individual_professional.v1, 'Responsible professional']/items[openEHR-EHR-CLUSTER.person_name.v1, 'Professional name']/items[at0001, 'Name']/value/value as professionalName,
+    b_b/data[at0001]/items[openEHR-EHR-CLUSTER.individual_professional.v1, 'Responsible professional']/items[at0011]/value/id as professionalId,
+    b_b/data[at0001]/items[openEHR-EHR-CLUSTER.individual_professional.v1, 'Responsible professional']/items[at0011]/value/type as professionalType,
+    b_b/data[at0001]/items[openEHR-EHR-CLUSTER.organisation.v1, 'Discharging organisation']/items[at0001]/value/value as dischargeOrganisation,
+    b_b/data[at0001]/items[at0006]/value/value as dischargeDateTime,
+    b_c/data[at0001]/items[at0002, 'Summary']/value/value as synopsis
+from EHR e
+contains COMPOSITION a[openEHR-EHR-COMPOSITION.transfer_summary.v1]
+contains (
+    ADMIN_ENTRY b_a[openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1] or
+    ADMIN_ENTRY b_b[openEHR-EHR-ADMIN_ENTRY.discharge_details_uk_v1.v1] or
+    EVALUATION b_c[openEHR-EHR-EVALUATION.clinical_synopsis.v1] or
+    EVALUATION b_d[openEHR-EHR-EVALUATION.problem_diagnosis.v1])
+where a/uid/value='ab8f655b-e665-4e63-b873-bf09fb669ec2::ripple_osi.ehrscape.c4h::1'

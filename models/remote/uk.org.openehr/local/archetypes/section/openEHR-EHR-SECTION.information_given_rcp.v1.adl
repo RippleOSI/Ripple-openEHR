@@ -1,0 +1,56 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.information_given_rcp.v1
+
+concept
+	[at0000]	-- Information given
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Information given details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Information and advice given:
+This includes:
+-  what information
+-  to whom it was given.
+
+The oral or written information or advice given to the patient, carer, other authorised representative, care professional or other third party. May include advice about actions related to medicines or other ongoing care activities on an ‘information prescription'.
+State here if there are concerns about the extent to which the patient and/or carer understand the information provided about diagnosis, prognosis and treatment.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"E9D6ACD6949373B2033154A8F3BEA911">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Information given">
+					description = <"Information given heading (AoMRC).">
+				>
+			>
+		>
+	>

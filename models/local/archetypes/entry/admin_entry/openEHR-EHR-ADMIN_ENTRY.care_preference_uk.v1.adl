@@ -1,0 +1,237 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.care_preference_uk.v1
+
+concept
+	[at0000]	-- Preferred priorities of care
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-10-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the subject's preferred locations of care, in the context of long-term condiitons or end of life care, and other special requests.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"C5960D7D916C7B842999F533023D6EF3">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Preferred priorities of care
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..2} matches {	-- Preferred place of care
+						name matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0004, 	-- Preferred place of care (first choice)
+									at0005]	-- Preferred place of care (second choice)
+								}
+							}
+						}
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Preferred place of care - home
+									at0007, 	-- Preferred place of care - hospice
+									at0008, 	-- Preferred place of care - community hospital
+									at0009, 	-- Preferred place of care - hospital
+									at0010, 	-- Preferred place of care - nursing home
+									at0011, 	-- Preferred place of care - residential home
+									at0012, 	-- Preferred place of care - patient declined to participate
+									at0013, 	-- Preferred place of care - discussion not appropriate
+									at0014]	-- Preferred place of care - patient unable to express preference
+								}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..2} matches {	-- Preferred place of death
+						name matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0027, 	-- Preferred place of death (first choice)
+									at0028]	-- Preferred place of death (second choice)
+								}
+							}
+						}
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- Preferred place of death: home
+									at0017, 	-- Preferred place of death: hospice
+									at0018, 	-- Preferred place of death: community hospital
+									at0019, 	-- Preferred place of death: hospital
+									at0020, 	-- Preferred place of death: nursing home
+									at0021, 	-- Preferred place of death: residential home
+									at0022, 	-- Preferred place of death: patient unable to express preference
+									at0023, 	-- Preferred place of death discussed with patient
+									at0024, 	-- Preferred place of death: discussion not appropriate
+									at0025]	-- Preferred place of death: patient undecided
+								}
+							}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..*} matches {	-- Personal or cultural requests
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Date last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0029] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Preferred priorities of care">
+					description = <"The subject's preferred priorities of care and special requests.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Preferred place of care">
+					description = <"The subject's preferred place of care.">
+				>
+				["at0004"] = <
+					text = <"Preferred place of care (first choice)">
+					description = <"Preferred place of care (first choice)">
+				>
+				["at0005"] = <
+					text = <"Preferred place of care (second choice)">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Preferred place of care - home">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Preferred place of care - hospice">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Preferred place of care - community hospital">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Preferred place of care - hospital">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Preferred place of care - nursing home">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Preferred place of care - residential home">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Preferred place of care - patient declined to participate">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Preferred place of care - discussion not appropriate">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Preferred place of care - patient unable to express preference">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Preferred place of death">
+					description = <"The subject's preferred place of death">
+				>
+				["at0016"] = <
+					text = <"Preferred place of death: home">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Preferred place of death: hospice">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Preferred place of death: community hospital">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Preferred place of death: hospital">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Preferred place of death: nursing home">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Preferred place of death: residential home">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Preferred place of death: patient unable to express preference">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Preferred place of death discussed with patient">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Preferred place of death: discussion not appropriate">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Preferred place of death: patient undecided">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Date last updated">
+					description = <"The date that the preferences were first stated or last updated.">
+				>
+				["at0027"] = <
+					text = <"Preferred place of death (first choice)">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Preferred place of death (second choice)">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Comment">
+					description = <"Any additional comments about the subject's place of care preferences">
+				>
+				["at0030"] = <
+					text = <"Personal or cultural requests">
+					description = <"Other specifc requests or preferences.">
+				>
+			>
+		>
+	>

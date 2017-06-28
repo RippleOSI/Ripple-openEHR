@@ -1,0 +1,54 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.assessment_scales_rcp.v1
+
+concept
+	[at0000]	-- Assessment scales
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-08">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise Assessment scales details within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Assessment scales:
+Assessment scales used, eg New York Heart Failure scale, Activities of
+Daily Living (ADL), cognitive function, mood assessment scales, developmental scales, MUST (nutrition), BPI (pain), etc.
+
+">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"34FB5E2911869A312EEC580EA0A9ADCD">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Assessment scales">
+					description = <"Assessment scales heading (AoMRC).">
+				>
+			>
+		>
+	>

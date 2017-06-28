@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>521642b7-fdec-4a1b-9684-b5db46537a50</id>
+  <name>CC - ETP -Prescription</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Example of a Care Connect ETP medication prescription</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.prescription.v0" concept_name="Prescription" name="EPS Prescription">
+    <Content xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v0" concept_name="Medication order" path="/content">
+      <Rule path="/activities[at0001]/description[at0002]/items[at0091]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0009]" name="Dosage instructions" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0047]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0109]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0055]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0056]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0062]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0105]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0107]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0018]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0148]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0113]/items[at0011]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0113]/items[at0016]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0113]/items[at0060]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0113]/items[at0050]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0133]" max="0" />
+      <Rule path="/activities[at0001]/description[at0002]/items[at0167]" max="0" />
+      <Rule path="/protocol[at0005]/items[at0004]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0" concept_name="Medication substance" max="1" path="/activities[at0001]/description[at0002]/items[at0143]" name="Preparation details">
+        <Rule path="/items[at0132]" max="0" />
+        <Rule path="/items[at0071]" max="0" />
+        <Rule path="/items[at0142]" max="0" />
+        <Rule path="/items[at0115]" max="0" />
+        <Rule path="/items[at0116]" max="0" />
+        <Rule path="/items[at0117]" max="0" />
+        <Rule path="/items[at0126]" max="0" />
+        <Rule path="/items[at0133]" name="Formulation" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_authorisation.v0" concept_name="Medication authorisation" max="1" path="/activities[at0001]/description[at0002]/items[at0129]/items[at0069]" name="Authorisation directions">
+        <Rule path="/items[at0080]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_authorisation_uk.v0" concept_name="Medication authorisation - UK" max="1" path="/activities[at0001]/description[at0002]/items[at0129]/items[at0069]" name="Authorisation directions -uk" />
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.prescription.v0">
+    <digest id="MD5-CAM-1.0.1">F6E374B7E08DE198D867B90CCC3D4755</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v0">
+    <digest id="MD5-CAM-1.0.1">19D1E1493016506BDD01007D007C650E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0">
+    <digest id="MD5-CAM-1.0.1">48E7562836049F5F865845C7456F08D4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_authorisation.v0">
+    <digest id="MD5-CAM-1.0.1">418EDCE16FC97D91FD25C5F4EB8C0A63</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_authorisation_uk.v0">
+    <digest id="MD5-CAM-1.0.1">196F443A901C78DB95CE0C381E9C7F26</digest>
+  </integrity_checks>
+</template>

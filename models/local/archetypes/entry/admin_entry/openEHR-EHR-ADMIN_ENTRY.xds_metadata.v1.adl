@@ -1,0 +1,392 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.xds_metadata.v1
+
+concept
+	[at0000]	-- XDS Metadata
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"19/10/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", "Ian McNicoll, Ocean Informatics, UK">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"7A38245C933F9A25F9BF0FB7A45F16F0">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- XDS Metadata
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {7..*; unordered} matches {
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Unique ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] matches {	-- Mime Type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Home Community ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] matches {	-- Creation Time
+						value matches {
+							DV_DATE_TIME matches {
+								value matches {yyyy-mm-ddTHH:MM:SS}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Legal Authenticator
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Repository Unique ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Size
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Source Patient ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Patient ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0017] matches {	-- Title
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Version
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] matches {	-- Class
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Confidentiality
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0022] matches {	-- Format
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0023] matches {	-- Practice Setting
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] matches {	-- Type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..*} matches {	-- Event
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {	-- XDS Status
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Hash
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0032] occurrences matches {0..1} matches {	-- Author
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0026] occurrences matches {0..1} matches {	-- Author Person
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0027] occurrences matches {0..1} matches {	-- Author Institution
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0028] occurrences matches {0..1} matches {	-- Author Role
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Author Speciality
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"XDS Metadata">
+					description = <"XDS document meta data">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Unique ID">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Mime Type">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Home Community ID">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Creation Time">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Legal Authenticator">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Repository Unique ID">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Size">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Source Patient ID">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Patient ID">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Title">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Version">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Class">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Confidentiality">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Format">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Practice Setting">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Event">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Author Person">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Author Institution">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Author Role">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Author Speciality">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"XDS Status">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Hash">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Author">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Visits to patient.(en)">
+					description = <"*Details of a visit to a patient.(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0007"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"*Title(en)">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0022"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0023"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0024"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0025"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0026"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0027"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0028"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0030"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"*Author(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

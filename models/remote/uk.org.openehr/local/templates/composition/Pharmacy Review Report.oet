@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>ac690fc1-690d-4dba-b47c-dba17e1f5425</id>
+  <name>Pharmacy Review Report</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="Pharmacy review report">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.pharmacy_meds_review.v1" concept_name="Pharmacist medication review" max="1" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/content" name="Miscellaneous">
+      <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.medication_supply_uk.v1" concept_name="Inpatient medication supply" path="/items" />
+      <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.health_education.v1" concept_name="Health Education" max="1" path="/items" name="Patient Information supplied">
+        <Rule path="/description[at0001]/items[at0002]" default="Pharmacy information" />
+        <Rule path="/description[at0001]/items[at0004]" max="0" />
+        <Rule path="/description[at0001]/items[at0012]" max="0" />
+        <Rule path="/description[at0001]/items[at0005]" max="0" />
+        <Rule path="/description[at0001]/items[at0020]" max="0" />
+        <Rule path="/description[at0001]/items[at0010]" max="0" />
+        <Rule path="/description[at0001]/items[at0019]" max="0" />
+      </Item>
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-follow_up.v1" concept_name="Follow Up Request" max="1" path="/items" name="Pharmacist followup">
+        <Rule path="/activities[at0001]" max="1" />
+        <Rule path="/activities[at0001]/description[at0009]" hide_on_form="true" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0121.1]" default="Phamacist review request" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0135.1]" name="Notes" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0062]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0064]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0065]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0068]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0040]" name="Follow-up date" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0144]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0008]" hide_on_form="true" />
+        <Rule path="/protocol[at0008]/items[at0127]" max="0" />
+      </Item>
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-referral.v1" concept_name="Referral request" max="1" path="/items" name="Prescriber referral">
+        <Rule path="/activities[at0001]/description[at0009]" hide_on_form="true" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0121]" default="Request Prescriber Medication review" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0135]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0062]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0065]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0068]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0040]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0144]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+        <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+        <Rule path="/protocol[at0008]" hide_on_form="true" />
+        <Rule path="/protocol[at0008]/items[at0.2]" max="0" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.recommendation_response.v1" concept_name="Recommendation response" max="1" path="/items" name="Prescriber referral response">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/protocol[at0003]" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">AA03B74E02546F77F2FAA9ECE452F333</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.pharmacy_meds_review.v1">
+    <digest id="MD5-CAM-1.0.1">5446D48D047B4B722D2B22C4AB97880B</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
+    <digest id="MD5-CAM-1.0.1">E1D1AB26F6F541D0A97A247FC4C30D46</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.medication_supply_uk.v1">
+    <digest id="MD5-CAM-1.0.1">65789698ECAABB601FAB7C50716AA7FA</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.health_education.v1">
+    <digest id="MD5-CAM-1.0.1">41FABA666F88DB81EBB0D143689C1D98</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-follow_up.v1">
+    <digest id="MD5-CAM-1.0.1">30081125A2D45E89874A8EB1A9E4F818</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-referral.v1">
+    <digest id="MD5-CAM-1.0.1">25C16B28A60F9903D55831244227C979</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.recommendation_response.v1">
+    <digest id="MD5-CAM-1.0.1">2CCB2FFAC8639C6C6626D31CAE5F3D8A</digest>
+  </integrity_checks>
+</template>

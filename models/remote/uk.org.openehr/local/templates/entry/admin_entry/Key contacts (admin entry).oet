@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>f40039a4-5f2a-4065-825d-c45e13e68cd1</id>
+  <name>Key contacts (admin entry)</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To record details of a person's key professional and informal contacts. This may refer to the person's care as a whole or in the context of a specific care pathway or plan of care. </purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.key_contacts.v1" concept_name="Key contacts">
+    <Rule path="/data[at0001]" hide_on_form="true" />
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_personal_uk.v1" concept_name="Individual's personal demographics (UK)" path="/data[at0001]/items[at0018]/items[at0013]" hide_on_form="true">
+      <Rule path="/items[at0016]" max="0" />
+      <Rule path="/items[at0007]" max="0" />
+      <Rule path="/items[at0017]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0013]">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0002]" max="0" />
+        <Rule path="/items[at0014]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1" concept_name="Telecom details (UK)" path="/items[at0015]">
+        <Rule path="/items[at0003]" max="0" />
+      </Items>
+    </Items>
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Individual professional demographics (UK)" path="/data[at0001]/items[at0014]/items[at0015]">
+      <Rule path="/items[at0005]" max="0" />
+      <Rule path="/items[at0011]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0015]">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0022]" max="0" />
+        <Rule path="/items[at0002]" max="0" />
+        <Rule path="/items[at0014]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1" concept_name="Telecom details (UK)" path="/items[at0017]">
+        <Rule path="/items[at0003]" max="0" />
+        <Rule path="/items[at0020]" max="0" />
+        <Rule path="/items[at0021]" max="0" />
+      </Items>
+    </Items>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.key_contacts.v1">
+    <digest id="MD5-CAM-1.0.1">251E7D812F0FCF8C54EAC3867A1B9F31</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_personal_uk.v1">
+    <digest id="MD5-CAM-1.0.1">1FBD3A0D0A53F016CEE38900DC482B1F</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.person_name.v1">
+    <digest id="MD5-CAM-1.0.1">2D8CF370D3AEC6DDC6F9847963051B89</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1">
+    <digest id="MD5-CAM-1.0.1">A5BF845541EBF8160EAC1B51A67104B4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1">
+    <digest id="MD5-CAM-1.0.1">D8FF4CD54F4850A1A914AAEBA3A6FEDF</digest>
+  </integrity_checks>
+</template>

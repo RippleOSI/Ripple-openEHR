@@ -1,0 +1,72 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.demographics_rcp.v1
+
+concept
+	[at0000]	-- Patient demographics
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-06-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To organise details of Patient demographics within a standardised record heading as recommended by the UK Academy of Royal Colleges (AoMRC).
+
+Suggested 'subheading' content includes ...
+
+Patient name: The full name of the patient.Also patient preferred name: the name by which a patient wishes to be addressed.
+Date of birth: The date of birth of the patient.
+Patient sex: Sex at birth. 
+Gender: As the patient wishes to portray themselves. 
+Ethnicity: The ethnicity of a person as specified by the person.
+NHS number: The unique identifier for a patient within the NHS in England and Wales.
+Other identifier: Country specific or local identifier, eg, Community Health Index (CHI) in Scotland.
+Patient address: Patient usual place of residence. 
+Patient telephone: Telephone contact details of the person. To include, eg, mobile, number work and home number if available.
+Patient email address: Email address of the patient.
+Communication preferences : Preferred contact method, eg, sign language, letter, phone (Also preferred written communication format, eg, large print, braille).
+Relevant contacts: Eg next of kin, main informal carer, emergency contact. Name, relationship and contact details.
+
+
+">
+			use = <"Current AoMRC guidance does not specify whether 'subheading' content should be computably structured or simply represented by free text.">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Health and Social Care Information Centre, Academy of Medical Royal Colleges (2013) Standards for the Clinical Structure and Content of Patient Records. HSCIC, Leeds.
+Available from: https://www.rcplondon.ac.uk/sites/default/files/standards-for-the-clinical-structure-and-content-of-patient-records.pdf [Accessed July 22, 2014]">
+		["MD5-CAM-1.0.1"] = <"C3D0A860CF49C4BD76BD102DA118E012">
+	>
+
+definition
+	SECTION[at0000] matches {*}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Patient demographics">
+					description = <"Patient demographics heading  (AoMRC).">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0000"] = <[SNOMED-CT::886731000000109]>
+			>
+		>
+	>

@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>61948a1d-5a16-4781-a140-e92107f0306a</id>
+  <name>IDCR Transfer of Care summary (minimal).v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Example of a fragment of a transfer of care  summary restricted to information about discharge medications, allergies, problems and diagnoses, admission and relevant contacts</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="IDCR Transfer of Care summary (minimal)">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.relevant_contacts_rcp.v1" concept_name="Relevant contacts" path="/content">
+      <Item xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v1" concept_name="Relevant contact" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1" concept_name="Individual professional demographics (UK)" max="1" path="/data[at0001]/items[at0013]" name="Personal details">
+          <Rule path="/items[at0005]" max="0" />
+          <Rule path="/items[at0012]" max="0" />
+          <Rule path="/items[at0011]" max="0" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0015]">
+            <Rule path="/items[at0006]" max="0" />
+            <Rule path="/items[at0022]" max="0" />
+            <Rule path="/items[at0001]" name="Full name" />
+            <Rule path="/items[at0002]" max="0" />
+            <Rule path="/items[at0014]" max="0" />
+          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1" concept_name="Telecom details (UK)" max="1" path="/items[at0017]" name="Telecom details">
+            <Rule path="/items[at0002]" name="Telcoms" />
+            <Rule path="/items[at0003]" max="0" />
+            <Rule path="/items[at0020]" max="0" />
+            <Rule path="/items[at0021]" max="0" />
+          </Items>
+        </Items>
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.admission_details_rcp.v1" concept_name="Admission details" path="/content">
+      <Item xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1" concept_name="Inpatient admission" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0003]" max="0" />
+        <Rule path="/data[at0001]/items[at0009]" max="0" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.reason_for_encounter.v1" concept_name="Reason for Encounter" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" max="0" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1" concept_name="Allergies and adverse reactions" max="1" min="1" path="/content">
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_uk.v1" concept_name="Adverse reaction" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0025]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0025]/items[at0005]" max="0" />
+        <Rule path="/data[at0001]/items[at0025]/items[at0003]" max="0" />
+        <Rule path="/data[at0001]/items[at0025]/items[at0022]" max="0" />
+        <Rule path="/protocol[at0023]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.contraindication.v1" concept_name="Contraindication" max="0" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/protocol[at0006]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.exclusion-adverse_reaction.v1" concept_name="Exclusion of an Adverse Reaction" max="0" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/protocol[at0006]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.absence.v1" concept_name="Absence of Information" max="0" path="/items" />
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.medication_medical_devices_rcp.v1" concept_name="Medication and medical devices" max="1" path="/content">
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.current_medication_rcp.v1" concept_name="Current medication" max="1" path="/items">
+        <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.medication_statement_uk.v1" concept_name="Medication statement" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/protocol[at0003]" hide_on_form="true" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_item.v1" concept_name="Medication item" max="1" path="/data[at0001]/items[at0002]" hide_on_form="true">
+            <Rule path="/items[at0001]">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002]" max="1" />
+            <Rule path="/items[at0029]" max="0" />
+            <Rule path="/items[at0030]" max="0" />
+            <Rule path="/items[at0003]" max="0" />
+            <Rule path="/items[at0033]" max="0" />
+            <Rule path="/items[at0045]" max="0" />
+            <Rule path="/items[at0005]" max="1" />
+            <Rule path="/items[at0005]" clone="true" name="Monitoring" />
+            <Rule path="/items[at0046]" hide_on_form="true" />
+            <Rule path="/items[at0046]/items[at0039]" max="0" />
+            <Rule path="/items[at0046]/items[at0040]" max="0" />
+            <Rule path="/items[at0046]/items[at0048]" max="0" />
+          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event_summary.v1" concept_name="Medication event summary" max="1" path="/data[at0001]/items[at0006]" hide_on_form="true">
+            <Rule path="/items[at0070]" max="1" hide_on_form="true" name="First authorised" />
+            <Rule path="/items[at0070 and name/value='First authorised']/items[at0047]">
+              <nameConstraint>
+                <excludedValues>local::at0067</excludedValues>
+                <excludedValues>local::at0059</excludedValues>
+                <excludedValues>local::at0060</excludedValues>
+                <excludedValues>local::at0062</excludedValues>
+                <excludedValues>local::at0063</excludedValues>
+                <excludedValues>local::at0064</excludedValues>
+                <excludedValues>local::at0065</excludedValues>
+                <excludedValues>local::at0066</excludedValues>
+                <excludedValues>local::at0072</excludedValues>
+                <excludedValues>local::at0073</excludedValues>
+                <excludedValues>local::at0074</excludedValues>
+                <excludedValues>local::at0075</excludedValues>
+                <excludedValues>local::at0076</excludedValues>
+                <excludedValues>local::at0077</excludedValues>
+                <excludedValues>local::at0078</excludedValues>
+                <excludedValues>local::at0079</excludedValues>
+                <excludedValues>local::at0080</excludedValues>
+              </nameConstraint>
+            </Rule>
+            <Rule path="/items[at0070 and name/value='First authorised']/items[at0071]" max="0" />
+            <Rule path="/items[at0070]" max="1" hide_on_form="true" clone="true" name="Last administered" />
+            <Rule path="/items[at0070 and name/value='Last administered']/items[at0047]">
+              <nameConstraint>
+                <excludedValues>local::at0067</excludedValues>
+                <excludedValues>local::at0059</excludedValues>
+                <excludedValues>local::at0060</excludedValues>
+                <excludedValues>local::at0061</excludedValues>
+                <excludedValues>local::at0062</excludedValues>
+                <excludedValues>local::at0063</excludedValues>
+                <excludedValues>local::at0064</excludedValues>
+                <excludedValues>local::at0065</excludedValues>
+                <excludedValues>local::at0072</excludedValues>
+                <excludedValues>local::at0073</excludedValues>
+                <excludedValues>local::at0074</excludedValues>
+                <excludedValues>local::at0075</excludedValues>
+                <excludedValues>local::at0076</excludedValues>
+                <excludedValues>local::at0077</excludedValues>
+                <excludedValues>local::at0078</excludedValues>
+                <excludedValues>local::at0079</excludedValues>
+                <excludedValues>local::at0080</excludedValues>
+              </nameConstraint>
+            </Rule>
+            <Rule path="/items[at0070 and name/value='Last administered']/items[at0071]" max="0" />
+            <Rule path="/items[at0070]" max="1" clone="true" name="Changed" />
+            <Rule path="/items[at0070 and name/value='Changed']/items[at0047]">
+              <nameConstraint>
+                <excludedValues>local::at0067</excludedValues>
+                <excludedValues>local::at0059</excludedValues>
+                <excludedValues>local::at0060</excludedValues>
+                <excludedValues>local::at0061</excludedValues>
+                <excludedValues>local::at0062</excludedValues>
+                <excludedValues>local::at0063</excludedValues>
+                <excludedValues>local::at0064</excludedValues>
+                <excludedValues>local::at0065</excludedValues>
+                <excludedValues>local::at0066</excludedValues>
+                <excludedValues>local::at0072</excludedValues>
+                <excludedValues>local::at0073</excludedValues>
+                <excludedValues>local::at0074</excludedValues>
+                <excludedValues>local::at0075</excludedValues>
+                <excludedValues>local::at0076</excludedValues>
+                <excludedValues>local::at0077</excludedValues>
+                <excludedValues>local::at0078</excludedValues>
+                <excludedValues>local::at0079</excludedValues>
+              </nameConstraint>
+            </Rule>
+            <Rule path="/items[at0070 and name/value='Changed']/items[at0071]" max="0" />
+            <Rule path="/items[at0070]" max="1" clone="true" name="Last dispensed" />
+            <Rule path="/items[at0070 and name/value='Last dispensed']/items[at0047]">
+              <nameConstraint>
+                <excludedValues>local::at0067</excludedValues>
+                <excludedValues>local::at0059</excludedValues>
+                <excludedValues>local::at0060</excludedValues>
+                <excludedValues>local::at0061</excludedValues>
+                <excludedValues>local::at0062</excludedValues>
+                <excludedValues>local::at0063</excludedValues>
+                <excludedValues>local::at0065</excludedValues>
+                <excludedValues>local::at0066</excludedValues>
+                <excludedValues>local::at0072</excludedValues>
+                <excludedValues>local::at0073</excludedValues>
+                <excludedValues>local::at0074</excludedValues>
+                <excludedValues>local::at0075</excludedValues>
+                <excludedValues>local::at0076</excludedValues>
+                <excludedValues>local::at0077</excludedValues>
+                <excludedValues>local::at0078</excludedValues>
+                <excludedValues>local::at0079</excludedValues>
+                <excludedValues>local::at0080</excludedValues>
+              </nameConstraint>
+            </Rule>
+            <Rule path="/items[at0070 and name/value='Last dispensed']/items[at0071]" max="0" />
+            <Rule path="/items[at0070]" max="1" clone="true" name="Discontinued" />
+            <Rule path="/items[at0070 and name/value='Discontinued']/items[at0047]">
+              <nameConstraint>
+                <excludedValues>local::at0067</excludedValues>
+                <excludedValues>local::at0059</excludedValues>
+                <excludedValues>local::at0060</excludedValues>
+                <excludedValues>local::at0061</excludedValues>
+                <excludedValues>local::at0062</excludedValues>
+                <excludedValues>local::at0063</excludedValues>
+                <excludedValues>local::at0064</excludedValues>
+                <excludedValues>local::at0065</excludedValues>
+                <excludedValues>local::at0066</excludedValues>
+                <excludedValues>local::at0073</excludedValues>
+                <excludedValues>local::at0074</excludedValues>
+                <excludedValues>local::at0075</excludedValues>
+                <excludedValues>local::at0076</excludedValues>
+                <excludedValues>local::at0077</excludedValues>
+                <excludedValues>local::at0078</excludedValues>
+                <excludedValues>local::at0079</excludedValues>
+                <excludedValues>local::at0080</excludedValues>
+              </nameConstraint>
+            </Rule>
+            <Rule path="/items[at0070 and name/value='Discontinued']/items[at0071]" max="0" />
+            <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1" concept_name="Medication event" max="1" path="/items[at0070 and name/value='Last administered']/items[at0038]" name="Administration details">
+              <Rule path="/items[at0121]" max="0" />
+              <Rule path="/items[at0135]" hide_on_form="true" />
+              <Rule path="/items[at0033]" max="0" />
+              <Rule path="/items[at0037]" max="0" />
+              <Rule path="/items[at0057]" max="0" />
+              <Rule path="/items[at0142]" max="0" />
+              <Rule path="/items[at0127]" max="0" />
+              <Rule path="/items[at0122]" max="0" />
+              <Rule path="/items[at0136]" max="0" />
+            </Items>
+            <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1" concept_name="Medication event" max="1" path="/items[at0070 and name/value='Changed']/items[at0038]" name="Medication change detail">
+              <Rule path="/items[at0121]" max="0" />
+              <Rule path="/items[at0135]" max="0" />
+              <Rule path="/items[at0033]" max="0" />
+              <Rule path="/items[at0037]" max="0" />
+              <Rule path="/items[at0057]" max="0" />
+              <Rule path="/items[at0142]/items[at0144]" max="0" />
+              <Rule path="/items[at0127]" max="0" />
+              <Rule path="/items[at0122]" max="0" />
+              <Rule path="/items[at0136]" max="0" />
+            </Items>
+            <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1" concept_name="Medication event" max="1" path="/items[at0070 and name/value='Last dispensed']/items[at0038]" name="Last dispensed details" hide_on_form="true">
+              <Rule path="/items[at0121]" max="0" />
+              <Rule path="/items[at0135]" hide_on_form="true" />
+              <Rule path="/items[at0135]/items[at0052]" max="0" />
+              <Rule path="/items[at0135]/items[at0051]" max="0" />
+              <Rule path="/items[at0033]" max="0" />
+              <Rule path="/items[at0037]" max="0" />
+              <Rule path="/items[at0057]" max="0" />
+              <Rule path="/items[at0142]" max="0" />
+              <Rule path="/items[at0127]" max="0" />
+              <Rule path="/items[at0122]" max="0" />
+              <Rule path="/items[at0136]" max="0" />
+              <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_quantity_sct.v1" concept_name="Medication quantity" max="1" path="/items[at0135]/items[at0099]" name="Quantity dispensed" hide_on_form="true">
+                <Rule path="/items[at0001]" max="0" />
+                <Rule path="/items[at0002]" max="0" />
+              </Items>
+            </Items>
+            <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1" concept_name="Medication event" max="1" path="/items[at0070 and name/value='Discontinued']/items[at0038]" name="Discontinued details" hide_on_form="true">
+              <Rule path="/items[at0121]" max="0" />
+              <Rule path="/items[at0135]" max="0" />
+              <Rule path="/items[at0033]" max="0" />
+              <Rule path="/items[at0037]" max="0" />
+              <Rule path="/items[at0057]" max="0" />
+              <Rule path="/items[at0142]" max="0" />
+              <Rule path="/items[at0127]" max="0" />
+              <Rule path="/items[at0122]" hide_on_form="true" />
+              <Rule path="/items[at0122]/items[at0128]" max="0" />
+              <Rule path="/items[at0136]" max="0" />
+            </Items>
+          </Items>
+        </Item>
+      </Item>
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.current_medication_rcp.v1" concept_name="Current medication" max="0" path="/items" name="Discontinued GP medication">
+        <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.medication_statement_uk.v1" concept_name="Medication statement" path="/items">
+          <Rule path="/data[at0001]" hide_on_form="true" />
+          <Rule path="/protocol[at0003]" hide_on_form="true" />
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_item.v1" concept_name="Medication item" max="1" path="/data[at0001]/items[at0002]" hide_on_form="true">
+            <Rule path="/items[at0001]">
+              <constraint xsi:type="multipleConstraint">
+                <includedTypes>Text</includedTypes>
+              </constraint>
+            </Rule>
+            <Rule path="/items[at0002]" max="1" />
+            <Rule path="/items[at0029]" max="0" />
+            <Rule path="/items[at0030]" max="0" />
+            <Rule path="/items[at0020]" max="0" />
+            <Rule path="/items[at0021]" max="0" />
+            <Rule path="/items[at0033]" max="0" />
+            <Rule path="/items[at0045]" max="0" />
+            <Rule path="/items[at0005]" max="0" />
+            <Rule path="/items[at0005]" clone="true" name="Additional instruction" />
+            <Rule path="/items[at0046]" max="0" />
+          </Items>
+          <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event_summary.v1" concept_name="Medication event summary" path="/data[at0001]/items[at0006]">
+            <Rule path="/items[at0070]" max="0" />
+            <Rule path="/items[at0070]" max="1" clone="true" name="Discontinued" />
+            <Rule path="/items[at0070 and name/value='Discontinued']/items[at0047]">
+              <nameConstraint>
+                <excludedValues>local::at0067</excludedValues>
+                <excludedValues>local::at0059</excludedValues>
+                <excludedValues>local::at0060</excludedValues>
+                <excludedValues>local::at0061</excludedValues>
+                <excludedValues>local::at0062</excludedValues>
+                <excludedValues>local::at0063</excludedValues>
+                <excludedValues>local::at0064</excludedValues>
+                <excludedValues>local::at0065</excludedValues>
+                <excludedValues>local::at0066</excludedValues>
+                <excludedValues>local::at0073</excludedValues>
+                <excludedValues>local::at0074</excludedValues>
+                <excludedValues>local::at0075</excludedValues>
+                <excludedValues>local::at0076</excludedValues>
+                <excludedValues>local::at0077</excludedValues>
+                <excludedValues>local::at0078</excludedValues>
+                <excludedValues>local::at0079</excludedValues>
+              </nameConstraint>
+            </Rule>
+            <Rule path="/items[at0070 and name/value='Discontinued']/items[at0071]" max="0" />
+            <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1" concept_name="Medication event" path="/items[at0070 and name/value='Discontinued']/items[at0038]">
+              <Rule path="/items[at0121]" max="0" />
+              <Rule path="/items[at0135]" max="0" />
+              <Rule path="/items[at0033]" max="0" />
+              <Rule path="/items[at0037]" max="0" />
+              <Rule path="/items[at0057]" max="0" />
+              <Rule path="/items[at0142]" max="0" />
+              <Rule path="/items[at0127]" max="0" />
+              <Rule path="/items[at0122]/items[at0128]" max="0" />
+              <Rule path="/items[at0136]" max="0" />
+            </Items>
+          </Items>
+        </Item>
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.diagnoses_rcp.v1" concept_name="Diagnoses" path="/content">
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/diagnosis summary" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" name="Diagnosis" />
+        <Rule path="/data[at0001]/items[at0012]" max="0" />
+        <Rule path="/data[at0001]/items[at0004]" max="0" />
+        <Rule path="/data[at0001]/items[at0005]" max="0" />
+        <Rule path="/data[at0001]/items[at0072]" max="0" />
+        <Rule path="/data[at0001]/items[at0030]" max="0" />
+        <Rule path="/data[at0001]/items[at0031]" max="0" />
+        <Rule path="/data[at0001]/items[at0027]" max="0" />
+        <Rule path="/protocol[at0032]" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.problems_issues_rcp.v1" concept_name="Problems and issues" path="/content">
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/diagnosis summary" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" name="Problem" />
+        <Rule path="/data[at0001]/items[at0012]" max="0" />
+        <Rule path="/data[at0001]/items[at0004]" max="0" />
+        <Rule path="/data[at0001]/items[at0005]" max="0" />
+        <Rule path="/data[at0001]/items[at0072]" max="0" />
+        <Rule path="/data[at0001]/items[at0030]" max="0" />
+        <Rule path="/data[at0001]/items[at0031]" max="0" />
+        <Rule path="/data[at0001]/items[at0027]" max="0" />
+        <Rule path="/protocol[at0032]" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.clinical_summary_rcp.v1" concept_name="Clinical Summary" path="/content">
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" path="/items">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" name="Summary" />
+      </Item>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">AA03B74E02546F77F2FAA9ECE452F333</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.relevant_contacts_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">920E65186ACB4BE15F98CD2BE28649A1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">3CE22AACDFBF2A2BD6F3A4FA762CB537</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1">
+    <digest id="MD5-CAM-1.0.1">5E3BA5FF089BD92C10C27A1F8B14B31D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.person_name.v1">
+    <digest id="MD5-CAM-1.0.1">2D8CF370D3AEC6DDC6F9847963051B89</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.telecom_uk.v1">
+    <digest id="MD5-CAM-1.0.1">A5BF845541EBF8160EAC1B51A67104B4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.admission_details_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">C6DDBAB996B618E99E4D4166E7864FA5</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1">
+    <digest id="MD5-CAM-1.0.1">E2D08C97A3F356019522A214A324CAD0</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.reason_for_encounter.v1">
+    <digest id="MD5-CAM-1.0.1">A7AD709820469E3A79A0E3ADCB9082C7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">0C14C375A26F565DDE90E338FBDFAE8C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_uk.v1">
+    <digest id="MD5-CAM-1.0.1">7B4C23C53B0DB170B8D24F1888FA2A97</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.contraindication.v1">
+    <digest id="MD5-CAM-1.0.1">14A229FEE6973A30307A27331D8B80E7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.exclusion-adverse_reaction.v1">
+    <digest id="MD5-CAM-1.0.1">E16FAA97344C551556B200E2559F9CC7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.absence.v1">
+    <digest id="MD5-CAM-1.0.1">5E7736AF504436AC63CA11F0BC42CE91</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.medication_medical_devices_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">BA8A4CAF4F969BDC67687A8EF75D3523</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.current_medication_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">11F96A81485AA129BD29C858F0A3F21E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.medication_statement_uk.v1">
+    <digest id="MD5-CAM-1.0.1">B484628D972812857F047E0C5D63B0C3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_item.v1">
+    <digest id="MD5-CAM-1.0.1">26608CB4FF57D8C0571C7CEC34B0DBD4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_event_summary.v1">
+    <digest id="MD5-CAM-1.0.1">59FE40222ED03E662DFD9CA1251ABEEC</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1">
+    <digest id="MD5-CAM-1.0.1">FBA31094711AFCE8561CC07B0538B168</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_quantity_sct.v1">
+    <digest id="MD5-CAM-1.0.1">60C2BB047D7707475BC4F1103ABA7F85</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.diagnoses_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">5C4321BD23B22C5C36646FC3F7E52532</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
+    <digest id="MD5-CAM-1.0.1">AAD45F367CAE0EC009715A7000FC6602</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.problems_issues_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">80D546B22F1720E6FE5AEE4216764A74</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.clinical_summary_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">343A6DEEE485E4D8D34053EE3441D6F6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
+    <digest id="MD5-CAM-1.0.1">2D066E7C501C2DAEC625DEE2ECD81DF4</digest>
+  </integrity_checks>
+</template>

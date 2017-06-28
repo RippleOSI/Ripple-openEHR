@@ -1,0 +1,16 @@
+{
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/composer_name": "Dr Rory Best",
+    "ctx/time": "2014-03-05T10:50:20.958Z",
+    "ctx/id_namespace": "Ripple",
+    "ctx/id_scheme": "Ripple",
+    "ctx/health_care_facility|name": "Ripple General",
+    "ctx/health_care_facility|id": "9091",
+    "service_tracker/service:0/ism_transition/current_state|code": "526",
+    "service_tracker/service:0/ism_transition/current_state|value": "planned",
+    "service_tracker/service:0/service_name": "Outpatient review",
+    "service_tracker/service:0/service_type": "Appointment",
+    "service_tracker/service:0/description": "Cardiology clinic",
+    "service_tracker/service:0/time":"2017-03-05T10:50:20.958Z"
+}

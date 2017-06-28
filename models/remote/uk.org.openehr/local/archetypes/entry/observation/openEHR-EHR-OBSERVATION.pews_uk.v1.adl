@@ -1,0 +1,154 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.pews_uk.v1
+
+concept
+	[at0000]	-- Paediatric Early Warning Score (UK)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-06-02">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record provide a composite score based on categorising physiological readings and observations, as a simple method to support objective assessment of the degree of illness in an unwell child.">
+			use = <"Use to record a composite score to support assessment of the degree of illness in an unwell child.">
+			keywords = <"warning", "PEWS">
+			misuse = <"Not to be used to record each physical measurement or clinical observation. Use specific OBSERVATION archetypes for this purpose - OBSERVATION.blood_pressure, OBSERVATION.heart_rate, OBSERVATION.respirations, OBSERVATION.body_temperature, OBSERVATION.indirect_oximetry, OBSERVATION.avpu and OBSERVATION.glasgow_coma.
+
+Not to be used for children/teens under the age of 16 years or in pregnancy.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", ...>
+	other_details = <
+		["current_contact"] = <"Ian McNicoll, Ocean Informatics UK, ian.mcnicoll@oceaninformatics.com">
+		["references"] = <"PEWS Charts, NHS Institute for Innovation and Improvement. Available from http://www.institute.nhs.uk/safer_care/paediatric_safer_care/pews_charts.html, Last accessed 22 Apr 2015">
+		["MD5-CAM-1.0.1"] = <"77EF9D60020502FB3BA274A150025CED">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Paediatric Early Warning Score (UK)
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0040] occurrences matches {0..1} matches {	-- Behaviour
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..3|}
+											}
+										}
+									}
+									ELEMENT[at0045] occurrences matches {0..1} matches {	-- Cardiovascular
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..3|}
+											}
+										}
+									}
+									ELEMENT[at0050] occurrences matches {0..1} matches {	-- Respiratory
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0051] occurrences matches {0..1} matches {	-- Regular nebilisation
+										value matches {
+											0|[local::at0052], 	-- Not on regular nebuliser
+											2|[local::at0053]  	-- On 15 minute or more regular nebuliser.
+										}
+									}
+									ELEMENT[at0054] occurrences matches {0..1} matches {	-- Persistent post-op vomiting
+										value matches {
+											0|[local::at0055], 	-- No persistent post-operative vomiting
+											2|[local::at0056]  	-- Persistent post-operative vomiting
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Total score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..13|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Paediatric Early Warning Score (UK)">
+					description = <"A simple score used to provide an objective indication of the degree of illness of a paediatric patient.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0028"] = <
+					text = <"Total score">
+					description = <"The composite total score of each PEWS parameter category.">
+				>
+				["at0040"] = <
+					text = <"Behaviour">
+					description = <"The child's behaviour.">
+				>
+				["at0045"] = <
+					text = <"Cardiovascular">
+					description = <"An assessment of the child's cardiovascular status.">
+				>
+				["at0050"] = <
+					text = <"Respiratory">
+					description = <"An assessment of the child's respiratory status.">
+				>
+				["at0051"] = <
+					text = <"Regular nebilisation">
+					description = <"Is the child receiving regular nebulisation?">
+				>
+				["at0052"] = <
+					text = <"Not on regular nebuliser">
+					description = <"Child is not receiving regular or continuous nebuliser.">
+				>
+				["at0053"] = <
+					text = <"On 15 minute or more regular nebuliser.">
+					description = <"Child is receiving 15 minute or continuous nebuliser.">
+				>
+				["at0054"] = <
+					text = <"Persistent post-op vomiting">
+					description = <"Presence of persistent post-operative vomiting.">
+				>
+				["at0055"] = <
+					text = <"No persistent post-operative vomiting">
+					description = <"There is no evidence of persistent post-operative vomiting.">
+				>
+				["at0056"] = <
+					text = <"Persistent post-operative vomiting">
+					description = <"The child has had persistent post-operative vomiting.">
+				>
+			>
+		>
+	>

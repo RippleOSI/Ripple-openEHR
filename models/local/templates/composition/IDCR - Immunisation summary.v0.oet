@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>d49067f7-d401-4803-85b1-f49b0fe462b3</id>
+  <name>IDCR - Immunisation summary.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" concept_name="Health summary" name="Immunisation summary">
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.immunisation_procedure.v1" concept_name="Immunisation procedure" path="/content">
+      <Rule path="/description[at0001]" hide_on_form="true" />
+      <Rule path="/protocol[at0013]" hide_on_form="true" />
+      <Rule path="/protocol[at0013]/items[at0014]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+  <view>
+    <constraints path="[openEHR-EHR-COMPOSITION.health_summary.v1]/content[openEHR-EHR-ACTION.immunisation_procedure.v1]/time">
+      <items id="VisibleInView">
+        <value>time</value>
+      </items>
+    </constraints>
+  </view>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1">
+    <digest id="MD5-CAM-1.0.1">CA8006DBE4BA91910B594498AB651880</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.immunisation_procedure.v1">
+    <digest id="MD5-CAM-1.0.1">2F1087AD325F7F9FFFD383F1158629B6</digest>
+  </integrity_checks>
+</template>

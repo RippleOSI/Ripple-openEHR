@@ -1,0 +1,14 @@
+{
+"ctx/composer_name": "Dr Tony Shannon",
+"ctx/health_care_facility|id": "999999-345",
+"ctx/health_care_facility|name": "Home",
+"ctx/id_namespace": "NHS-UK",
+"ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+"ctx/language": "en",
+"ctx/territory": "GB",
+"ctx/time": "2017-01-24T00:11:02.518+02:00",
+"height_weight/height_length/any_event:0/height|magnitude": 184,
+"height_weight/height_length/any_event:0/height|unit": "cm",
+"height_weight/body_weight/weight|magnitude": 74.5,
+"height_weight/body_weight/weight|unit": "kg"
+}

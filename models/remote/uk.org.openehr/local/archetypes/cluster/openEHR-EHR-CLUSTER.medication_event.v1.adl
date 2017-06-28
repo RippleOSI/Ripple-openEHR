@@ -1,0 +1,513 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.medication_event.v1
+
+concept
+	[at0000]	-- Medication event
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2012-12-17">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record an event in the ‘supply’ of the medication to the patient, ‘supply’ covering repeat authorisation, prescription issue, administration and dispensing, as well as initial recommendation, discontinuations and withholding of administration or dispensing.">
+			use = <"This is an 'abstract' archetype which would normally be templated for each of the medication event and supply steps within the context of an ENTRY archetype such as EVALUATION.medication_item_summary | Medication Item Summary |.
+
+It is designed to be used in ambulatory/outpatient settings and is not intended support in-patient prescribing, though it should be suitable to record medication in ther context of in-patient discharge summaries and to support reconciliation of medicines on admission.
+
+The 'Date of medication event' element may be renamed in the context of a particualr event at template-level e.g. renamed to 'Date Issued' or 'Date Last Issued'.">
+			keywords = <"medication", "prescription", "supply">
+			misuse = <"This archetype has not been designed for use within an inpatient setting, other than to support discharge medication and medicianes reconciliation.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Marcus Baw, openGPSoC / Baw Medical Ltd, United Kingdom (Editor)", "Leo Fogarty, SCIMP/HSCIC, United Kingdom (Editor)", "RCP Health Informatics Unit, UK", "Dr John Williams, GP2GP project, UK", "Dr Leo Fogarty, GP2GP project, UK", "Ian McNicoll, Ocean Informatics, United Kingdom (Editor)", "Paul Miller, SCIMP, United Kingdom (Editor)", "Ian Thompson, SCIMP, United Kingdom (Editor)", "John Williams, GP2GP, United Kingdom (Editor)">
+	other_details = <
+		["current_contact"] = <"Ian McNicoll, Ocean Informatics UK, ian.mcnicoll@oceaninformatics.com">
+		["references"] = <"HSCIC Messaging Implementation Manual (GP2GP messages) http://www.uktcregistration.nss.cfh.nhs.uk/trud3/
+NHS Scotland SCI-XML (SCI-Gateway, ECS, ePharmacy)  http://www.sci.scot.nhs.uk/products/gateway/gate_down_xml.htm
+NHS Wales Informatics Service, Integrated Health Record http://www.wales.nhs.uk/nwis/page/52553
+DM+D drug dictionary: http://www.dmd.nhs.uk/
+Royal College of Physicians, Core Clinical Headings, http://www.rcplondon.ac.uk/projects/standards-core-clinical-information">
+		["MD5-CAM-1.0.1"] = <"FBA31094711AFCE8561CC07B0538B168">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Medication event
+		items cardinality matches {2..*; unordered} matches {
+			CLUSTER[at0121] occurrences matches {0..1} matches {	-- Prescription supply
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0129] occurrences matches {0..1} matches {	-- Prescription type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0087, 	-- Repeat prescription
+									at0088, 	-- Repeat dispensing
+									at0130]	-- Acute prescription
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..*} matches {	-- Prescription endorsement
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0061, 	-- Contraceptive
+									at0062, 	-- SLS (Schedule 2)
+									at0063, 	-- ACBS
+									at0064, 	-- Assorted flavours
+									at0065, 	-- Private
+									at0066, 	-- Hospital only
+									at0141]	-- Schedule 1 product
+								}
+							}
+						}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Prescribing method
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0132, 	-- Printed
+									at0137, 	-- Issued without script
+									at0133, 	-- Handwritten
+									at0138, 	-- Electronic
+									at0140, 	-- Dispensed
+									at0139, 	-- Repeat dispensed
+									at0116, 	-- Over the counter (OTC)
+									at0077, 	-- NHS Scotland Minor Ailments Service (MAS)
+									at0078, 	-- NHS Scotland Acute Medication Service (AMS)
+									at0079, 	-- NHS Scotland Chronic Medication Service (CMS)
+									at0080, 	-- NHS Scotland Unscheduled Care (CPUS)
+									at0081, 	-- NHS England  Electronic Prescription Service 1 (EPS1)
+									at0082]	-- NHS England  Electronic Prescription Service 2 (EPS2)
+								}
+							}
+						}
+					}
+					ELEMENT[at0113] occurrences matches {0..1} matches {	-- Prescribing agency
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0114, 	-- Registered GP practice
+									at0115, 	-- Outside
+									at0117, 	-- Outside - Hospital
+									at0118, 	-- Outside - Other GP practice
+									at0131]	-- Outside - Out of Hours service
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0135] occurrences matches {0..1} matches {	-- Product
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0099] occurrences matches {0..1} matches {	-- Quantity supplied
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.medication_quantity_sct(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0052] occurrences matches {0..1} matches {	-- Expiry date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0051] occurrences matches {0..1} matches {	-- Batch number
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0033] occurrences matches {0..1} matches {	-- Authorisation
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- Repeat issues authorised
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[at0035] occurrences matches {0..1} matches {	-- Authorisation expiry date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0085] occurrences matches {0..1} matches {	-- Minimum period between issues
+						value matches {
+							DV_DURATION matches {
+								value matches {PD/|>=P0D|}
+							}
+						}
+					}
+					ELEMENT[at0086] occurrences matches {0..1} matches {	-- Maximum period between issues
+						value matches {
+							DV_DURATION matches {
+								value matches {PD/|>=P0D|}
+							}
+						}
+					}
+					ELEMENT[at0039] occurrences matches {0..1} matches {	-- Link to original authorisation
+						value matches {
+							DV_URI matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0037] occurrences matches {0..1} matches {	-- Prescription issue
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0038] occurrences matches {0..1} matches {	-- Number of repeats issued
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0083] occurrences matches {0..1} matches {	-- Duration of issue
+						value matches {
+							DV_DURATION matches {
+								value matches {PD/|>=P0D|}
+							}
+						}
+					}
+					ELEMENT[at0040] occurrences matches {0..1} matches {	-- Link to authorisation record
+						value matches {
+							DV_EHR_URI matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0057] occurrences matches {0..1} matches {	-- Dispensing
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0058] occurrences matches {0..*} matches {	-- Dispensing endorsement
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0089] occurrences matches {0..1} matches {	-- Link to issue
+						value matches {
+							DV_URI matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0142] occurrences matches {0..1} matches {	-- Adjustment
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0143] occurrences matches {0..1} matches {	-- Reason adjusted
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0144] occurrences matches {0..1} matches {	-- Link to reason adjusted
+						value matches {
+							DV_URI matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0127] occurrences matches {0..1} matches {	-- Administration withheld
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0124] occurrences matches {0..1} matches {	-- Reason withheld
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0126] occurrences matches {0..1} matches {	-- Link to reason withheld
+						value matches {
+							DV_EHR_URI matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0122] occurrences matches {0..1} matches {	-- Discontinutation
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0125] occurrences matches {0..*} matches {	-- Reason discontinued
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0128] occurrences matches {0..1} matches {	-- Link to reason discontinued
+						value matches {
+							DV_EHR_URI matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0136] occurrences matches {0..*} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication event">
+					description = <"Records an event in the ‘supply’ of the medication to the patient, ‘supply’ covering repeat authorisation, prescription issue, administration and dispensing of the medication.">
+				>
+				["at0004"] = <
+					text = <"Prescription endorsement">
+					description = <"A coded value describing the kind of 'contract' in place under which the medication was supplied. Multiple endorsements / contracts are allowed.">
+					comment = <"e.g.\"ACBS\" or “Private”
+Assume \"Standard\" as default ">
+				>
+				["at0033"] = <
+					text = <"Authorisation">
+					description = <"Details of authorisation of a medication.">
+				>
+				["at0034"] = <
+					text = <"Repeat issues authorised">
+					description = <"The number of repeat issues authorised. A figure of zero implies that this is a single 'acute' prescription.">
+					comment = <"Example: 12
+Source: GP systems">
+				>
+				["at0035"] = <
+					text = <"Authorisation expiry date">
+					description = <"The date after which the authorisation will have expired.">
+					comment = <"Example: 01-Dec-2012
+Source GP2GP">
+				>
+				["at0036"] = <
+					text = <"Prescribing method">
+					description = <"The contract or scheme which applies to this medication.">
+				>
+				["at0037"] = <
+					text = <"Prescription issue">
+					description = <"Details of a single issue of an acute or repeat medication prescription.">
+				>
+				["at0038"] = <
+					text = <"Number of repeats issued">
+					description = <"The number of repeats issued since the last authorisation.">
+				>
+				["at0039"] = <
+					text = <"Link to original authorisation">
+					description = <"A link or refernece to the record where a repeat medication was originally authorised.">
+				>
+				["at0040"] = <
+					text = <"Link to authorisation record">
+					description = <"A link or reference to the record where the repeat medication was last authorised.">
+				>
+				["at0051"] = <
+					text = <"Batch number">
+					description = <"The batch number, in plain text, of the medication administered.">
+					comment = <"e.g 'SWG-3536789'">
+				>
+				["at0052"] = <
+					text = <"Expiry date">
+					description = <"The expiration date of the medication administered. this may be a whole or partial date.">
+					comment = <"e.g. May 2013">
+				>
+				["at0057"] = <
+					text = <"Dispensing">
+					description = <"Details of medication dispensing.">
+				>
+				["at0058"] = <
+					text = <"Dispensing endorsement">
+					description = <"Details of one or more dispensing contract endorsements.">
+				>
+				["at0061"] = <
+					text = <"Contraceptive">
+					description = <"Contraceptive endorsed product.">
+				>
+				["at0062"] = <
+					text = <"SLS (Schedule 2)">
+					description = <"SLS endorsed product included in Part XVIIIB of the Drug Tariff.">
+				>
+				["at0063"] = <
+					text = <"ACBS">
+					description = <"ACBS endorsed product  included in Part XV (Borderline Substances) of the Drug Tariff. May not be prescribed privately.">
+				>
+				["at0064"] = <
+					text = <"Assorted flavours">
+					description = <"Assorted flavours endorsed product.">
+				>
+				["at0065"] = <
+					text = <"Private">
+					description = <"The medication was supplied privately.">
+				>
+				["at0066"] = <
+					text = <"Hospital only">
+					description = <"The medication can only be supplied by a hospital.">
+				>
+				["at0077"] = <
+					text = <"NHS Scotland Minor Ailments Service (MAS)">
+					description = <"NHS Scotland Minor Ailments Service (MAS).">
+				>
+				["at0078"] = <
+					text = <"NHS Scotland Acute Medication Service (AMS)">
+					description = <"NHS SCotland Acute Medication Service (AMS).">
+				>
+				["at0079"] = <
+					text = <"NHS Scotland Chronic Medication Service (CMS)">
+					description = <"NHS Scotland Chronic Medication Service (CMS).">
+				>
+				["at0080"] = <
+					text = <"NHS Scotland Unscheduled Care (CPUS)">
+					description = <"NHS Scotland Unscheduled Care (CPUS).">
+				>
+				["at0081"] = <
+					text = <"NHS England  Electronic Prescription Service 1 (EPS1)">
+					description = <"NHS England  Electronic Prescription Service 1 (EPS1).">
+				>
+				["at0082"] = <
+					text = <"NHS England  Electronic Prescription Service 2 (EPS2)">
+					description = <"NHS England  Electronic Prescription Service 2 (EPS2).">
+				>
+				["at0083"] = <
+					text = <"Duration of issue">
+					description = <"The number of days for which this issue was supplied.">
+				>
+				["at0085"] = <
+					text = <"Minimum period between issues">
+					description = <"The minimum period advised between issues.">
+					comment = <"Example: 28 days
+Source: GP systems">
+				>
+				["at0086"] = <
+					text = <"Maximum period between issues">
+					description = <"The maximum period advised between issues.">
+					comment = <"Example: 56 days
+Source: GP systems">
+				>
+				["at0087"] = <
+					text = <"Repeat prescription">
+					description = <"GP repeat prescribing service.">
+				>
+				["at0088"] = <
+					text = <"Repeat dispensing">
+					description = <"Repeat issues are managed by the dispenser.">
+				>
+				["at0089"] = <
+					text = <"Link to issue">
+					description = <"A link or reference to the record  representing the medication issue.">
+				>
+				["at0099"] = <
+					text = <"Quantity supplied">
+					description = <"The quantity of medication supplied i.e quantity issued, quantity authorised, quantity dispensed or quantity administered, depending on the event concerned.">
+				>
+				["at0113"] = <
+					text = <"Prescribing agency">
+					description = <"The agency responsible for authorising or issuing the medication.">
+				>
+				["at0114"] = <
+					text = <"Registered GP practice">
+					description = <"The medication was issued or authorised by the general practice.">
+				>
+				["at0115"] = <
+					text = <"Outside">
+					description = <"The medication was authorised or issued outside the patient's registered general practice. The exact agency is unknown.">
+				>
+				["at0116"] = <
+					text = <"Over the counter (OTC)">
+					description = <"The patient  is self--prescribing i.e. Over-the-counter prescribing.">
+				>
+				["at0117"] = <
+					text = <"Outside - Hospital">
+					description = <"A hospital department is responsible for the medication.">
+				>
+				["at0118"] = <
+					text = <"Outside - Other GP practice">
+					description = <"A health carer in another practice is responsible for the medication.">
+				>
+				["at0121"] = <
+					text = <"Prescription supply">
+					description = <"Details related to the authorisation or issue of the medication.">
+				>
+				["at0122"] = <
+					text = <"Discontinutation">
+					description = <"Details relevant to discontinuation of the medication.">
+				>
+				["at0124"] = <
+					text = <"Reason withheld">
+					description = <"The reason that administration of a medication was withheld.">
+				>
+				["at0125"] = <
+					text = <"Reason discontinued">
+					description = <"The reason why a medication was discontinued.">
+				>
+				["at0126"] = <
+					text = <"Link to reason withheld">
+					description = <"A link to a record which contains the reason why the medication was withheld.">
+				>
+				["at0127"] = <
+					text = <"Administration withheld">
+					description = <"Details relevant to withholding administration of the medication.">
+				>
+				["at0128"] = <
+					text = <"Link to reason discontinued">
+					description = <"A link to a record which contains the reason why the medication was discontinued.">
+				>
+				["at0129"] = <
+					text = <"Prescription type">
+					description = <"The type of prescription authorised or issued.">
+				>
+				["at0130"] = <
+					text = <"Acute prescription">
+					description = <"A single issue prescription.">
+				>
+				["at0131"] = <
+					text = <"Outside - Out of Hours service">
+					description = <"The prescription was issued or authorised by an Out of Hours service.">
+				>
+				["at0132"] = <
+					text = <"Printed">
+					description = <"The prescription was issued solely on a paper prescription.">
+				>
+				["at0133"] = <
+					text = <"Handwritten">
+					description = <"The prescription was issued on a handwritten prescription.">
+				>
+				["at0135"] = <
+					text = <"Product">
+					description = <"Details of the product supplied.">
+				>
+				["at0136"] = <
+					text = <"Comment">
+					description = <"Any additional comments regarding thos medication event.">
+				>
+				["at0137"] = <
+					text = <"Issued without script">
+					description = <"The medication was marked as issued without a printed prescription or electronic token being created.">
+				>
+				["at0138"] = <
+					text = <"Electronic">
+					description = <"The prescription was issued elctronically.">
+				>
+				["at0139"] = <
+					text = <"Repeat dispensed">
+					description = <"The prescription was issued via a repeat dispensing arrangement.">
+				>
+				["at0140"] = <
+					text = <"Dispensed">
+					description = <"The prescription was dispensed.">
+				>
+				["at0141"] = <
+					text = <"Schedule 1 product">
+					description = <"Product pack is included in Part XVIIIA of the Drug Tariff  i.e. Schedule 1.">
+				>
+				["at0142"] = <
+					text = <"Adjustment">
+					description = <"Details of adjustment of a medication order e.g dosage or formulation change.">
+				>
+				["at0143"] = <
+					text = <"Reason adjusted">
+					description = <"The reason for adjusting a medication.">
+				>
+				["at0144"] = <
+					text = <"Link to reason adjusted">
+					description = <"A link to a record which contains the reason why the medication was adjusted.">
+				>
+			>
+		>
+	>

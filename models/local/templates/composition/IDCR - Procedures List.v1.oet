@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>212c1dad-477d-42be-b604-02925861e221</id>
+  <name>IDCR - Procedures List.v1</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1" concept_name="Health summary" name="Procedures list">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.procedures_rcp.v1" concept_name="Procedures" max="1" path="/content">
+      <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.procedure.v1" concept_name="Procedure" path="/items">
+        <Rule path="/description[at0001]/items[at0049]" name="Procedure notes" />
+        <Rule path="/description[at0001]/items[at0065]" max="0" />
+        <Rule path="/description[at0001]/items[at0058]" max="0" />
+        <Rule path="/description[at0001]/items[at0063]" max="1" />
+        <Rule path="/description[at0001]/items[at0048]" max="1" />
+        <Rule path="/description[at0001]/items[at0066]" max="0" />
+        <Rule path="/description[at0001]/items[at0060]" max="0" />
+        <Rule path="/description[at0001]/items[at0061]" max="0" />
+        <Rule path="/description[at0001]/items[at0014]" max="1" />
+        <Rule path="/protocol[at0053]/items[at0054]" max="0" />
+        <Rule path="/protocol[at0053]/items[at0056]" max="0" />
+      </Item>
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1">
+    <digest id="MD5-CAM-1.0.1">CA8006DBE4BA91910B594498AB651880</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.procedures_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">77530BD1AE5D2F25431190EC9984A04C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.procedure.v1">
+    <digest id="MD5-CAM-1.0.1">232D4A2B8E6A250F5D3A715FBE564726</digest>
+  </integrity_checks>
+</template>

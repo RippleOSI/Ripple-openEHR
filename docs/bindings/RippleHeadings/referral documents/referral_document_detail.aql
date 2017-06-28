@@ -1,0 +1,72 @@
+select
+    a/uid/value as uid,
+    a/name/value as documentType,
+    a/context/start_time/value as referralDateTime,
+    a/composer/name as authorName,
+    a/context/health_care_facility/name as facility,
+    b_a/activities[at0001]/description[at0009]/items[at0121]/value/value as referralType,
+    b_a/activities[at0001]/description[at0009]/items[at0062]/value/value as reasonForReferral,
+    b_a/activities[at0001]/description[at0009]/items[at0135]/value/value as referralComment,
+    b_a/activities[at0001]/description[at0009]/items[at0068]/value/defining_code/code_string as priorityOfReferral,
+    b_a/protocol[at0008]/items[at0010]/value/value as referralReferenceNumber,
+    b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.organisation.v1, 'Referring Provider']/items[at0001]/value/value as referredFrom,
+    b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.organisation.v1, 'Referred to Provider']/items[at0001]/value/value as referredTo,
+    b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.distribution.v1]/items[at0011]/items[openEHR-EHR-CLUSTER.organisation.v1, 'GP']/items[at0001]/value/value as providerContactOrgName,
+    b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.distribution.v1]/items[at0011]/items[openEHR-EHR-CLUSTER.organisation.v1, 'GP']/items[at0011]/value/value as providerContactId,
+    b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.distribution.v1]/items[at0011]/items[openEHR-EHR-CLUSTER.organisation.v1, 'GP']/items[openEHR-EHR-CLUSTER.telecom_uk.v1, 'WPN']/items[at0002, 'Work number']/value/value as providerContactWorkNumber,
+    b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.distribution.v1]/items[at0011]/items[openEHR-EHR-CLUSTER.organisation.v1, 'GP']/items[openEHR-EHR-CLUSTER.telecom_uk.v1, 'EMR']/items[at0002, 'Emergency number']/value/value as providerContactEmgNumber,
+    b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.distribution.v1]/items[at0011]/items[openEHR-EHR-CLUSTER.organisation.v1, 'GP']/items[openEHR-EHR-CLUSTER.telecom_uk.v1, 'NET']/items[at0002, 'Internet']/value/value as providerContactEmail,
+    b_b/ism_transition/current_state/value as referralStatusValue,
+    b_b/ism_transition/current_state/defining_code/code_string as referralStatusCode,
+    b_a/narrative/value as clinicalNarrative,
+    b_h/data[at0001]/items[at0002, 'Comments']/value/value as clinicalSynopsis,
+    b_d/data[at0001]/items[at0002]/value/value as previousHospitalAttendance,
+    b_i/data[at0001]/items[at0002, 'History of past illness']/value/value as pastIllness,
+    b_i/data[at0001]/items[at0003, 'History of past illness']/value/value as pastIllnessDateTime,
+    b_f/description[at0001]/items[at0002, 'History of surgical procedure']/value/value as surgicalProcedure,
+    b_f/time/value as surgicalProcedureTime,
+    b_j/activities[at0001]/description[at0002]/items[at0113]/items[at0012]/value/value as medicationDateTime,
+    b_j/activities[at0001]/description[at0002]/items[at0070]/value/value as medication,
+    b_k/data[at0001]/items[at0002]/value/value as anticoagulationUse,
+    b_l/data[at0001]/items[at0002, 'History of allergy']/value/value as allergy,
+    b_l/protocol[at0042]/items[at0062]/value/value as allergyDateTime,
+    b_m/data[at0001]/items[at0029]/items[at0023, 'History of tobacco use']/value/value as tobaccoUse,
+    b_n/data[at0001]/items[at0024, 'History of alcohol use']/value/value as alcoholUse,
+    b_h/items[at0002, 'Physical mobility impairment']/value/value as physicalMobility,
+    b_o/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude as systolicBP,
+    b_o/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/units as systolicBPUnits,
+    b_o/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value/magnitude as diastolicBP,
+    b_o/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value/units as diastolicBPUnits,
+    b_p/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/magnitude as pulseRate,
+    b_p/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units as pulseRateUnits,
+    b_s/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/magnitude as height,
+    b_s/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/units as heightUnits,
+    b_q/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/magnitude as weight,
+    b_q/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units as weightUnits,
+    b_r/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/magnitude as bodyMassIndex,
+    b_r/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/units as bodyMassIndexUnits,
+    b_t/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/value as OtherFindings
+from EHR e[ehr_id/value='4ee4bad9-2f9e-4e33-b1d6-6572709cabee']
+contains COMPOSITION a[openEHR-EHR-COMPOSITION.request.v1]
+contains (
+    INSTRUCTION b_a[openEHR-EHR-INSTRUCTION.request.v0] or
+    ACTION b_b[openEHR-EHR-ACTION.referral.v1] or
+    OBSERVATION b_c[openEHR-EHR-OBSERVATION.story.v1] or
+    ADMIN_ENTRY b_d[openEHR-EHR-ADMIN_ENTRY.hospital_attendances_summary.v0] or
+    ACTION b_f[openEHR-EHR-ACTION.procedure.v1] or
+    EVALUATION b_g[openEHR-EHR-EVALUATION.exclusion-procedure.v1] or
+    EVALUATION b_h[openEHR-EHR-EVALUATION.clinical_synopsis.v1] or
+    EVALUATION b_i[openEHR-EHR-EVALUATION.problem_diagnosis.v1] or
+    INSTRUCTION b_j[openEHR-EHR-INSTRUCTION.medication_order.v0] or
+    EVALUATION b_k[openEHR-EHR-EVALUATION.anticoagulation_use.v0]  or
+    EVALUATION b_l[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]  or
+    EVALUATION b_m[openEHR-EHR-EVALUATION.tobacco_use_summary.v1] or
+    EVALUATION b_n[openEHR-EHR-EVALUATION.alcohol_use_summary.v1] or
+    OBSERVATION b_o[openEHR-EHR-OBSERVATION.blood_pressure.v1] or
+    OBSERVATION b_p[openEHR-EHR-OBSERVATION.pulse.v1] or
+    OBSERVATION b_q[openEHR-EHR-OBSERVATION.body_weight.v1] or
+    OBSERVATION b_r[openEHR-EHR-OBSERVATION.body_mass_index.v1] or
+    OBSERVATION b_s[openEHR-EHR-OBSERVATION.height.v1]  or
+    OBSERVATION b_t[openEHR-EHR-OBSERVATION.exam.v1])
+where a/archetype_details/template_id/value='iEHR - Healthlink - Referral.v0'
+order by a/context/start_time/value desc

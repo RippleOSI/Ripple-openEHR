@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>3d9891a8-eb77-46aa-ae09-f5c499466725</id>
+  <name>Adverse reaction risk</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1" concept_name="Adverse reaction risk">
+    <Rule path="/data[at0001]/items[at0002]" name="CausativeAgent" />
+    <Rule path="/data[at0001]/items[at0101]" max="0" />
+    <Rule path="/data[at0001]/items[at0120]" name="AllergyType" />
+    <Rule path="/data[at0001]/items[at0117]" name="LastOccurence" />
+    <Rule path="/data[at0001]/items[at0058]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0010]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0021]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0012]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0027]" name="OnsetDate" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0028]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0089]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0020]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0025]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0106]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0018]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0040]" max="0" />
+    <Rule path="/data[at0001]/items[at0009]/items[at0032]" max="0" />
+    <Rule path="/protocol[at0042]/items[at0062]" name="RecordedDate" />
+    <Rule path="/protocol[at0042]/items[at0047]" max="0" />
+    <Rule path="/protocol[at0042]/items[at0044]" max="0" />
+    <Rule path="/protocol[at0042]/items[at0099]" max="0" />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1">
+    <digest id="MD5-CAM-1.0.1">17B34210A4047512C96E82E23E71F19C</digest>
+  </integrity_checks>
+</template>

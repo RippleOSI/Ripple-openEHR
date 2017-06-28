@@ -1,0 +1,678 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.emccd.v1
+
+concept
+	[at0000]	-- eMCCD (Electronic Medical Certificate of Cause of Death)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics, UK">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2014-05-04">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a Scottish Electronic Medical Certificate of Cause of Death (eMCCD).">
+			use = <"To record a Scottish Electronic Medical Certificate of Cause of Death.">
+			keywords = <"death", "certificate", "deceased">
+			misuse = <"Should not be used on non-Scottish jurisdictions.">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"Ian Thomson, SCIMP, NHS Scotland, <ian.thompson@nhs.net>", "Paul Miller, SCIMP, NHS Scotland, <paulmiller@nhs.net>">
+	other_details = <
+		["current_contact"] = <"Ian McNicoll, freshEHR Clinical Informatics, UK, <ian@freshehr.com>">
+		["MD5-CAM-1.0.1"] = <"495448F9FF8BF8C4BFF74ED6212CE6AC">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- eMCCD (Electronic Medical Certificate of Cause of Death)
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0002] occurrences matches {0..1} matches {	-- Part A Details of deceased
+						items cardinality matches {4..*; unordered} matches {
+							ELEMENT[at0003] matches {	-- Name of deceased
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0004] matches {	-- Date/Time of Death
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0005] matches {	-- Place of Death
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Heath Board Area
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0019, 	-- Ayrshire and Arran
+											at0011, 	-- Borders
+											at0014, 	-- Dumfries and Galloway
+											at0020, 	-- Fife
+											at0010, 	-- Forth Valley
+											at0012, 	-- Grampian
+											at0008, 	-- Greater Glasgow and Clyde
+											at0007, 	-- Highland
+											at0018, 	-- Lanarkshire
+											at0009, 	-- Lothian
+											at0017, 	-- Orkney
+											at0016, 	-- Shetland
+											at0013, 	-- Tayside
+											at0015]	-- Western Isles
+										}
+									}
+								}
+							}
+							ELEMENT[at0022] occurrences matches {0..1} matches {	-- CHI Number
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0023] matches {	-- Date of Birth
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0024] occurrences matches {0..1} matches {	-- Part B Certifying Doctor's Details
+						items cardinality matches {6..*; unordered} matches {
+							ELEMENT[at0025] matches {	-- Name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0026] matches {	-- GMC Number
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							CLUSTER[at0062] matches {	-- Business Address
+								items cardinality matches {4..*; unordered} matches {
+									ELEMENT[at0028] matches {	-- House Name / number
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0063] occurrences matches {1..3} matches {	-- Address Line
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0065] matches {	-- City/ Town
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0064] matches {	-- Postcode
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							ELEMENT[at0027] matches {	-- Business Contact Telephone Number
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] matches {	-- Name of consultant
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0066] occurrences matches {0..1} matches {	-- Signature
+								value matches {
+									DV_MULTIMEDIA matches {
+										media_type matches {[openEHR::]}
+									}
+								}
+							}
+							ELEMENT[at0030] matches {	-- Date of Signature
+								value matches {
+									DV_DATE matches {
+										value matches {yyyy-mm-dd}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0031] occurrences matches {0..1} matches {	-- Part C Cause of Death
+						items cardinality matches {2..*; unordered} matches {
+							CLUSTER[at0032] occurrences matches {1..4} matches {	-- I Disease / Condition leading to death
+								items cardinality matches {1..*; ordered} matches {
+									ELEMENT[at0035] matches {	-- Causality
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0036, 	-- a Disease or condition directly leading to death.
+													at0037, 	-- b Antecedent cause
+													at0038, 	-- c Antecedent cause
+													at0039]	-- d Antecedent cause
+												}
+											}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {	-- Disease / Condition
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0067] occurrences matches {0..1} matches {	-- Date of Onset
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Approx Interval
+										value matches {
+											DV_DURATION matches {
+												value matches {PYMWDTHM/|>=PT0M|}
+											}
+										}
+									}
+								}
+							}
+							CLUSTER[at0040] occurrences matches {1..3} matches {	-- II Other significant condition
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0045] matches {	-- Condition
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {	-- Date of Onset
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0046] occurrences matches {0..1} matches {	-- Approx Interval
+										value matches {
+											DV_DURATION matches {
+												value matches {PYMWTHM/|>=P0M|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0047] occurrences matches {0..1} matches {	-- Part D Disposal Hazard
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0048] matches {	-- DH1 - Public Health Risk
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0049] occurrences matches {0..1} matches {	-- DH2 - Implants
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0050] occurrences matches {0..1} matches {	-- DH3 - Radioactive
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0069] occurrences matches {0..1} matches {	-- Comment
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0051] occurrences matches {0..1} matches {	-- Part E Other Information
+						items cardinality matches {3..*; unordered} matches {
+							ELEMENT[at0052] matches {	-- Post Mortem
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0053, 	-- PM1: Post mortem has been done and information is included above
+											at0054, 	-- PM2: Post mortem information may be available later
+											at0055]	-- PM3: No post mortem
+										}
+									}
+								}
+							}
+							ELEMENT[at0056] matches {	-- Procurator Fiscal
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0071, 	-- PF: Death reported to procurator fiscal
+											at0072]	-- Death NOT reported to Procurator Fiscal
+										}
+									}
+								}
+							}
+							ELEMENT[at0058] occurrences matches {0..1} matches {	-- Maternal death
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0059, 	-- Not applicable
+											at0060, 	-- M1: Death during pregnancy or within 42 days of the pregnancy ending
+											at0061]	-- M2: Death between 43 days and 12 months after the end of pregnancy
+										}
+									}
+								}
+							}
+							ELEMENT[at0057] matches {	-- Extra information
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0070] occurrences matches {0..1} matches {	-- Comment
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"eMCCD (Electronic Medical Certificate of Cause of Death)">
+					description = <"eMCCD - Scottish Electronic Medical Certificate of Cause of Death.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Part A Details of deceased">
+					description = <"Details of the deceased.">
+				>
+				["at0003"] = <
+					text = <"Name of deceased">
+					description = <"The name of the deceased.">
+					comment = <"Notes:
+Name to include:
+Given Names (in order first, second etc.)
+Family NameNot Required:
+TITLE (e.g. Master, Dr, Lord, Ms)
+Previous Family Names e.g. Maiden Name
+Known as or sounds like names">
+				>
+				["at0004"] = <
+					text = <"Date/Time of Death">
+					description = <"The date and time of death.">
+					comment = <"Validation:  
+Must not be a future date
+
+Notes:
+GF - this should be a single date / time only and is understood to be an estimate made by the certificate completer
+
+This value is to be shown as two fields in the printed eMCCD and electronic representations of the certificate, labeled 'Date of Death' and 'Time of Death'.
+
+Date format:
+We suggest, to reduce ambiguity, that the date is always represented in forms and user interfaces as:
+19-Mar-2014
+dd-mmm-yyyy
+
+Time Format:
+Only hour and minute of time of death should be shown in forms and user interfaces in all systems.
+Format shouild be 'hh:mm'">
+				>
+				["at0005"] = <
+					text = <"Place of Death">
+					description = <"The place of death.">
+				>
+				["at0006"] = <
+					text = <"Heath Board Area">
+					description = <"The Health Board Area in which death occurred.">
+					comment = <"Notes: considered edge cases but no scenario where best guess could not be made, need N/A for occasional e..g at sea, in flight, exceptional circumstances">
+				>
+				["at0007"] = <
+					text = <"Highland">
+					description = <"NHS Highland Health Board.">
+				>
+				["at0008"] = <
+					text = <"Greater Glasgow and Clyde">
+					description = <"NHS Greater Glasgow and Clyde Health Board.">
+				>
+				["at0009"] = <
+					text = <"Lothian">
+					description = <"NHS Lothian Health Board">
+				>
+				["at0010"] = <
+					text = <"Forth Valley">
+					description = <"NHS Forth Valley Health Board.">
+				>
+				["at0011"] = <
+					text = <"Borders">
+					description = <"NHS Borders Health Board.">
+				>
+				["at0012"] = <
+					text = <"Grampian">
+					description = <"NHS Grampian Health Board.">
+				>
+				["at0013"] = <
+					text = <"Tayside">
+					description = <"NHS Tayside Health Board.">
+				>
+				["at0014"] = <
+					text = <"Dumfries and Galloway">
+					description = <"NHS Dumfries and Galloway Health Board.">
+				>
+				["at0015"] = <
+					text = <"Western Isles">
+					description = <"NHS Western Isles Health Board.">
+				>
+				["at0016"] = <
+					text = <"Shetland">
+					description = <"NHS Shetland Health Board.">
+				>
+				["at0017"] = <
+					text = <"Orkney">
+					description = <"NHS Orkney Health Board.">
+				>
+				["at0018"] = <
+					text = <"Lanarkshire">
+					description = <"NHS Lanarkshire Health Board.">
+				>
+				["at0019"] = <
+					text = <"Ayrshire and Arran">
+					description = <"NHS Ayrshire and Arran Health Board.">
+				>
+				["at0020"] = <
+					text = <"Fife">
+					description = <"NHS Fife Health Board.">
+				>
+				["at0022"] = <
+					text = <"CHI Number">
+					description = <"The deceased's Community Health Index (CHI) Number.">
+					comment = <"Validation: Value must be validated as a valid CHI number
+Notes:
+Whenever present in systems the value should be used to complete this field.
+
+Where a CHI number cannot be auto-filled to this field the users will be able to manually enter a CHI number.  If no CHI number is available then users will be required to invoke a function to confirm this before being able to complete and send the form.  This should be reflected in functional requirements.
+Data Type: 12 character string of numbers (see CHI specification elsewhere defined)">
+				>
+				["at0023"] = <
+					text = <"Date of Birth">
+					description = <"The deceased's date of birth.">
+					comment = <"Validation: Must not be greater than today; Must not be after Date of Death
+
+Format: In interfaces and on printed form this should be shown as:
+19-Mar-2014
+dd-mmm-yyyy
+
+Notes:
+Time is not required.">
+				>
+				["at0024"] = <
+					text = <"Part B Certifying Doctor's Details">
+					description = <"Details of the doctor completing the death certificate.">
+				>
+				["at0025"] = <
+					text = <"Name">
+					description = <"The name of the doctor completing the death certificate.">
+					comment = <"Notes:
+Required: First Given Name,  Family Name
+Optional: Title, all given names 
+
+Intent is that this field will be populated by the information system in use, but that values can be edited.">
+				>
+				["at0026"] = <
+					text = <"GMC Number">
+					description = <"The GMC number of the doctor completing the Death certificate.">
+				>
+				["at0027"] = <
+					text = <"Business Contact Telephone Number">
+					description = <"The business contact telephone number of the doctor completing the Death certificate.">
+					comment = <"Validation: If possible, validate as phone number but consider need for extensions, text qualification.
+
+Notes:
+A single telephone number. This should be populated from the information system in use but must be editable.
+No requirement for textual annotations or qualifications e.g. 'Page 0000' or 'Extension 1234'.  
+We are aware there may be other work on telephone number modelling which possibly could be applied here.">
+				>
+				["at0028"] = <
+					text = <"House Name / number">
+					description = <"The house name and/or number.">
+				>
+				["at0029"] = <
+					text = <"Name of consultant">
+					description = <"For a deathin hospital, the name of the responsible consultant.">
+					comment = <"Notes:
+Required: First Given Name,  Family Name
+Optional: Title, all given names 
+
+Intent is that this field will be populated by the information system in use, but that values can be edited.
+
+No current mandatory requirement to make this field mandatory if responsible consultant can be computed but suppliers could consider this in implementations.  Consider functional requirements to support the clinical context.">
+				>
+				["at0030"] = <
+					text = <"Date of Signature">
+					description = <"The date on which Part B of the certificate was signed.">
+					comment = <"Validation: Validate as date with day/month/year; >= Date of Death
+Format In interfaces and forms this will be shown as:
+19-Mar-2014
+dd-mmm-yyyy">
+				>
+				["at0031"] = <
+					text = <"Part C Cause of Death">
+					description = <"Cause of death and related conditions.">
+				>
+				["at0032"] = <
+					text = <"I Disease / Condition leading to death">
+					description = <"A disease or condition leading to death.">
+				>
+				["at0033"] = <
+					text = <"Disease / Condition">
+					description = <"Other significant condition contributing to the death, but not related to the disease or condition causing it.">
+					comment = <"Notes:
+Functional requirements will clarify need for terminology binding to be implemented in this or future releases.
+
+
+Legibility
+Spelling / Typography
+Abbreviations
+Symbols, txt speak">
+				>
+				["at0034"] = <
+					text = <"Approx Interval">
+					description = <"The approximate interval from date of onset of the disease or condition until death.">
+					comment = <"Notes:
+Although in the form this is being represented as 3 distinct values, from a data perspective it simply a single value for duration which can be represented as a number of days.  In interfaces and in printed forms this should be represented as 'years', 'months', 'days' as calculated from this value.
+
+An alternative, and more intuitive approach, would be to allow users completing this form electronically to enter a 'Date of onset' and for the software to then calculate the duration.">
+				>
+				["at0035"] = <
+					text = <"Causality">
+					description = <"Causality.">
+				>
+				["at0036"] = <
+					text = <"a Disease or condition directly leading to death.">
+					description = <"Disease or condition directly leading to death.">
+				>
+				["at0037"] = <
+					text = <"b Antecedent cause">
+					description = <"b  Morbid condition, giving rise to the above cause, stating the underlying condition last.">
+				>
+				["at0038"] = <
+					text = <"c Antecedent cause">
+					description = <"c  Morbid condition, giving rise to the above cause, stating the underlying condition last.">
+				>
+				["at0039"] = <
+					text = <"d Antecedent cause">
+					description = <"d  Morbid condition, giving rise to the above cause, stating the underlying condition last.">
+				>
+				["at0040"] = <
+					text = <"II Other significant condition">
+					description = <"Other significant conditions contributing to the death, but not related to the disease or condition causing it.">
+				>
+				["at0045"] = <
+					text = <"Condition">
+					description = <"The name of the condition.">
+				>
+				["at0046"] = <
+					text = <"Approx Interval">
+					description = <"The approximate interval from date of onset of the disease or condition until death.">
+					comment = <"Notes:
+Although in the form this is being represented as 3 distinct values, from a data perspective it simply a single value for duration which can be represented as a number of days.  In interfaces and in printed forms this should be represented as 'years', 'months', 'days' as calculated from this value.
+
+An alternative, and more intuitive approach, would be to allow users completing this form electronically to enter a 'Date of onset' and for the software to then calculate the duration.">
+				>
+				["at0047"] = <
+					text = <"Part D Disposal Hazard">
+					description = <"Potential Risks.">
+				>
+				["at0048"] = <
+					text = <"DH1 - Public Health Risk">
+					description = <"Is this case a potential public health risk?">
+				>
+				["at0049"] = <
+					text = <"DH2 - Implants">
+					description = <"Does this case carry implants?">
+				>
+				["at0050"] = <
+					text = <"DH3 - Radioactive">
+					description = <"Is this case potentially radioactive?">
+				>
+				["at0051"] = <
+					text = <"Part E Other Information">
+					description = <"Ancillary Information.">
+				>
+				["at0052"] = <
+					text = <"Post Mortem">
+					description = <"Post mortem examination by a pathologist.">
+					comment = <"Notes:
+A single attribute with one of three possible values:
+
+PM1
+PM2
+PM3">
+				>
+				["at0053"] = <
+					text = <"PM1: Post mortem has been done and information is included above">
+					description = <"Post mortem has been done and information is included above.">
+				>
+				["at0054"] = <
+					text = <"PM2: Post mortem information may be available later">
+					description = <"PM2: Post mortem information may be available later.">
+				>
+				["at0055"] = <
+					text = <"PM3: No post mortem">
+					description = <"PM3: No post mortem.">
+				>
+				["at0056"] = <
+					text = <"Procurator Fiscal">
+					description = <"Has this death been reported to the Procurator Fiscal?">
+				>
+				["at0057"] = <
+					text = <"Extra information">
+					description = <"Is extra information available?">
+					comment = <"Notes:
+In implementations users will be required to select a 'Yes;' or 'No' value i.e. the value of this attribute should not be defaulted to 'no' as may be implied from the paper form.">
+				>
+				["at0058"] = <
+					text = <"Maternal death">
+					description = <"Information relating to maternal death.">
+					comment = <"Notes:
+Options:
+Not applicable
+M1
+M2
+
+General practice systems should default this to 'Not applicable' in implementations.">
+				>
+				["at0059"] = <
+					text = <"Not applicable">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"M1: Death during pregnancy or within 42 days of the pregnancy ending">
+					description = <"M1: Death during pregnancy or within 42 days of the pregnancy ending.">
+				>
+				["at0061"] = <
+					text = <"M2: Death between 43 days and 12 months after the end of pregnancy">
+					description = <"M2: Death between 43 days and 12 months after the end of pregnancy.">
+				>
+				["at0062"] = <
+					text = <"Business Address">
+					description = <"The business address of the doctor completing the Death certificate.">
+					comment = <"Notes:
+Where possible this field should be populated using data in the information system in use.  The field must be editable.  Address data should be structured into various attributes e.g. House Name / Number; Line 1, Line2, Line3, City/Town; PostCode. No validation on post code but will be mandatory.">
+				>
+				["at0063"] = <
+					text = <"Address Line">
+					description = <"Address line.">
+				>
+				["at0064"] = <
+					text = <"Postcode">
+					description = <"Postal code.">
+				>
+				["at0065"] = <
+					text = <"City/ Town">
+					description = <"The City /town.">
+				>
+				["at0066"] = <
+					text = <"Signature">
+					description = <"The signature of the doctor completing the Death certificate.">
+					comment = <"This is only of relevance on printed documents at this stage.">
+				>
+				["at0067"] = <
+					text = <"Date of Onset">
+					description = <"The date of onset of the condition.">
+					comment = <"Notes:
+Although in the form this is being represented as 3 distinct values, from a data perspective it simply a single value for duration which can be represented as a number of days.  In interfaces and in printed forms this should be represented as 'years', 'months', 'days' as calculated from this value.
+
+An alternative, and more intuitive approach, would be to allow users completing this form electronically to enter a 'Date of onset' and for the software to then calculate the duration.
+">
+				>
+				["at0068"] = <
+					text = <"Date of Onset">
+					description = <"The date of onset of the condition.">
+					comment = <"Notes:
+Although in the form this is being represented as 3 distinct values, from a data perspective it simply a single value for duration which can be represented as a number of days.  In interfaces and in printed forms this should be represented as 'years', 'months', 'days' as calculated from this value.
+
+An alternative, and more intuitive approach, would be to allow users completing this form electronically to enter a 'Date of onset' and for the software to then calculate the duration.">
+				>
+				["at0069"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Comment">
+					description = <"Any further comments.">
+				>
+				["at0071"] = <
+					text = <"PF: Death reported to procurator fiscal">
+					description = <"PF: THis death has been reported to the procurator fiscal.">
+				>
+				["at0072"] = <
+					text = <"Death NOT reported to Procurator Fiscal">
+					description = <"The dealh has not been reported to the procurator fiscal.">
+				>
+			>
+		>
+	>

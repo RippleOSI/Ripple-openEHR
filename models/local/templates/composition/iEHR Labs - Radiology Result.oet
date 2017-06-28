@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>394ed967-a388-4f8b-a6c2-903e319c672e</id>
+  <name>iEHR Labs - Radiology Result</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report" name="HealthLink radiology report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam.v1" concept_name="Imaging examination result" path="/content" hide_on_form="true">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" name="Result status" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0015]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0022]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0023]" max="0" />
+      <Rule path="/protocol[at0025]" hide_on_form="true" />
+      <Rule path="/protocol[at0025]/items[at0027]" hide_on_form="true" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0028]" name="Placer order number" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0029]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0031]" name="Filler order number" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0032]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0033]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0027]/items[at0034]" max="0" />
+      <Rule path="/protocol[at0025]/items[at0042]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.organisation.v1" concept_name="Organisation" path="/protocol[at0025]/items[at0026]" hide_on_form="true">
+        <Rule path="/items[at0001]" name="Diagnostic services that provided/run the test" />
+        <Rule path="/items[at0011]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Individual professional demographics (UK)" max="1" path="/protocol[at0025]/items[at0026]" name="Attending Doctor">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0012]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0015]" hide_on_form="true">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0001]" max="0" />
+          <Rule path="/items[at0002]" name="Attending Doctor Name" />
+          <Rule path="/items[at0002]/items[at0017]" max="0" />
+          <Rule path="/items[at0002]/items[at0004]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Individual professional demographics (UK)" max="1" path="/protocol[at0025]/items[at0026]" name="Consulting Doctor">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0012]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0015]" hide_on_form="true">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0001]" max="0" />
+          <Rule path="/items[at0002]" name="Consulting Doctor name" />
+          <Rule path="/items[at0002]/items[at0017]" max="0" />
+          <Rule path="/items[at0002]/items[at0004]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1" concept_name="Individual professional demographics (UK)" max="1" path="/protocol[at0025]/items[at0027]/items[at0030]" name="Ordering Provider">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0012]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0015]" hide_on_form="true">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0001]" max="0" />
+          <Rule path="/items[at0002]" name="Requester name" />
+          <Rule path="/items[at0002]/items[at0017]" max="0" />
+          <Rule path="/items[at0002]/items[at0004]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1" concept_name="Individual professional demographics (UK)" max="1" path="/protocol[at0025]/items[at0027]/items[at0030]" name="Ordering Provider Copied">
+        <Rule path="/items[at0006]" max="0" />
+        <Rule path="/items[at0005]" max="0" />
+        <Rule path="/items[at0012]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" max="1" path="/items[at0015]" hide_on_form="true">
+          <Rule path="/items[at0006]" max="0" />
+          <Rule path="/items[at0022]" max="0" />
+          <Rule path="/items[at0001]" max="0" />
+          <Rule path="/items[at0002]" name="Provider copied name" />
+          <Rule path="/items[at0002]/items[at0017]" max="0" />
+          <Rule path="/items[at0002]/items[at0004]" max="0" />
+          <Rule path="/items[at0014]" max="0" />
+        </Items>
+      </Items>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" name="Overall status" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1">
+    <digest id="MD5-CAM-1.0.1">1853F80CFF69F14444CF1C21D9A64834</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.imaging_exam.v1">
+    <digest id="MD5-CAM-1.0.1">E115450A8DA092A0431A3D9777634573</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.organisation.v1">
+    <digest id="MD5-CAM-1.0.1">4569454EB2489695EEEF81ABBE57B7D8</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional.v1">
+    <digest id="MD5-CAM-1.0.1">D8FF4CD54F4850A1A914AAEBA3A6FEDF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.person_name.v1">
+    <digest id="MD5-CAM-1.0.1">2D8CF370D3AEC6DDC6F9847963051B89</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.individual_professional_uk.v1">
+    <digest id="MD5-CAM-1.0.1">5E3BA5FF089BD92C10C27A1F8B14B31D</digest>
+  </integrity_checks>
+</template>

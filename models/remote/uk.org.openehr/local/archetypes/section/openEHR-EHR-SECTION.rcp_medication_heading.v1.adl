@@ -1,0 +1,82 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.rcp_medication_heading.v1
+
+concept
+	[at0000]	-- Medications
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-02-12">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record Medication information, structured according to the RCP headings standards.">
+			use = <"">
+			keywords = <"RCP", "medication">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Royal College of Physicians, Core Clinical Headings, http://www.rcplondon.ac.uk/projects/standards-core-clinical-information">
+		["MD5-CAM-1.0.1"] = <"C48174EA839E1B96B897AA874767C151">
+	>
+
+definition
+	SECTION[at0000] matches {	-- Medications
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype EVALUATION[at0007] occurrences matches {0..1} matches {	-- Medication synopsis
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.clinical_synopsis(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			SECTION[at0003] occurrences matches {0..1} matches {*}
+			SECTION[at0006] occurrences matches {0..1} matches {*}
+			SECTION[at0001] occurrences matches {0..1} matches {*}
+			SECTION[at0002] occurrences matches {0..1} matches {*}
+			SECTION[at0005] occurrences matches {0..1} matches {*}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medications">
+					description = <"RCP Medication Heading structure.">
+				>
+				["at0001"] = <
+					text = <"Current medication">
+					description = <"Medication being currently taken by the patient.">
+				>
+				["at0002"] = <
+					text = <"Other relevant medication">
+					description = <"Other relevant but non-current medication.">
+				>
+				["at0003"] = <
+					text = <"Medication changes">
+					description = <"Significant changes to medication.">
+				>
+				["at0005"] = <
+					text = <"Medication advice">
+					description = <"Overall advice on continuing medication.">
+				>
+				["at0006"] = <
+					text = <"Recent medication">
+					description = <"Medication which is currently being taken or which has been taken by the patient in the recent past. Generally provided by GP systems as part of a medication summary.">
+				>
+				["at0007"] = <
+					text = <"Medication synopsis">
+					description = <"A narrative summary of medication.">
+				>
+			>
+		>
+	>

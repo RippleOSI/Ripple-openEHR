@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>0c639849-b909-42bc-9980-305a45eba33e</id>
+  <name>NHS Scotland National Data Services Repeat Medication API</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To demonstrate constraint of archetypes to meet NHSS NDS Repeat medication API</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v1" concept_name="Medication">
+    <Rule path="/activities[at0001]" max="1" name="Repeat medication" />
+    <Rule path="/activities[at0001]/description[at0002]/items[at0030]" hide_on_form="true">
+      <constraint xsi:type="textConstraint">
+        <excludedValues>local::at0033</excludedValues>
+        <excludedValues>local::at0019</excludedValues>
+      </constraint>
+    </Rule>
+    <Rule path="/protocol[at0036]" hide_on_form="true" />
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_item.v1" concept_name="Medication item" max="1" path="/activities[at0001 and name/value='Repeat medication']/description[at0002]/items[at0003]" hide_on_form="true">
+      <Rule path="/items[at0001]" name="Drug" />
+      <Rule path="/items[at0022]" max="0" />
+      <Rule path="/items[at0002]" max="0" />
+      <Rule path="/items[at0003]" name="Dosage" />
+      <Rule path="/items[at0019]" max="0" />
+      <Rule path="/items[at0005]" max="0" />
+      <Rule path="/items[at0004]" max="0" />
+      <Rule path="/items[at0006]" max="0" />
+    </Items>
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1" concept_name="Medication event" max="1" path="/activities[at0001 and name/value='Repeat medication']/description[at0002]/items[at0028]" name="Authorisation" hide_on_form="true">
+      <Rule path="/items[at0003]" max="0" />
+      <Rule path="/items[at0028]" max="0" />
+      <Rule path="/items[at0091]" max="0" />
+      <Rule path="/items[at0033]" hide_on_form="true" />
+      <Rule path="/items[at0033]/items[at0034]" max="0" />
+      <Rule path="/items[at0033]/items[at0035]" name="RepeatUntilDate" />
+      <Rule path="/items[at0033]/items[at0085]" max="0" />
+      <Rule path="/items[at0033]/items[at0086]" max="0" />
+      <Rule path="/items[at0033]/items[at0036]" max="0" />
+      <Rule path="/items[at0033]/items[at0004]" max="0" />
+      <Rule path="/items[at0033]/items[at0113]" max="0" />
+      <Rule path="/items[at0033]/items[at0039]" max="0" />
+      <Rule path="/items[at0037]" max="0" />
+      <Rule path="/items[at0057]" max="0" />
+      <Rule path="/items[at0050]" max="0" />
+      <Rule path="/items[at0103]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_quantity_sct.v1" concept_name="Medication quantity" max="1" path="/items[at0099]" name="Quantity">
+        <Rule path="/items[at0001]" max="0" />
+        <Rule path="/items[at0002]" max="0" />
+      </Items>
+    </Items>
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1" concept_name="Medication event" max="1" path="/activities[at0001 and name/value='Repeat medication']/description[at0002]/items[at0027]" name="Last issue" hide_on_form="true">
+      <Rule path="/items[at0003]">
+        <nameConstraint>
+          <excludedValues>local::at0092</excludedValues>
+          <excludedValues>local::at0042</excludedValues>
+          <excludedValues>local::at0043</excludedValues>
+          <excludedValues>local::at0044</excludedValues>
+          <excludedValues>local::at0045</excludedValues>
+          <excludedValues>local::at0046</excludedValues>
+          <excludedValues>local::at0047</excludedValues>
+          <excludedValues>local::at0048</excludedValues>
+          <excludedValues>local::at0049</excludedValues>
+          <excludedValues>local::at0069</excludedValues>
+          <excludedValues>local::at0071</excludedValues>
+          <excludedValues>local::at0072</excludedValues>
+          <excludedValues>local::at0073</excludedValues>
+          <excludedValues>local::at0074</excludedValues>
+          <excludedValues>local::at0075</excludedValues>
+          <excludedValues>local::at0076</excludedValues>
+        </nameConstraint>
+      </Rule>
+      <Rule path="/items[at0028]" max="0" />
+      <Rule path="/items[at0091]" max="0" />
+      <Rule path="/items[at0033]" hide_on_form="true" />
+      <Rule path="/items[at0033]/items[at0034]" max="0" />
+      <Rule path="/items[at0033]/items[at0035]" name="RepeatUntilDate" />
+      <Rule path="/items[at0033]/items[at0085]" max="0" />
+      <Rule path="/items[at0033]/items[at0086]" max="0" />
+      <Rule path="/items[at0033]/items[at0036]" max="0" />
+      <Rule path="/items[at0033]/items[at0004]" max="0" />
+      <Rule path="/items[at0033]/items[at0113]" max="0" />
+      <Rule path="/items[at0033]/items[at0039]" max="0" />
+      <Rule path="/items[at0037]" max="0" />
+      <Rule path="/items[at0057]" max="0" />
+      <Rule path="/items[at0050]" max="0" />
+      <Rule path="/items[at0103]" max="0" />
+    </Items>
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.record_provenance.v1" concept_name="Record provenance" path="/protocol[at0036]/items[at0037]">
+      <Rule path="/items[at0001]" name="Source" />
+      <Rule path="/items[at0002]" name="Prescriber" />
+      <Rule path="/items[at0006]" max="0" />
+      <Rule path="/items[at0007]" max="0" />
+      <Rule path="/items[at0003]" max="0" />
+      <Rule path="/items[at0004]" max="0" />
+    </Items>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v1">
+    <digest id="MD5-CAM-1.0.1">9DC7CF9D2B0BDD56E85AB4CFEE2AF038</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_item.v1">
+    <digest id="MD5-CAM-1.0.1">D9911F98319D13779E444481F2C0642E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_event.v1">
+    <digest id="MD5-CAM-1.0.1">41917DA092DE424C6DB01D197BEB1242</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_quantity_sct.v1">
+    <digest id="MD5-CAM-1.0.1">22FFD6C18132A623FC6F89A1ACA876E3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.record_provenance.v1">
+    <digest id="MD5-CAM-1.0.1">F36B2F9FA2C4CD0B66A10C6D10B7FA00</digest>
+  </integrity_checks>
+</template>

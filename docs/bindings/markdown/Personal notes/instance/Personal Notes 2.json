@@ -1,0 +1,12 @@
+{
+  "ctx/composer_name": "Ivor Cox",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Home",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2017-06-21T00:11:22.518+02:00",
+  "personal_notes/clinical_synopsis:0/_name|value": "Patient Note",
+  "personal_notes/clinical_synopsis:0/notes": "I am coughing a great deal. Is my chest x-ray back yet?"
+}

@@ -1,0 +1,152 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.key_contacts.v1
+
+concept
+	[at0000]	-- Key contacts
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-07-02">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record key contacts for the patient or client, including formal and informal carers, next of kin and key workers. These may be used within the context of a specific care plan or care pathway or may represent a more holistic vew of the key contacts involved in a person's care.">
+			use = <"">
+			keywords = <"contact", "carer", "worker", "professional">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Information Standards Board ISB Data Dictionary Available at http://www.datadictionary.nhs.uk/
+
+End of Life Care Co-ordination: Core Content Standard Specification Available at http://www.isb.nhs.uk/documents/isb-1580/amd-29-2012/index_html">
+		["MD5-CAM-1.0.1"] = <"251E7D812F0FCF8C54EAC3867A1B9F31">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Key contacts
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0018] occurrences matches {0..*} matches {	-- Informal carer
+						items cardinality matches {1..*; unordered} matches {
+							allow_archetype CLUSTER[at0013] occurrences matches {0..*} matches {	-- Personal details
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0032] occurrences matches {0..1} matches {	-- Is main informal carer?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0025] occurrences matches {0..1} matches {	-- Is next of kin?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True}
+									}
+								}
+							}
+							ELEMENT[at0017] occurrences matches {0..1} matches {	-- Note
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0014] occurrences matches {0..*} matches {	-- Formal carer
+						items cardinality matches {1..*; unordered} matches {
+							allow_archetype CLUSTER[at0015] occurrences matches {0..*} matches {	-- Personal details
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0034] occurrences matches {0..1} matches {	-- Is key worker?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True}
+									}
+								}
+							}
+							ELEMENT[at0030] occurrences matches {0..1} matches {	-- Professional relationship to subject
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /data[at0001]/items[at0018]/items[at0017]	-- /data[Tree]/items[Informal carer]/items[Note]
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Date updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Key contacts">
+					description = <"Key contacts for the patient or client, including formal and informal carers, next of kin and key workers.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Date updated">
+					description = <"The date at which the list of key contacts was created or updated.">
+				>
+				["at0013"] = <
+					text = <"Personal details">
+					description = <"Personal details of the informal carer.">
+				>
+				["at0014"] = <
+					text = <"Formal carer">
+					description = <"A health and social care professional or staff member, including a carer from voluntary sector.">
+				>
+				["at0015"] = <
+					text = <"Personal details">
+					description = <"Personal details of the formal carer.">
+				>
+				["at0017"] = <
+					text = <"Note">
+					description = <"Any additional comment or note about the carer or their role.">
+				>
+				["at0018"] = <
+					text = <"Informal carer">
+					description = <"An individual identified by the person as offering care and support , excluding paid carers or carers from voluntary agencies.">
+				>
+				["at0025"] = <
+					text = <"Is next of kin?">
+					description = <"True if this informal care is  the person's next-of-kin.">
+				>
+				["at0030"] = <
+					text = <"Professional relationship to subject">
+					description = <"The professional role or responsibility of the carer with respect to the person which should help identify them as being an appropriate contact for an aspect of care, usually a professional role or care pathway name.">
+				>
+				["at0032"] = <
+					text = <"Is main informal carer?">
+					description = <"True if the individual , excluding paid carers or carers from voluntary agencies, is identified by the subject as being a primary source of care and support.">
+				>
+				["at0034"] = <
+					text = <"Is key worker?">
+					description = <"True if the formal carer is the subject's key worker?">
+				>
+			>
+		>
+	>

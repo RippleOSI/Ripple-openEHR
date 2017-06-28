@@ -1,0 +1,186 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.power_of_attorney_uk.v1
+
+concept
+	[at0000]	-- Power of attorney (UK)
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2013-10-18">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of power of attorney arrangements specific to the UK.">
+			use = <"">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Information Standards Board ISB Data Dictionary Available at http://www.datadictionary.nhs.uk/
+
+End of Life Care Co-ordination: Core Content Standard Specification Available at http://www.isb.nhs.uk/documents/isb-1580/amd-29-2012/index_html
+
+NHS Scotland Key Information Summary">
+		["MD5-CAM-1.0.1"] = <"9DF5B23BF01246240BF2B91579FEE02D">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Power of attorney (UK)
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Date last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Mental capacity status
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0008] occurrences matches {0..1} matches {	-- Lasting power of attorney for personal welfare
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- Power of attorney status
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0004, 	-- Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)
+											at0005, 	-- Has appointed person with personal welfare lasting power of attorney with authority for life sustaining decisions (Mental Capacity Act 2005)
+											at0012]	-- Lasting power of attorney personal welfare.
+										}
+									}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Person holding power of attorney
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0009] occurrences matches {0..1} matches {	-- Lasting power of attorney for property and affairs
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Power of attorney status
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {[local::at0013]}		-- Lasting power of attorney property and affairs
+									}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Person holding power of attorney
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Other person to be involved in decision-making
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"READ2", "RCD99", "SNOMED-CT">
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Power of attorney (UK)">
+					description = <"Details of power of attorney arrangements specific to the UK.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Date last updated">
+					description = <"The date that the record of power of attorney was last updated.">
+				>
+				["at0003"] = <
+					text = <"Power of attorney status">
+					description = <"The status of any lasting power of attorney.">
+				>
+				["at0004"] = <
+					text = <"Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)">
+					description = <"The patient has appointed a person with personal welfare lasting power of attorney (Mental Capacity Act 2005).">
+				>
+				["at0005"] = <
+					text = <"Has appointed person with personal welfare lasting power of attorney with authority for life sustaining decisions (Mental Capacity Act 2005)">
+					description = <"The patient has appointed a person with personal welfare lasting power of attorney with authority for life sustaining decisions (Mental Capacity Act 2005).">
+				>
+				["at0006"] = <
+					text = <"Mental capacity status">
+					description = <"Patient's ability to make informed choices in terms of the Mental Capacity Act 2005.">
+				>
+				["at0007"] = <
+					text = <"Person holding power of attorney">
+					description = <"Details of the person holding power of attorney for personal welfare.">
+				>
+				["at0008"] = <
+					text = <"Lasting power of attorney for personal welfare">
+					description = <"Details of lasting power of attorney for Personal Welfare.">
+				>
+				["at0009"] = <
+					text = <"Lasting power of attorney for property and affairs">
+					description = <"Details of lasting power of attorney for property and affairs.">
+				>
+				["at0010"] = <
+					text = <"Power of attorney status">
+					description = <"Status of lasting pwer of attorney for property and affairs.">
+				>
+				["at0011"] = <
+					text = <"Person holding power of attorney">
+					description = <"Details of the person holding power of attorney for property and affairs.">
+				>
+				["at0012"] = <
+					text = <"Lasting power of attorney personal welfare.">
+					description = <"Paient has a lasting power of attorney for personal welfare.">
+				>
+				["at0013"] = <
+					text = <"Lasting power of attorney property and affairs">
+					description = <"The patient has appointed a lasting power of attorney for property and affairs.">
+				>
+				["at0014"] = <
+					text = <"Other person to be involved in decision-making">
+					description = <"Details of any other person who the patient wishes to be involved in decision-making.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["READ2"] = <
+			items = <
+				["at0009"] = <[READ2::9W4..]>
+				["at0012"] = <[READ2::9W5..]>
+			>
+		>
+		["RCD99"] = <
+			items = <
+				["at0008"] = <[RCD99::Xa0c4]>
+				["at0009"] = <[RCD99::Xa0c4]>
+				["at0012"] = <[RCD99::Xa0c5]>
+			>
+		>
+		["SNOMED-CT"] = <
+			items = <
+				["at0004"] = <[SNOMED-CT::816361000000101]>
+				["at0005"] = <[SNOMED-CT::816381000000105]>
+			>
+		>
+	>

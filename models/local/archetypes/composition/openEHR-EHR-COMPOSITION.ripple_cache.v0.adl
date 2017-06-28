@@ -1,0 +1,138 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.ripple_cache.v0
+
+concept
+	[at0000]	-- Ripple Dashboard Cache
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["email"] = <"ian@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics UK">
+		["date"] = <"2017-04-06">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record cache data for  Ripple Dashboard.">
+			use = <"To record cache data for  Ripple Dashboard.">
+			misuse = <"To record cache data for  Ripple Dashboard.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"published">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["MD5-CAM-1.0.1"] = <"D15FBB94BAB62577758DD33942A3C597">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Ripple Dashboard Cache
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0002] occurrences matches {0..1} matches {	-- Orders
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|>=0|}
+									}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Orders date
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- Vitals
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Vitals date
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- Results
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Results date
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Diagnoses
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- Diagnoses date
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ripple Dashboard Cache">
+					description = <"Ripple Dashboard Cache.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Orders">
+					description = <"Number of compositions in the Orders folder.">
+				>
+				["at0003"] = <
+					text = <"Vitals">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Results">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Diagnoses">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Orders date">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Vitals date">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Diagnoses date">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Results date">
+					description = <"*">
+				>
+			>
+		>
+	>

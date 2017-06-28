@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>435ad718-61bb-4db0-8d3a-cd0a79880de5</id>
+  <name>iEHR - HeathLink - History of allergies</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <annotations path="[openEHR-EHR-SECTION.referral_details_rcp.v1]/items[openEHR-EHR-INSTRUCTION.request.v0]/activities[at0001]/description[at0009]/items[at0121]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>/*[namespace-uri()='' and local-name()='REF_I12']/RF1[1]/RF1.3[1]/CE.1[1]</value>
+      </item>
+    </items>
+  </annotations>
+  <annotations path="[openEHR-EHR-SECTION.referral_details_rcp.v1]/items[openEHR-EHR-INSTRUCTION.request.v0]/activities[at0001]/description[at0009]/items[at0062]">
+    <items>
+      <item>
+        <key>Notes.Advice</key>
+        <value>/*[namespace-uri()='' and local-name()='REF_I12']/REF_I12.OBSERVATION[1]/REF_I12.RESULTS_NOTES[1]/OBX[1]/OBX.5[1]</value>
+      </item>
+    </items>
+  </annotations>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1" concept_name="Allergies and adverse reactions" max="1" name="History of allergies">
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1" concept_name="Adverse reaction risk" path="/items">
+      <Rule path="/data[at0001]/items[at0002]" name="History of allergy" />
+      <Rule path="/data[at0001]/items[at0063]" max="0" />
+      <Rule path="/data[at0001]/items[at0101]" max="0" />
+      <Rule path="/data[at0001]/items[at0120]" max="0" />
+      <Rule path="/data[at0001]/items[at0117]" max="0" />
+      <Rule path="/data[at0001]/items[at0058]" max="0" />
+      <Rule path="/data[at0001]/items[at0006]" max="0" />
+      <Rule path="/data[at0001]/items[at0009]" max="0" />
+      <Rule path="/protocol[at0042]/items[at0047]" max="0" />
+      <Rule path="/protocol[at0042]/items[at0044]" max="0" />
+      <Rule path="/protocol[at0042]/items[at0099]" max="0" />
+    </Item>
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.exclusion-adverse_reaction.v1" concept_name="Exclusion of an Adverse Reaction" max="1" path="/items">
+      <Rule path="/data[at0001]/items[at0002.1]" max="1" default="No known allergies or adverse reactions" />
+      <Rule path="/data[at0001]/items[at0003.1]" max="0" />
+      <Rule path="/data[at0001]/items[at0007]" max="0" />
+    </Item>
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" max="1" path="/items" name="Allergies narrative">
+      <Rule path="/data[at0001]/items[at0002]" name="History of allergies" />
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1">
+    <digest id="MD5-CAM-1.0.1">0C14C375A26F565DDE90E338FBDFAE8C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1">
+    <digest id="MD5-CAM-1.0.1">17B34210A4047512C96E82E23E71F19C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.exclusion-adverse_reaction.v1">
+    <digest id="MD5-CAM-1.0.1">E16FAA97344C551556B200E2559F9CC7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
+    <digest id="MD5-CAM-1.0.1">2D066E7C501C2DAEC625DEE2ECD81DF4</digest>
+  </integrity_checks>
+</template>

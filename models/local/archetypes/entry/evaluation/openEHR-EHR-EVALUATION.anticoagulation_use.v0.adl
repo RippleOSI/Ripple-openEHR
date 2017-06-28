@@ -1,0 +1,62 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.anticoagulation_use.v0
+
+concept
+	[at0000]	-- Anticoagulation use
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"29ACFE4E0679CE6A17073CC165BF86D3">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Anticoagulation use
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Anticoagulation Use?
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Anticoagulation use">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Anticoagulation Use?">
+					description = <"Use to record whether patient is on anticoagulative medication ">
+				>
+			>
+		>
+	>
