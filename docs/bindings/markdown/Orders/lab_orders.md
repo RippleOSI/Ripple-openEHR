@@ -4,7 +4,11 @@
 
 #### Version:
 
-1.2.0 04-Jan-2017
+1.2.1 30-Jun-2017
+
+Corrected AQL
+
+1.2.0 12-Jun-2017
 
 Altered POST/PUT JSON to reflect updated template.
 
@@ -22,16 +26,14 @@ select
     a/uid/value as uid,
     a/composer/name as author,
     a/context/start_time/value as date_created,
-    a_a/activities[at0001]/description[at0009]/items[at0121]/value/value as name,
-    a_a/activities[at0001]/description[at0009]/items[at0121]/value/defining_code/code_string as code,
-    a_a/activities[at0001]/description[at0009]/items[at0121]/value/defining_code/terminology_id/value as terminology,
-    b_a/description[at0001]/items[at0017]/value/value as Test_name,
-    b_a/time/value as date_ordered
-from EHR e[ehr_id/value='{{ehrId}}']
-contains COMPOSITION a
+    b_a/activities[at0001]/description[at0009]/items[at0121]/value/value as Test_name,
+    b_b/time/value as date_ordered,
+    b_b/description[at0001]/items[at0017]/value/value as Test_ordered
+from EHR e
+contains COMPOSITION a[openEHR-EHR-COMPOSITION.request.v1]
 contains (
-    INSTRUCTION a_a[openEHR-EHR-INSTRUCTION.request-lab_test.v1] or
-    ACTION b_a[openEHR-EHR-ACTION.laboratory_test.v1])
+    INSTRUCTION b_a[openEHR-EHR-INSTRUCTION.request-lab_test.v1] and
+    ACTION b_b[openEHR-EHR-ACTION.laboratory_test.v0])
 where a/name/value='Laboratory order'
 
 ```

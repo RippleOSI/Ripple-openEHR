@@ -59,6 +59,7 @@ To create or update a composition for a single item via the /composition Ehrscap
     "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/route": "oral",
     "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/dose_amount_description": "10mg",
     "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/dose_timing_description": "in the morning",
+     "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/additional_instruction:0": "Take before food",
     "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/order_details/order_start_date_time": "2016-02-24T10:50:42Z",
     "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/order_details/order_summary/course_status|code": "at0021",
     "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/timing": "R5/2017-06-26T10:00:00Z/P1M",
