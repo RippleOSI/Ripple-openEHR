@@ -1,0 +1,20 @@
+{
+  "ctx/composer_name": "Dr Tony Shannon",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Home",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2017-03-24T00:11:02.518+02:00",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/medication_item|value": "Salbutamol 100micrograms/dose breath actuated inhaler CFC free",
+      "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/medication_item|code": "320151000",
+        "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/medication_item|terminology": "SNOMED-CT",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/route": "inhalation",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/dose_amount_description": "2 puffs",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/dose_timing_description": "as required for wheeze",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/order_details/order_start_date_time": "2017-06-26T10:50:42Z",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/order_details/order_summary/course_status|code": "at0021",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/order:0/timing": "R5/2017-06-26T10:00:00Z/P1M",
+    "medication_statement_list/medication_and_medical_devices/medication_order:0/narrative": "Salbutamol 100micrograms/dose breath actuated inhaler CFC free"
+}

@@ -1,0 +1,20 @@
+{
+"ctx/composer_name": "Dr Lars Peterson",
+"ctx/composer_id": "8712932",
+"ctx/health_care_facility|id": "999999-345",
+"ctx/health_care_facility|name": "Ripple Valley Hospital NHS",
+"ctx/id_namespace": "NHS-UK",
+"ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+"ctx/language": "en",
+"ctx/territory": "GB",
+"ctx/time": "2014-11-03T00:23:02.518+02:00",
+    "vital_signs_observations/vital_signs/respirations/rate|magnitude": 30,
+    "vital_signs_observations/vital_signs/respirations/inspired_oxygen/on_air": false,
+    "vital_signs_observations/vital_signs/pulse_heart_beat/heart_rate|magnitude": 45,
+    "vital_signs_observations/vital_signs/body_temperature/temperature|magnitude": 36.7,
+    "vital_signs_observations/vital_signs/avpu/avpu_observation|code": "at0005",
+    "vital_signs_observations/vital_signs/blood_pressure/systolic|magnitude": 134,
+    "vital_signs_observations/vital_signs/blood_pressure/diastolic|magnitude": 84,
+    "vital_signs_observations/vital_signs/indirect_oximetry/spo2|numerator": 95,
+    "vital_signs_observations/vital_signs/news_uk_rcp/total_score": 5
+}

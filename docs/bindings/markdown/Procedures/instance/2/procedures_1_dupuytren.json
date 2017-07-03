@@ -1,0 +1,20 @@
+{
+ "ctx/composer_name": "Dr Patrick Lester",
+ "ctx/health_care_facility|id": "999999-345",
+ "ctx/health_care_facility|name": "Northumbria Community NHS",
+ "ctx/id_namespace": "NHS-UK",
+ "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+ "ctx/language": "en",
+ "ctx/territory": "GB",
+ "ctx/time": "2017-05-12T00:11:55.518+02:00",
+"procedures_list/procedures/procedure:0/ism_transition/current_state|value": "active",
+"procedures_list/procedures/procedure:0/ism_transition/careflow_step|code": "at0047",
+"procedures_list/procedures/procedure:0/ism_transition/careflow_step|value": "Procedure performed",
+"procedures_list/procedures/procedure:0/procedure_name|value": "Excision of palmar aponeurosis for Dupuytren's contracture of hand",
+"procedures_list/procedures/procedure:0/procedure_name|terminology": "SNOMED-CT",
+"procedures_list/procedures/procedure:0/procedure_name|code": "398211002",
+"procedures_list/procedures/procedure:0/procedure_notes": "No intra-operative problems",
+"procedures_list/procedures/procedure:0/_other_participation:0|name": "Jennifer Player",
+"procedures_list/procedures/procedure:0/_other_participation:0|function": "performer",
+"procedures_list/procedures/procedure:0/time": "2017-05-11T15:11:33.829Z"
+}

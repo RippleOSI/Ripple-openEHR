@@ -1,0 +1,16 @@
+{
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/composer_name": "Dr Matthew Dwyer",
+    "ctx/time": "2016-12-21T10:50:20.958Z",
+    "ctx/id_namespace": "Ripple",
+    "ctx/id_scheme": "Ripple",
+    "ctx/health_care_facility|name": "Old Street Hospital",
+    "ctx/health_care_facility|id": "9062",
+    "service_tracker/service:0/ism_transition/current_state|code": "526",
+    "service_tracker/service:0/ism_transition/current_state|value": "planned",
+    "service_tracker/service:0/service_name": "Outpatient review",
+    "service_tracker/service:0/service_type": "Appointment",
+    "service_tracker/service:0/description": "Orthopaedic Clinic",
+    "service_tracker/service:0/time":"2016-12-18T10:50:20.958Z"
+}

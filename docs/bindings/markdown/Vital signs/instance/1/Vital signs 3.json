@@ -1,0 +1,20 @@
+{
+"ctx/composer_name": "Dr Tony Shannon",
+"ctx/composer_id": "G33567",
+"ctx/health_care_facility|id": "999999-345",
+"ctx/health_care_facility|name": "Ripple Valley Hospital NHS",
+"ctx/id_namespace": "NHS-UK",
+"ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+"ctx/language": "en",
+"ctx/territory": "GB",
+"ctx/time": "2015-09-04T00:23:02.518+02:00",
+    "vital_signs_observations/vital_signs/respirations/rate|magnitude": 20,
+    "vital_signs_observations/vital_signs/respirations/inspired_oxygen/on_air": true,
+    "vital_signs_observations/vital_signs/pulse_heart_beat/heart_rate|magnitude": 86,
+    "vital_signs_observations/vital_signs/body_temperature/temperature|magnitude": 37.6,
+    "vital_signs_observations/vital_signs/avpu/avpu_observation|code": "at0005",
+    "vital_signs_observations/vital_signs/blood_pressure/systolic|magnitude": 120,
+    "vital_signs_observations/vital_signs/blood_pressure/diastolic|magnitude": 94,
+    "vital_signs_observations/vital_signs/indirect_oximetry/spo2|numerator": 92,
+    "vital_signs_observations/vital_signs/news_uk_rcp/total_score": 14
+}

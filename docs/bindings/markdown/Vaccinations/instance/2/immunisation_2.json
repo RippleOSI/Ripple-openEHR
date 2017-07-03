@@ -1,0 +1,15 @@
+{
+"ctx/composer_name": "Dr Jennifer Handley",
+"ctx/health_care_facility|id": "999999-345",
+"ctx/health_care_facility|name": "Ripple View Surgery",
+"ctx/id_namespace": "NHS-UK",
+"ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+"ctx/language": "en",
+"ctx/territory": "GB",
+"ctx/time": "2017-03-24T00:11:02.518+02:00",
+"immunisation_summary/immunisation_procedure:0/ism_transition/current_state|code": "532",
+"immunisation_summary/immunisation_procedure:0/immunisation_name": "Tetanus",
+"immunisation_summary/immunisation_procedure:0/series_number": 3,
+"immunisation_summary/immunisation_procedure:0/comment": "Booster needed in 12 months",
+"immunisation_summary/immunisation_procedure:0/time": "2017-03-23T07:45:20.622Z"
+}

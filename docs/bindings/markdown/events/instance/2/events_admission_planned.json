@@ -1,0 +1,16 @@
+{
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/composer_name": "Dr Jennifer Handley",
+    "ctx/time": "2017-03-11T10:50:20.958Z",
+    "ctx/id_namespace": "Ripple",
+    "ctx/id_scheme": "Ripple",
+    "ctx/health_care_facility|name": "The Old Cottage Hospital",
+    "ctx/health_care_facility|id": "9031",
+    "service_tracker/service:0/ism_transition/current_state|code": "526",
+    "service_tracker/service:0/ism_transition/current_state|value": "planned",
+    "service_tracker/service:0/service_name": "Admit",
+    "service_tracker/service:0/service_type": "Admission",
+    "service_tracker/service:0/description": "From home",
+    "service_tracker/service:0/time":"2017-03-09T10:50:20.958Z"
+}

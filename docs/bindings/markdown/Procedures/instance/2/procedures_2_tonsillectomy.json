@@ -1,0 +1,21 @@
+{
+ "ctx/composer_name": "Dr Jennifer Handley",
+ "ctx/health_care_facility|id": "999999-335",
+ "ctx/health_care_facility|name": "The Old Cottage Hospital",
+ "ctx/id_namespace": "NHS-UK",
+ "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+ "ctx/language": "en",
+ "ctx/territory": "GB",
+ "ctx/time": "2014-11-21T00:11:02.518+02:00",
+ "procedures_list/procedures:0/procedure:0/_other_participation:0|function": "performer",
+ "procedures_list/procedures:0/procedure:0/_other_participation:0|name": "Andrew Hillyer",
+  "procedures_list/procedures:0/procedure:0/ism_transition/current_state|code": "245",
+  "procedures_list/procedures:0/procedure:0/ism_transition/current_state|value": "active",
+  "procedures_list/procedures:0/procedure:0/ism_transition/careflow_step|code": "at0047",
+  "procedures_list/procedures:0/procedure:0/ism_transition/careflow_step|value": "Procedure performed",
+  "procedures_list/procedures:0/procedure:0/procedure_name|value": "Tonsillectomy",
+  "procedures_list/procedures:0/procedure:0/procedure_name|terminology": "SNOMED-CT",
+  "procedures_list/procedures:0/procedure:0/procedure_name|code": "173422009",
+  "procedures_list/procedures:0/procedure:0/procedure_notes": "day case",
+  "procedures_list/procedures:0/procedure:0/time": "2014-11-18T15:31:33.829Z"
+}

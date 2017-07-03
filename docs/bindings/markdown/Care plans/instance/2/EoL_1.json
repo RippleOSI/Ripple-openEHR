@@ -1,0 +1,20 @@
+{
+  "ctx/composer_name": "Dr Lars Peterson",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Home",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2017-02-15T00:11:02.518+02:00",
+  "end_of_life_patient_preferences/legal_information:0/preferred_priorities_of_care:0/preferred_place_of_care:0|code": "at0006",
+  "end_of_life_patient_preferences/legal_information:0/preferred_priorities_of_care:0/preferred_place_of_death:0|code": "at0016",
+  "end_of_life_patient_preferences/legal_information:0/preferred_priorities_of_care:0/comment": "Next of kin present and informed",
+  "end_of_life_patient_preferences/legal_information:0/advance_decision_to_refuse_treatment/decision_status|code": "at0022",
+  "end_of_life_patient_preferences/legal_information:0/advance_decision_to_refuse_treatment/date_of_decision": "2017-12-19T17:02:31.696Z",
+  "end_of_life_patient_preferences/legal_information:0/advance_decision_to_refuse_treatment/comment": "Partner present and aware of decision",
+  "end_of_life_patient_preferences/legal_information:0/cpr_decision/cpr_decision|code": "at0005",
+  "end_of_life_patient_preferences/legal_information:0/cpr_decision/date_of_cpr_decision": "2017-02-19T17:02:31.696Z",
+  "end_of_life_patient_preferences/legal_information:0/cpr_decision/informal_carer_awareness_of_decision|code": "at0026",
+  "end_of_life_patient_preferences/legal_information:0/cpr_decision/comment": "Decision discussed at length and now settled"
+}

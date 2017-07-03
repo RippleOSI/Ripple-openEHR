@@ -1,0 +1,20 @@
+{
+    "ctx/composer_name": "Dr Patrick Lester",
+    "ctx/composer_id": "3423567",
+    "ctx/health_care_facility|id": "999999-345",
+    "ctx/health_care_facility|name": "Ripple Valley Hospital NHS",
+    "ctx/id_namespace": "NHS-UK",
+    "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/time": "2017-02-02T00:11:02.518+02:00",
+        "problem_list/problems_and_issues:0/problem_diagnosis:0/date_time_of_onset": "2015-05-05T12:30:37.553Z",
+
+    "problem_list/problems_and_issues:0/problem_diagnosis:0/problem_diagnosis_name|code": "274142002",
+    "problem_list/problems_and_issues:0/problem_diagnosis:0/problem_diagnosis_name|terminology": "SNOMED-CT",
+    "problem_list/problems_and_issues:0/problem_diagnosis:0/problem_diagnosis_name|value": "Dupuytren's contracture",
+    "problem_list/problems_and_issues:0/problem_diagnosis:0/body_site:0|code": "85151006",
+    "problem_list/problems_and_issues:0/problem_diagnosis:0/body_site:0|terminology": "SNOMED-CT",
+    "problem_list/problems_and_issues:0/problem_diagnosis:0/body_site:0|value": "Left hand"
+
+}
