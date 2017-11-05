@@ -24,7 +24,7 @@ select
     b_a/description[at0001]/items[at0011]/value/value as eventName,
     b_a/description[at0001]/items[at0014]/value/value as eventType,
     b_a/description[at0001]/items[at0013]/value/value as eventDescription,
-    b_a/time as eventTime
+    b_a/time/value as eventTime
 from EHR e
 contains COMPOSITION a[openEHR-EHR-COMPOSITION.service_tracker.v0]
 contains ACTION b_a[openEHR-EHR-ACTION.service.v0]

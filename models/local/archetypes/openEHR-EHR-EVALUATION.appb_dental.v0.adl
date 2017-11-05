@@ -1,0 +1,78 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.appb_dental.v0
+
+concept
+	[at0000]	-- Appb dental
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"00251FA5027151361B39BFA452C080F7">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Appb dental
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Report
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Date examined
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Number of decayed teeth
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Appb dental">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Report">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Date examined">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Number of decayed teeth">
+					description = <"*">
+				>
+			>
+		>
+	>

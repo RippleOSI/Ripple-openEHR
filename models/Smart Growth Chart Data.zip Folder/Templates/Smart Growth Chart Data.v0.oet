@@ -60,10 +60,10 @@
       </item>
     </other_details>
   </description>
-  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report">
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" path="/content">
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="Smart Growth Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Body weight" max="1" path="/content">
       <Rule path="/data[at0002]" hide_on_form="true" />
-      <Rule path="/data[at0002]/events[at0003]" hide_on_form="true">
+      <Rule path="/data[at0002]/events[at0003]" max="1" hide_on_form="true">
         <eventConstraint>
           <allowedType>PointInTime</allowedType>
         </eventConstraint>
@@ -79,7 +79,7 @@
       <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]" max="0" />
       <Rule path="/protocol[at0015]" hide_on_form="true" />
     </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" path="/content">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" max="1" path="/content">
       <Rule path="/data[at0001]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
         <eventConstraint>
@@ -97,7 +97,43 @@
       <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
     </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.head_circumference.v0" concept_name="Head circumference" path="/content">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" max="1" path="/content" name="Paternal height">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>in</excludedUnits>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Height/Length" max="1" path="/content" name="Maternal height">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>in</excludedUnits>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.head_circumference.v0" concept_name="Head circumference" max="1" path="/content">
       <Rule path="/data[at0001]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0010]" hide_on_form="true">
         <eventConstraint>
@@ -116,7 +152,7 @@
       <Rule path="/data[at0001]/events[at0011]" max="0" />
       <Rule path="/protocol[at0005]" hide_on_form="true" />
     </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0" concept_name="Child growth calculation" path="/content">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0" concept_name="Child growth calculation" max="0" path="/content">
       <Rule path="/data[at0001]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
         <eventConstraint>
@@ -125,9 +161,15 @@
       </Rule>
       <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" max="0" />
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" clone="true" name="Height for age" />
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" clone="true" name="Weight for age" />
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0014]" clone="true" name="Head circumference for age" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Body mass index" max="1" path="/content" />
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.skeletal_age.v0" concept_name="Skeletal age" max="1" path="/content">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0027]/items[at0028]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0009]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0021]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0014]" max="0" />
     </Content>
     <Context>
       <Rule path="/context/other_context[at0001]" hide_on_form="true" />
@@ -150,5 +192,11 @@
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.child_growth.v0">
     <digest id="MD5-CAM-1.0.1">2FAACF8894331AB2C7029EF1B96E061D</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1">
+    <digest id="MD5-CAM-1.0.1">361412E9CC6A4FE18B28D7869FA3B28A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.skeletal_age.v0">
+    <digest id="MD5-CAM-1.0.1">38CF4991E9A56BE052D431719A2BEE7D</digest>
   </integrity_checks>
 </template>

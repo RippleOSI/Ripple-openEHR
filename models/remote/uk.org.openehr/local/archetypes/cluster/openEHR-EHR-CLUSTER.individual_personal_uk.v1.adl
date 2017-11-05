@@ -18,8 +18,8 @@ language
 description
 	original_author = <
 		["name"] = <"Ian McNicoll">
-		["organisation"] = <"Ocean Informatics">
 		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["organisation"] = <"Ocean Informatics">
 		["date"] = <"12/11/2007">
 	>
 	details = <
@@ -40,13 +40,13 @@ description
 			copyright = <"© Clinical Models UK">
 		>
 	>
-	lifecycle_state = <"AuthorDraft">
+	lifecycle_state = <"NotSet">
 	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", ...>
 	other_details = <
 		["references"] = <"NHS Scotland SCI-XML messaging standards http://www.isdscotland.org/isd/files/general-v2-7.xsd NHS Scotland Interoperability Working Group http://www.isdscotland.org/isd/5194.html and based on a  structure for personal data pertaining to a person.  ENV 13606 - 4:2000 7.6.12-14
 
 HSCIC Data Dictionary Person Class http://www.datadictionary.nhs.uk/data_dictionary/classes/p/person_re.asp?shownav=1">
-		["MD5-CAM-1.0.1"] = <"1FBD3A0D0A53F016CEE38900DC482B1F">
+		["MD5-CAM-1.0.1"] = <"D6826750D7376C731C0CBA8A86B14D9E">
 	>
 
 definition
@@ -71,7 +71,7 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0016] occurrences matches {0..1} matches {	-- Identifier
+			ELEMENT[at0016] occurrences matches {0..*} matches {	-- Identifier
 				value matches {
 					DV_IDENTIFIER matches {*}
 				}
@@ -95,7 +95,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
