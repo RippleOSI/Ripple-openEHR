@@ -78,7 +78,7 @@ Not to be used to record the absence of information - use the EVALUATION.absense
 		["references"] = <"Derived from: Eksklusjonsutsagn - overordnet, Draft archetype [Internet]. Nasjonal IKT, Nasjonal IKT Clinical Knowledge Manager [cited: 2017-03-17]. Available from: http://arketyper.no/ckm/#showArchetype_1078.36.1650
 
 Exclusion statement, Deprecated Archetype [Internet]. openEHR Foundation, openEHR Clinical Knowledge Manager [cited: 2017-02-17]. Available from: http://openehr.org/ckm/#showArchetype_1013.1.617">
-		["MD5-CAM-1.0.1"] = <"4BA13FC7948A3FB4BD42CA3664A03FA4">
+		["MD5-CAM-1.0.1"] = <"6C3AE79EA036A2A9E2411DF28510E9D5">
 		["custodian_namespace"] = <"org.openehr">
 		["custodian_organisation"] = <"openEHR Foundation">
 	>
@@ -117,6 +117,11 @@ definition
 		protocol matches {
 			ITEM_TREE[at0008] matches {	-- Tree
 				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
 					allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {	-- Extension
 						include
 							archetype_id/value matches {/.*/}
@@ -176,6 +181,10 @@ ontology
 					text = <"Comment">
 					description = <"Additional comment not covered in other fields.">
 				>
+				["at0012"] = <
+					text = <"Last updated">
+					description = <"The date at which the global exclusion was last updated.">
+				>
 			>
 		>
 		["nb"] = <
@@ -225,6 +234,10 @@ ontology
 				["at0011"] = <
 					text = <"Kommentar">
 					description = <"Ytterligere kommentar som ikke dekkes av andre felt.">
+				>
+				["at0012"] = <
+					text = <"*Last updated(en)">
+					description = <"*The date at which the global exclusion was last updated.(en)">
 				>
 			>
 		>
