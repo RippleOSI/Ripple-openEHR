@@ -1,0 +1,149 @@
+archetype (adl_version=1.4)
+    openEHR-EHR-CLUSTER.xds_metadata.v0
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2017-11-06">
+        ["name"] = <"Ian McNicoll">
+        ["organisation"] = <"freshEHR Ltd.">
+        ["email"] = <"ian@freshehr.com">
+    >
+    lifecycle_state = <"in_development">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            keywords = <"Document, metadata", ...>
+            copyright = <"© openEHR Foundation">
+            other_details = <
+                ["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+                ["custodian_organisation"] = <"openEHR Foundation">
+                ["original_namespace"] = <"org.openehr">
+                ["original_publisher"] = <"openEHR Foundation">
+                ["custodian_namespace"] = <"org.openehr">
+            >
+        >
+    >
+    other_details = <
+        ["licence"] = <"CC-BY-SA-3.0">
+    >
+
+definition
+    CLUSTER[at0000] matches {
+        items cardinality matches {0..*; unordered} matches {
+            ELEMENT[at0001] occurrences matches {0..1} matches {
+                value existence matches {0..1} matches {
+                    DV_TEXT occurrences matches {0..1} matches {*}
+                }
+            }
+            ELEMENT[at0002] occurrences matches {0..1} matches {
+                value existence matches {0..1} matches {
+                    DV_TEXT occurrences matches {0..1} matches {*}
+                }
+            }
+            ELEMENT[at0003] occurrences matches {0..1} matches {
+                value existence matches {0..1} matches {
+                    DV_TEXT occurrences matches {0..1} matches {*}
+                }
+            }
+            ELEMENT[at0004] occurrences matches {0..1} matches {
+                value existence matches {0..1} matches {
+                    DV_TEXT occurrences matches {0..1} matches {*}
+                }
+            }
+            ELEMENT[at0007] occurrences matches {0..1} matches {
+                value existence matches {0..1} matches {
+                    DV_TEXT occurrences matches {0..1} matches {*}
+                }
+            }
+            ELEMENT[at0009] occurrences matches {0..1} matches {
+                value existence matches {0..1} matches {
+                    DV_TEXT occurrences matches {0..1} matches {*}
+                }
+            }
+            ELEMENT[at0011] occurrences matches {0..*} matches {
+                value existence matches {0..1} matches {
+                    DV_TEXT occurrences matches {0..1} matches {*}
+                }
+            }
+            ELEMENT[at0010] occurrences matches {0..1} matches {
+                value existence matches {0..1} matches {
+                    DV_MULTIMEDIA matches {
+                        media_type matches {
+                            [openEHR::
+                            405,
+                            406,
+                            407,
+                            408,
+                            409,
+                            410,
+                            411,
+                            412,
+                            413,
+                            414,
+                            415,
+                            416,
+                            417,
+                            418,
+                            419,
+                            420,
+                            421,
+                            422,
+                            423,
+                            424,
+                            427,
+                            429,
+                            517,
+                            518]
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    terminologies_available = <"en", ...>
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"XDS Metadata">
+                    description = <"xds_metadata">
+                >
+                ["at0001"] = <
+                    text = <"Author specialty">
+                    description = <"The speciality of the author/composer of the document.">
+                >
+                ["at0002"] = <
+                    text = <"Class code">
+                    description = <"A high-level document class code, normally selected from a valueset provided by the IHE-XDS Affinity Domain.">
+                    comment = <"For example: Report, Summary, Images, Plan, Patient Preferences, Workflow.">
+                >
+                ["at0003"] = <
+                    text = <"Document type">
+                    description = <"The code specifying the precise type of document from the user perspective. Normally selected from a valueset provided by the local IHE-XDS Affinity Domain or national standard.">
+                >
+                ["at0004"] = <
+                    text = <"Confidentiality code">
+                >
+                ["at0007"] = <
+                    text = <"Health care facility type">
+                >
+                ["at0009"] = <
+                    text = <"Practice setting code">
+                >
+                ["at0010"] = <
+                    text = <"Document_media">
+                >
+                ["at0011"] = <
+                    text = <"Event_code">
+                >
+            >
+        >
+    >
