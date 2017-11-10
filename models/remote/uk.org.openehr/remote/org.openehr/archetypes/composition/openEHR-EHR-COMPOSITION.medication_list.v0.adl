@@ -19,8 +19,8 @@ language
 description
 	original_author = <
 		["name"] = <"Chunlan Ma">
-		["organisation"] = <"Ocean Informatics, Australia">
 		["email"] = <"chunlan.ma@oceaninformatics.com">
+		["organisation"] = <"Ocean Informatics, Australia">
 		["date"] = <"2006-11-06">
 	>
 	details = <
@@ -74,16 +74,16 @@ Not to be used to record vaccinations administered - use COMPOSITION.vaccination
 			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
+	lifecycle_state = <"NotSet">
 	other_contributors = <"Ian McNicoll, Ocean Informatics, United Kingdom", "Sam Heard, Ocean Informatics, Australia", "Sistine Barretto-Daniels, Ocean Informatics, Australia", "Heather Leslie, Ocean Informatics, Australia">
 	other_details = <
-		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
-		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["revision"] = <"0.0.1-alpha">
+		["original_publisher"] = <"openEHR Foundation">
+		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
 		["build_uid"] = <"a573506f-3cbe-4fd5-9efc-71b0936f8e0d">
 		["original_namespace"] = <"org.openehr">
-		["original_publisher"] = <"openEHR Foundation">
-		["MD5-CAM-1.0.1"] = <"6580C641D816380326253E28A85DE60C">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["MD5-CAM-1.0.1"] = <"DD627ADE22D644951307D8F838222CB8">
 		["custodian_namespace"] = <"org.openehr">
 		["custodian_organisation"] = <"openEHR Foundation">
 	>
@@ -98,13 +98,18 @@ definition
 		context matches {
 			EVENT_CONTEXT matches {
 				other_context matches {
-					ITEM_TREE[at0005] matches {*}
+					ITEM_TREE[at0005] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {	-- Extension
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
 				}
 			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
@@ -118,6 +123,11 @@ ontology
 					text = <"Tree">
 					description = <"@ internal @">
 				>
+				["at0006"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
 			>
 		>
 		["es-ar"] = <
@@ -129,6 +139,10 @@ ontology
 				["at0005"] = <
 					text = <"*Tree(en)">
 					description = <"*@ internal @(en)">
+				>
+				["at0006"] = <
+					text = <"*Cluster(en)">
+					description = <"**(en)">
 				>
 			>
 		>
