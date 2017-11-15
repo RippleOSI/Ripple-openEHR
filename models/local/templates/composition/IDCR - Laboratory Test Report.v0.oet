@@ -83,11 +83,17 @@
       </Items>
     </Content>
     <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" concept_name="XDS Metadata" path="/context/other_context[at0001]/items[at0006]">
+        <Rule path="/items[at0003]" default="SNOMED-CT::4241000179101::Laboratory report" />
+      </Items>
       <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
     </Context>
   </definition>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1">
     <digest id="MD5-CAM-1.0.1">1853F80CFF69F14444CF1C21D9A64834</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
+    <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.laboratory_test.v0">
     <digest id="MD5-CAM-1.0.1">64F4898018F4D87C7D8ADAF36558AAF7</digest>

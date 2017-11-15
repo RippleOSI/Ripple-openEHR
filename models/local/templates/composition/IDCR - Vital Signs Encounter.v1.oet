@@ -184,10 +184,17 @@
         <Rule path="/data[at0001]" hide_on_form="true" />
       </Item>
     </Content>
-    <Context />
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" concept_name="XDS Metadata" path="/context/other_context[at0001]/items[at0002]">
+        <Rule path="/items[at0003]" default="SNOMED-CT::823611000000107::Vital signs chart" />
+      </Items>
+    </Context>
   </definition>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1">
     <digest id="MD5-CAM-1.0.1">4DF6B3DE1A7F7899B4F88A97FED974E7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
+    <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.vital_signs.v1">
     <digest id="MD5-CAM-1.0.1">1A2798CD58AB9CFDEDD7C157BC7EDF82</digest>

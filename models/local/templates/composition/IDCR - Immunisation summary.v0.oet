@@ -66,7 +66,9 @@
       <Rule path="/protocol[at0013]" hide_on_form="true" />
       <Rule path="/protocol[at0013]/items[at0014]" max="0" />
     </Content>
-    <Context />
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" concept_name="XDS Metadata" path="/context/other_context[at0001]/items[at0002]" />
+    </Context>
   </definition>
   <view>
     <constraints path="[openEHR-EHR-COMPOSITION.health_summary.v1]/content[openEHR-EHR-ACTION.immunisation_procedure.v1]/time">
@@ -77,6 +79,9 @@
   </view>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.health_summary.v1">
     <digest id="MD5-CAM-1.0.1">CA8006DBE4BA91910B594498AB651880</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
+    <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.immunisation_procedure.v1">
     <digest id="MD5-CAM-1.0.1">2F1087AD325F7F9FFFD383F1158629B6</digest>
