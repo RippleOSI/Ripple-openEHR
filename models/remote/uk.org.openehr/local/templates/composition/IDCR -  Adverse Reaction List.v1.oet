@@ -65,7 +65,7 @@
       <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1" concept_name="Adverse reaction risk" path="/items">
         <Rule path="/data[at0001]" hide_on_form="true" />
         <Rule path="/data[at0001]/items[at0002]" name="Causative agent" />
-        <Rule path="/data[at0001]/items[at0063]">
+        <Rule path="/data[at0001]/items[at0063]" default="Confirmed">
           <constraint xsi:type="textConstraint">
             <excludedValues>local::at0064</excludedValues>
             <excludedValues>local::at0067</excludedValues>
