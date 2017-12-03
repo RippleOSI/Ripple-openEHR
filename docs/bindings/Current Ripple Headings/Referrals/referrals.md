@@ -3,10 +3,15 @@
 ### Referrals
 
 #### Version:
+1.3.0
 
-1.1.0
+03-Dec-2017
 
-18-Dec-2016
+Updated FLAT JSON to carry a spearate Referral Date as ACTION service `time` attribute. This was previously set automatically by the `ctx/time` attribute.
+
+1.2.0
+
+17-Feb-2017
 
 #### TemplateID:
 `IDCR - Service Request.v0`
@@ -14,14 +19,13 @@
 #### Summary AQL /query:
 
 To populate the list of items when the heading is selected.
-# **** Not currently valid ****
 
 ```
 select
     a/composer/name as author,
     a/uid/value as uid,
     a/context/start_time/value as date_created,
-    b_a/activities[at0001]/description[at0009]/items[at0121]/value/value as referral_to,
+    b_a/activities[at0001]/description[at0009]/items[at0121]/value/value as referral_type,
     b_a/activities[at0001]/description[at0009]/items[at0062]/value/value as referral_reason,
     b_a/activities[at0001]/description[at0009]/items[at0064]/value/value as clinical_summary,
     b_a/protocol[at0008]/items[openEHR-EHR-CLUSTER.individual_person_uk.v1, 'Requestor']/items[openEHR-EHR-CLUSTER.person_name.v1]/items[at0001]/value/value as referralFrom,
@@ -72,7 +76,8 @@ To create or update a composition for a single item via the /composition Ehrscap
     "request_for_service/referral_details/service_request:0/receiver_identifier": "3f74c2e6-2ae0-4680-b8b2-c6daec8f9309",
     "request_for_service/referral_details/service_request:0/receiver/name_of_organisation": "Ripplefields Optometry service",
     "request_for_service/referral_details/service_request:0/narrative": "Optometry",
- 	  "request_for_service/referral_details/service:0/receiver_identifier": "3f74c2e6-2ae0-4680-b8b2-c6daec8f9309",
+    "request_for_service/referral_details/service:0/receiver_identifier": "3f74c2e6-2ae0-4680-b8b2-c6daec8f9309",
+    "request_for_service/referral_details/service:0/time": "2016-03-23T00:11:02.518+02:00",
     "request_for_service/referral_details/service:0/ism_transition/current_state|code": "526",
     "request_for_service/referral_details/service:0/ism_transition/careflow_step|code": "at0026",
     "request_for_service/referral_details/service:0/service_name": "Optometry"
