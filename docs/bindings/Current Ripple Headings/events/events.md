@@ -3,11 +3,12 @@
 ### Events
 
 #### Version:
-1.0.0
+1.1.0 02 Jan 2018
+Corrected eventTime AQL to return scalar value rather than object
 1.0.1
 added event Time to AQL and composition sample
-
-05-Jun-2017
+1.0.0 05-Jun-2017
+Initial
 
 #### TemplateID:
 `IDCR - Service tracker.v0`
@@ -24,7 +25,7 @@ select
     b_a/description[at0001]/items[at0011]/value/value as eventName,
     b_a/description[at0001]/items[at0014]/value/value as eventType,
     b_a/description[at0001]/items[at0013]/value/value as eventDescription,
-    b_a/time/value as eventTime
+    b_a/time/value/value as eventTime
 from EHR e
 contains COMPOSITION a[openEHR-EHR-COMPOSITION.service_tracker.v0]
 contains ACTION b_a[openEHR-EHR-ACTION.service.v0]
