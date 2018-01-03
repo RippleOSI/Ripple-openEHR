@@ -1,0 +1,23 @@
+{
+    "ctx/composer_name": "Dr Julian Grange",
+  "ctx/composer_id": "8932123",
+    "ctx/health_care_facility|id": "999999-345",
+    "ctx/health_care_facility|name": "Ripple Valley Hospital NHS",
+    "ctx/id_namespace": "NHS-UK",
+    "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/time": "2013-04-23T00:11:02.518+02:00",
+    "problem_list/problems_and_issues/problem_diagnosis:0/date_time_of_onset": "2009-05-12T12:30:37.553Z",
+    "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_name|code": "22298006",
+    "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_name|terminology": "SNOMED-CT",
+    "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_name|value": "myocardial infarction",
+    "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_status/diagnostic_status|code": "at0018",
+    "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_status/active_inactive|code": "at0027",
+    "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_status/resolution_status|code": "at0085",
+    "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_status/episodicity|code": "at0035",
+    "problem_list/problems_and_issues/problem_diagnosis:0/diagnostic_certainty|code": "at0076",
+    "problem_list/problems_and_issues/problem_diagnosis:0/diagnostic_certainty|value": "Confirmed",
+    "problem_list/problems_and_issues/problem_diagnosis:0/diagnostic_certainty|terminology": "local",
+    "problem_list/problems_and_issues/problem_diagnosis:0/comment": "fully recovered"
+}
