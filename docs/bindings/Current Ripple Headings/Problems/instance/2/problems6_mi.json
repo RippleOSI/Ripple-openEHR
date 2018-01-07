@@ -8,6 +8,7 @@
     "ctx/language": "en",
     "ctx/territory": "GB",
     "ctx/time": "2013-04-23T00:11:02.518+02:00",
+    "problem_list/problems_and_issues/problem_diagnosis:0/_uid": "{{$guid}}",
     "problem_list/problems_and_issues/problem_diagnosis:0/date_time_of_onset": "2009-05-12T12:30:37.553Z",
     "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_name|code": "22298006",
     "problem_list/problems_and_issues/problem_diagnosis:0/problem_diagnosis_name|terminology": "SNOMED-CT",
