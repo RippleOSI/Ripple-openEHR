@@ -4,6 +4,9 @@
 
 #### Version:
 
+1.3.1 - 23-Jan-2018
+Corrected AQL error
+
 1.3.0 - 22-Jan-2018
 Added marked up FLAT JSON example.
 
@@ -45,8 +48,7 @@ contains (
     ACTION b_a[openEHR-EHR-ACTION.service.v0])
 where
     a/name/value='MDT Output Report' and
-    b_a/ism_transition[at0002]/careflow_step/defining_code/code_string='at0002'
-
+    b_a/ism_transition[at0002]/careflow_step/defining_code/code_string='at0026'
 ```
 
 #### Detail AQL /query:
