@@ -4,7 +4,7 @@
 
 #### Version:
 
-1.3.1 - 23-Jan-2018
+1.3.2 - 24-Jan-2018
 Removed incorrect at0002 node predicate in ism_transition in AQL.
 
 1.3.1 - 23-Jan-2018
