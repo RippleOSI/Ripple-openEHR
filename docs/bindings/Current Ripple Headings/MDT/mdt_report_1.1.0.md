@@ -5,6 +5,9 @@
 #### Version:
 
 1.3.1 - 23-Jan-2018
+Removed incorrect at0002 node predicate in ism_transition in AQL.
+
+1.3.1 - 23-Jan-2018
 Corrected AQL error
 
 1.3.0 - 22-Jan-2018
@@ -37,7 +40,7 @@ select
     a_a/protocol[at0008]/items[at0011]/value/value as service_team,
     a_b/data[at0001]/items[at0004]/value/value as question,
     a_c/data[at0001]/items[at0002]/value/value as notes,
-    b_a/ism_transition[at0002]/careflow_step/defining_code/code_string as careflow_step,
+    b_a/ism_transition/careflow_step/defining_code/code_string as careflow_step,
     b_a/protocol[at0015]/items[at0018]/value/value as Service_team
 from EHR e [ehr_id/value = '{{ehrId}}']
 contains COMPOSITION a[openEHR-EHR-COMPOSITION.report.v1]
@@ -48,7 +51,7 @@ contains (
     ACTION b_a[openEHR-EHR-ACTION.service.v0])
 where
     a/name/value='MDT Output Report' and
-    b_a/ism_transition[at0002]/careflow_step/defining_code/code_string='at0026'
+    b_a/ism_transition/careflow_step/defining_code/code_string='at0026'
 ```
 
 #### Detail AQL /query:
