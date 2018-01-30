@@ -8,8 +8,8 @@ language
 description
 	original_author = <
 		["name"] = <"Ian McNicoll">
-		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
 		["email"] = <"ian@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
 		["date"] = <"2015-11-01">
 	>
 	details = <
@@ -24,17 +24,17 @@ description
 	lifecycle_state = <"in_development">
 	other_contributors = <>
 	other_details = <
-		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["revision"] = <"0.0.1-alpha">
+		["original_publisher"] = <"openEHR Foundation">
+		["build_uid"] = <"01ee809e-809a-478a-97bb-445cdad67233">
+		["original_namespace"] = <"org.openehr">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["references"] = <"Medication item, Draft Archetype [Internet]. UK Clinical Models, UK Clinical Models Clinical Knowledge Manager [cited: 2015-11-01]. Available from: http://clinicalmodels.org.uk/ckm/#showArchetype_1051.32.3
 
 Medication event summary, Draft Archetype [Internet]. UK Clinical Models, UK Clinical Models Clinical Knowledge Manager [cited: 2015-11-01]. Available from: http://clinicalmodels.org.uk/ckm/#showArchetype_1051.32.140
 
 Medication order status valueset[Internet]. HL7 FHIR , HL7 FHIR DSTU2 [cited: 2015-11-01]. Available from https://www.hl7.org/fhir/valueset-medication-order-status.html">
-		["build_uid"] = <"01ee809e-809a-478a-97bb-445cdad67233">
-		["original_publisher"] = <"openEHR Foundation">
-		["original_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"1E7D6F795F76E5D62071822152161AFE">
+		["MD5-CAM-1.0.1"] = <"3A5CBF50FE1A745AA0720174253B51C2">
 		["custodian_namespace"] = <"org.openehr">
 		["custodian_organisation"] = <"openEHR Foundation">
 	>
@@ -88,10 +88,13 @@ definition
 					DV_DATE_TIME matches {*}
 				}
 			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {	-- Date asserted
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
@@ -208,6 +211,10 @@ ontology
 				["at0027"] = <
 					text = <"Draft">
 					description = <"The medication order has been made but further processes e.g. sign-off or verification are required before it becomes actionable.">
+				>
+				["at0028"] = <
+					text = <"Date asserted">
+					description = <"The date at which this medication summary was asserted to be correct.">
 				>
 			>
 		>
