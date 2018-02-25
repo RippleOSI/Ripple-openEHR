@@ -61,6 +61,22 @@
     </other_details>
   </description>
   <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="PROMs">
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.procedure.v1" concept_name="Procedure" path="/content">
+      <Rule path="/description[at0001]/items[at0049]" max="0" />
+      <Rule path="/description[at0001]/items[at0065]" max="0" />
+      <Rule path="/description[at0001]/items[at0058]" max="0" />
+      <Rule path="/description[at0001]/items[at0063]" max="0" />
+      <Rule path="/description[at0001]/items[at0048]" max="0" />
+      <Rule path="/description[at0001]/items[at0069]" max="0" />
+      <Rule path="/description[at0001]/items[at0006]" max="0" />
+      <Rule path="/description[at0001]/items[at0066]" max="0" />
+      <Rule path="/description[at0001]/items[at0060]" max="0" />
+      <Rule path="/description[at0001]/items[at0061]" max="0" />
+      <Rule path="/description[at0001]/items[at0067]" max="0" />
+      <Rule path="/description[at0001]/items[at0014]" max="0" />
+      <Rule path="/protocol[at0053]/items[at0054]" max="0" />
+      <Rule path="/protocol[at0053]/items[at0056]" max="0" />
+    </Content>
     <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.sf36.v0" concept_name="SF-36" path="/content">
       <Rule path="/data[at0001]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
@@ -90,6 +106,9 @@
   </definition>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
     <digest id="MD5-CAM-1.0.1">FD053BE0456D849CACD864F274EED32E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.procedure.v1">
+    <digest id="MD5-CAM-1.0.1">7A65632D1A59E073C1B6D7CE0E68E7B8</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.sf36.v0">
     <digest id="MD5-CAM-1.0.1">439BD5B19A2EADAE82E36EC09AE5C630</digest>

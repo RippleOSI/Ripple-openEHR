@@ -17,20 +17,24 @@ To populate the list of items when the heading is selected.
 
 ```
 select
-  a/uid/value as uid,
-  a/composer/name as author,
-  a/context/start_time/value as date_created,
-  b_a/items[at0001]/value/magnitude as Pain_scale_magnitude,
-  b_b/data[at0001]/events[at0002]/data[at0003]/items[at0008]/value/symbol/defining_code/code_string as a_1_Health_in_general,
-  b_b/data[at0001]/events[at0002]/data[at0003]/items[at0014]/value/symbol/defining_code/code_string as a_2_Health_compared_to_1_year_ago,
-  b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0020]/value/symbol/defining_code/code_string as a_3_Vigorous_activies,
-  b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0024]/value/symbol/defining_code/code_string as a_4_Moderate_activies,
-  b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0028]/value/symbol/defining_code/code_string as a_5_Lifting_or_carrying_groceries
+    a/uid/value as uid,
+    a/composer/name as author,
+    a/context/start_time/value as date_created,
+    b_c/description[at0001]/items[at0002]/value/value as Procedure_value,
+    b_c/description[at0001]/items[at0002]/value/defining_code/code_string as Procedure_code,
+    b_c/description[at0001]/items[at0002]/value/defining_code/terminology_id as Procedure_terminology,
+    b_a/items[at0001]/value/magnitude as Pain_scale_magnitude,
+    b_b/data[at0001]/events[at0002]/data[at0003]/items[at0008]/value/symbol/defining_code/code_string as a_1_Health_in_general,
+    b_b/data[at0001]/events[at0002]/data[at0003]/items[at0014]/value/symbol/defining_code/code_string as a_2_Health_compared_to_1_year_ago,
+    b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0020]/value/symbol/defining_code/code_string as a_3_Vigorous_activies,
+    b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0024]/value/symbol/defining_code/code_string as a_4_Moderate_activies,
+    b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0028]/value/symbol/defining_code/code_string as a_5_Lifting_or_carrying_groceries
 from EHR e
 contains COMPOSITION a[openEHR-EHR-COMPOSITION.report.v1]
 contains (
-    CLUSTER b_a[openEHR-EHR-CLUSTER.pain_vas.v0] and
-    OBSERVATION b_b[openEHR-EHR-OBSERVATION.sf36.v0])
+    CLUSTER b_a[openEHR-EHR-CLUSTER.pain_vas.v0] or
+    OBSERVATION b_b[openEHR-EHR-OBSERVATION.sf36.v0] or
+    ACTION b_c[openEHR-EHR-ACTION.procedure.v1])
 where a/name/value='PROMs'
 ```
 
@@ -55,6 +59,12 @@ To create or update a composition for a single item via the /composition Ehrscap
 "ctx/language": "en",
 "ctx/territory": "GB",
 "ctx/time": "2017-01-14T00:11:02.518+02:00",
+   //FIXED BOILERPLATE
+   "proms/procedure:0/ism_transition/current_state|code": "245",
+   //FIXED BOILERPLATE
+   "proms/procedure:0/ism_transition/careflow_step|code": "at0047",
+   "proms/procedure:0/procedure_name|value": "total replacement of hip",
+   "proms/procedure:0/procedure_name|terminology": "SNOMED-CT",
     "proms/sf-36:0/a1._health_in_general|code": "at0011",
     "proms/sf-36:0/a2._health_compared_to_1_year_ago|code": "at0017",
     "proms/sf-36:0/limitations_to_activities_during_typical_day/a3._vigorous_activies|code": "at0021",
