@@ -4,9 +4,8 @@
 
 #### Version:
 
-1.0.0
-
-23 Feb 2018
+1.1.0: 27 Feb 2018 - Fixed incorrect EHR clause in AQL
+1.0.0 :23 Feb 2018
 
 #### TemplateID:
 `Ripple PROMS.v0`
@@ -29,7 +28,7 @@ select
     b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0020]/value/symbol/defining_code/code_string as a_3_Vigorous_activies,
     b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0024]/value/symbol/defining_code/code_string as a_4_Moderate_activies,
     b_b/data[at0001]/events[at0002]/data[at0003]/items[at0029]/items[at0028]/value/symbol/defining_code/code_string as a_5_Lifting_or_carrying_groceries
-from EHR e
+from EHR e [ehr_id/value = '{{ehrId}}'']
 contains COMPOSITION a[openEHR-EHR-COMPOSITION.report.v1]
 contains (
     CLUSTER b_a[openEHR-EHR-CLUSTER.pain_vas.v0] or
