@@ -65,14 +65,14 @@
       <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1" concept_name="Adverse reaction risk" path="/items">
         <Rule path="/data[at0001]" hide_on_form="true" />
         <Rule path="/data[at0001]/items[at0002]" name="Causative agent" />
-        <Rule path="/data[at0001]/items[at0063]" default="Confirmed">
+        <Rule path="/data[at0001]/items[at0063]" default="local::at0065::Confirmed">
           <constraint xsi:type="textConstraint">
             <excludedValues>local::at0064</excludedValues>
             <excludedValues>local::at0067</excludedValues>
             <excludedValues>local::at0066</excludedValues>
           </constraint>
         </Rule>
-        <Rule path="/data[at0001]/items[at0009]" max="1" name="Reaction details" />
+        <Rule path="/data[at0001]/items[at0058]" max="0" />
         <Rule path="/data[at0001]/items[at0009]/items[at0010]" max="0" />
         <Rule path="/data[at0001]/items[at0009]/items[at0021]" max="0" />
         <Rule path="/data[at0001]/items[at0009]/items[at0028]" max="0" />
@@ -83,6 +83,7 @@
         <Rule path="/data[at0001]/items[at0009]/items[at0040]" max="0" />
         <Rule path="/data[at0001]/items[at0009]/items[at0032]" name="Comment" />
         <Rule path="/protocol[at0042]" hide_on_form="true" />
+        <Rule path="/protocol[at0042]/items[at0062]" min="1" />
         <Rule path="/protocol[at0042]/items[at0047]" max="0" />
         <Rule path="/protocol[at0042]/items[at0044]" max="0" />
         <Rule path="/protocol[at0042]/items[at0099]" max="0" />

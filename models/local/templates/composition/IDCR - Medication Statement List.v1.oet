@@ -63,7 +63,6 @@
   <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.medication_list.v0" concept_name="Medication list" name="Medication statement list">
     <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.medication_medical_devices_rcp.v1" concept_name="Medication and medical devices" max="1" path="/content">
       <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v1" concept_name="Medication order" path="/items">
-        <Rule path="/activities[at0001]/description[at0002]/items[at0070]" max="1" />
         <Rule path="/activities[at0001]/description[at0002]/items[at0091]" max="1" />
         <Rule path="/activities[at0001]/description[at0002]/items[at0094]" max="0" />
         <Rule path="/activities[at0001]/description[at0002]/items[at0047]" max="0" />
@@ -81,16 +80,18 @@
         <Rule path="/activities[at0001]/description[at0002]/items[at0129]" max="0" />
         <Rule path="/activities[at0001]/description[at0002]/items[at0167]" max="0" />
         <Rule path="/protocol[at0005]/items[at0004]" max="0" />
-        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0" concept_name="Medication substance" path="/activities[at0001]/description[at0002]/items[at0143]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0" concept_name="Medication component" path="/activities[at0001]/description[at0002]/items[at0143]">
           <Rule path="/items[at0132]" max="0" />
           <Rule path="/items[at0142]" max="0" />
-          <Rule path="/items[at0115]" max="0" />
-          <Rule path="/items[at0116]" max="0" />
-          <Rule path="/items[at0117]" max="0" />
+          <Rule path="/items[at0160]" max="0" />
+          <Rule path="/items[at0152]" max="0" />
+          <Rule path="/items[at0151]" max="0" />
+          <Rule path="/items[at0150]" max="0" />
+          <Rule path="/items[at0003]" max="0" />
           <Rule path="/items[at0126]" max="0" />
           <Rule path="/items[at0133]" max="0" />
         </Items>
-        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_course_summary.v0" concept_name="Medication course summary" max="1" path="/activities[at0001]/description[at0002]/items[at0113]/items[at0112]" name="Order summary">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_order_summary.v0" concept_name="Medication order summary" max="1" path="/activities[at0001]/description[at0002]/items[at0113]/items[at0112]" name="Order summary">
           <Rule path="/items[at0002]" max="0" />
         </Items>
       </Item>
@@ -117,7 +118,7 @@
     </Context>
   </definition>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.medication_list.v0">
-    <digest id="MD5-CAM-1.0.1">D7426BC31A90D8A715133DAE006D882D</digest>
+    <digest id="MD5-CAM-1.0.1">80E3D1CF64FE92C51E373442DE4EB9C4</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
     <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
@@ -126,13 +127,13 @@
     <digest id="MD5-CAM-1.0.1">BA8A4CAF4F969BDC67687A8EF75D3523</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v1">
-    <digest id="MD5-CAM-1.0.1">A654F83CB5B198AE991092F53472F7CB</digest>
+    <digest id="MD5-CAM-1.0.1">23C66F34EE4EBC155366C66296221B99</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0">
-    <digest id="MD5-CAM-1.0.1">48E7562836049F5F865845C7456F08D4</digest>
+    <digest id="MD5-CAM-1.0.1">7CC1056D3A26F3380FCCE2C7B0F9C2F7</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_course_summary.v0">
-    <digest id="MD5-CAM-1.0.1">3A5CBF50FE1A745AA0720174253B51C2</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_order_summary.v0">
+    <digest id="MD5-CAM-1.0.1">265C1CDDA945CB118C70D38BB4E9E0C2</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
     <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>

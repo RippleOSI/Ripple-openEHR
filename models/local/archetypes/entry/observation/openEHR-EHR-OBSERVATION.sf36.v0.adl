@@ -1,0 +1,461 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.sf36.v0
+
+concept
+	[at0000]	-- SF-36
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2018-02-19">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of the responses and overall score of the 36-Item Short Form Survey.">
+			use = <"Use to record the responses and overall score of the 36-Item Short Form Survey of patient-reported healthcare outcomes.">
+			keywords = <"SF-36", "PROM", "health", "survey">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["references"] = <"https://www.rand.org/health/surveys_tools/mos/36-item-short-form.html cited 19-Feb-2018
+
+Ware, J.E., Jr., & Sherbourne, C.D. “The MOS 36-Item Short-Form Health Survey (SF-36): I. Conceptual Framework and Item Selection,”. Medical Care, 30:473-483, 1992.
+
+">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["MD5-CAM-1.0.1"] = <"439BD5B19A2EADAE82E36EC09AE5C630">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- SF-36
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- 1. Health in general
+										value matches {
+											1|[local::at0009], 	-- Excellent
+											2|[local::at0010], 	-- Very good
+											3|[local::at0011], 	-- Good
+											4|[local::at0012], 	-- Fair
+											5|[local::at0013]  	-- Poor
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- 2. Health compared to 1 year ago
+										value matches {
+											1|[local::at0015], 	-- Much better
+											2|[local::at0016], 	-- Somewhat better
+											3|[local::at0017], 	-- About the same
+											4|[local::at0018], 	-- Somewhat worse
+											5|[local::at0019]  	-- Much worse
+										}
+									}
+									CLUSTER[at0029] occurrences matches {0..1} matches {	-- Limitations to activities during typical day
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0020] occurrences matches {0..1} matches {	-- 3. Vigorous activies
+												value matches {
+													1|[local::at0021], 	-- Yes, limited a lot
+													2|[local::at0022], 	-- Yes, limited a little
+													3|[local::at0023]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {	-- 4. Moderate activies
+												value matches {
+													1|[local::at0025], 	-- Yes, limited a lot
+													2|[local::at0026], 	-- Yes, limited a little
+													3|[local::at0027]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {	-- 5. Lifting or carrying groceries
+												value matches {
+													1|[local::at0030], 	-- Yes, limited a lot
+													2|[local::at0031], 	-- Yes, limited a little
+													3|[local::at0032]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0033] occurrences matches {0..1} matches {	-- 6. Climbing several flights of stairs
+												value matches {
+													1|[local::at0034], 	-- Yes, limited a lot
+													2|[local::at0035], 	-- Yes, limited a little
+													3|[local::at0036]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0037] occurrences matches {0..1} matches {	-- 7. Climbing one flight of stairs
+												value matches {
+													1|[local::at0038], 	-- Yes, limited a lot
+													2|[local::at0039], 	-- Yes, limited a little
+													3|[local::at0040]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0041] occurrences matches {0..1} matches {	-- 8. Bending, kneeling or stooping
+												value matches {
+													1|[local::at0042], 	-- Yes, limited a lot
+													2|[local::at0043], 	-- Yes, limited a little
+													3|[local::at0044]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0045] occurrences matches {0..1} matches {	-- 9. Walking more than a mile
+												value matches {
+													1|[local::at0046], 	-- Yes, limited a lot
+													2|[local::at0047], 	-- Yes, limited a little
+													3|[local::at0048]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0049] occurrences matches {0..1} matches {	-- 10. Walking several blocks
+												value matches {
+													1|[local::at0050], 	-- Yes, limited a lot
+													2|[local::at0051], 	-- Yes, limited a little
+													3|[local::at0052]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0053] occurrences matches {0..1} matches {	-- 11. Walking one block
+												value matches {
+													1|[local::at0054], 	-- Yes, limited a lot
+													2|[local::at0055], 	-- Yes, limited a little
+													3|[local::at0056]  	-- No, not limited at all
+												}
+											}
+											ELEMENT[at0057] occurrences matches {0..1} matches {	-- 12. Bathing or dressing
+												value matches {
+													1|[local::at0058], 	-- Yes, limited a lot
+													2|[local::at0059], 	-- Yes, limited a little
+													3|[local::at0060]  	-- No, not limited at all
+												}
+											}
+										}
+									}
+									CLUSTER[at0061] occurrences matches {0..1} matches {	-- Problems with work and daily activities
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0062] occurrences matches {0..1} matches {	-- 13. Cut down time spent
+												value matches {
+													1|[local::at0063], 	-- Yes
+													2|[local::at0064]  	-- No
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0004] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..*} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0006] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"SF-36">
+					description = <"36-Item Short Form Survey.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0006"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0008"] = <
+					text = <"1. Health in general">
+					description = <"Patient reported rating of general health.">
+					comment = <"UI Guidance: Display '1. In general, would you say your health is:'.">
+				>
+				["at0009"] = <
+					text = <"Excellent">
+					description = <"Patient reports health in general as being excellent.">
+				>
+				["at0010"] = <
+					text = <"Very good">
+					description = <"Patient reports health in general as being very good.">
+				>
+				["at0011"] = <
+					text = <"Good">
+					description = <"Patient reports health in general as being good.">
+				>
+				["at0012"] = <
+					text = <"Fair">
+					description = <"Patient reports health in general as being fair.">
+				>
+				["at0013"] = <
+					text = <"Poor">
+					description = <"Patient reports health in general as being poor.">
+				>
+				["at0014"] = <
+					text = <"2. Health compared to 1 year ago">
+					description = <"Patient reported rating of health in general now compared to one year ago.">
+					comment = <"UI Guidance: Display '2. Compared to one year ago, how would your rate your health in general now?'">
+				>
+				["at0015"] = <
+					text = <"Much better">
+					description = <"Patient reports health in general now as being much better than one year ago.">
+				>
+				["at0016"] = <
+					text = <"Somewhat better">
+					description = <"Patient reports health in general now as being somewhat better than one year ago.">
+				>
+				["at0017"] = <
+					text = <"About the same">
+					description = <"Patient reports health in general now as being about the same as one year ago.">
+				>
+				["at0018"] = <
+					text = <"Somewhat worse">
+					description = <"Patient reports health in general now as being somewhat worse than one year ago.">
+				>
+				["at0019"] = <
+					text = <"Much worse">
+					description = <"Patient reports health in general now as being much worse than one year ago.">
+				>
+				["at0020"] = <
+					text = <"3. Vigorous activies">
+					description = <"Patient reported extent of health-related limitations to vigorous activies such as running, lifting heavy objects, participating in strenuous sports.">
+					comment = <"UI Guidance: Display '3. Vigorous activities, such as running, lifting heavy objects, participating in strenuous sports'.">
+				>
+				["at0021"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits vigorous activities a lot.">
+				>
+				["at0022"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits vigorous activities a little.">
+				>
+				["at0023"] = <
+					text = <"No, not limited at all">
+					description = <"Patient report that health now does not limit vigorous activities at all.">
+				>
+				["at0024"] = <
+					text = <"4. Moderate activies">
+					description = <"Patient reported extent of health-related limitations to moderate activies such as moving a table, pushing a vacuum cleaner, bowling or playing golf.">
+					comment = <"UI Guidance: '4. Moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf'.">
+				>
+				["at0025"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits moderate activities a lot.">
+				>
+				["at0026"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits moderate activities a little.">
+				>
+				["at0027"] = <
+					text = <"No, not limited at all">
+					description = <"Patient report that health now does not limit moderate activities at all.">
+				>
+				["at0028"] = <
+					text = <"5. Lifting or carrying groceries">
+					description = <"Patient reported extent of health-related limitations to lifting or carrying groceries.">
+					comment = <"UI guidance: Display '5. Lifting or carrying groceries'.">
+				>
+				["at0029"] = <
+					text = <"Limitations to activities during typical day">
+					description = <"Patient reported extent of limitations to activities during a typical day.">
+					comment = <"UI guidance: All items in the cluster should be displayed together with the same overall explanation ' The following items are about activities you might do during a typical day. Does your health now limit you in these activities? If so, how much?'">
+				>
+				["at0030"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits lifting or carrying groceries a lot.">
+				>
+				["at0031"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits lifting or carrying groceries a little.">
+				>
+				["at0032"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not limit lifting or carrying groceries at all.">
+				>
+				["at0033"] = <
+					text = <"6. Climbing several flights of stairs">
+					description = <"Patient reported extent of health-related limitations to climbing several flights of stairs.">
+					comment = <"UI Guidance: Display \"6. Climbing several flights of stairs'.">
+				>
+				["at0034"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits climbing several flights of stairs a lot.">
+				>
+				["at0035"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits climbing several flights of stairs a little.">
+				>
+				["at0036"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not limit climbing several flights of stairs at all.">
+				>
+				["at0037"] = <
+					text = <"7. Climbing one flight of stairs">
+					description = <"Patient reported extent of health-related limitations to climbing one flight of stairs.">
+					comment = <"UI Guidance: Display '7. One flight of stairs'.">
+				>
+				["at0038"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits climbing one flight of stairs a lot.">
+				>
+				["at0039"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits climbing one flight of stairs a little.">
+				>
+				["at0040"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not limit climbing one flight of stairs at all.">
+				>
+				["at0041"] = <
+					text = <"8. Bending, kneeling or stooping">
+					description = <"Patient reported extent of health-related limitations to bending, kneeling or stooping.">
+					comment = <"UI Guidance: Display '8. Bending, kneeling or stooping'.">
+				>
+				["at0042"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits bending, kneeling or stooping a lot.">
+				>
+				["at0043"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits bending, kneeling or stooping a little.">
+				>
+				["at0044"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not limit bending, kneeling or stooping at all.">
+				>
+				["at0045"] = <
+					text = <"9. Walking more than a mile">
+					description = <"Patient reported extent of health-related limitations to walking more than one mile.">
+					comment = <"UI Guidance: Display '9. Walking more than a mile'.">
+				>
+				["at0046"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits walking more than one mile a lot.">
+				>
+				["at0047"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits walking more than one mile a little.">
+				>
+				["at0048"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not  limit walking more than one mile at all.">
+				>
+				["at0049"] = <
+					text = <"10. Walking several blocks">
+					description = <"Patient reported extent of health-related limitations to walking several blocks.">
+					comment = <"UI Guidance: Display '10. Walking several blocks'.">
+				>
+				["at0050"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits walking several blocks a lot.">
+				>
+				["at0051"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits walking several blocks a little.">
+				>
+				["at0052"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not limit walking several blocks at all.">
+				>
+				["at0053"] = <
+					text = <"11. Walking one block">
+					description = <"Patient reported extent of health-related limitations to walking one block.">
+					comment = <"UI Guidance: Display '11. Walking one block'.">
+				>
+				["at0054"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits walking one block a lot.">
+				>
+				["at0055"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits walking one block a little.">
+				>
+				["at0056"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not limit walking one block at all.">
+				>
+				["at0057"] = <
+					text = <"12. Bathing or dressing">
+					description = <"Patient reported extent of health-related limitations to bathing or dressing themselves.">
+					comment = <"UI Guidance: Display '12. Bathing or dressing yourself'.">
+				>
+				["at0058"] = <
+					text = <"Yes, limited a lot">
+					description = <"Patient reports that health now limits bathing or dressing themselves a lot.">
+				>
+				["at0059"] = <
+					text = <"Yes, limited a little">
+					description = <"Patient reports that health now limits bathing or dressing themselves a little.">
+				>
+				["at0060"] = <
+					text = <"No, not limited at all">
+					description = <"Patient reports that health now does not limit bathing or dressing themselves at all.">
+				>
+				["at0061"] = <
+					text = <"Problems with work and daily activities">
+					description = <"Patient reported problems with work or other regular daily activities as a result of physical health.">
+					comment = <"UI Guidance: All items in the cluster should be displayed together with the same overall explanation 'During the past 4 weeks, have you had any of the following problems with your work or other regular daily activities as a result of your physical health?'.">
+				>
+				["at0062"] = <
+					text = <"13. Cut down time spent">
+					description = <"Patient reported statement whether they have cut down the amount of time spent on work or other activities in the past 4 weeks.">
+					comment = <"UI guidance: Display '13. Cut down the amount of time you spent on work or other activities'.">
+				>
+				["at0063"] = <
+					text = <"Yes">
+					description = <"Patient reports having cut down the amount of time spent on work or other activities.">
+				>
+				["at0064"] = <
+					text = <"No">
+					description = <"Patient report NOT having cut down the amount of time spent on work or other activities.">
+				>
+			>
+		>
+	>
