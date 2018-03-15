@@ -15,7 +15,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record addtional composition metadata aligned with IHE-XDS which is not already available from the Reference Model COMPOSITION class.">
+			purpose = <"To record additional composition metadata aligned with IHE-XDS which is not already available from the Reference Model COMPOSITION class.">
 			use = <"Use to add IHE-XDS aligned metadata to a COMPOSITION.context, which along with existing COMPOSITION attributes, allows the composition to be registered in an IHE-XDS environment.">
 			keywords = <"Document, metadata", "IHE", "XDS">
 			misuse = <"">
@@ -30,8 +30,8 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"7FDA9FE6CA313093704EA352E45E2711">
-		["build_uid"] = <"d5d4286b-ada7-4b9b-9806-b680592b5244">
+		["MD5-CAM-1.0.1"] = <"B2538EC96A6545E2E6F04CE532DA36E3">
+		["build_uid"] = <"5e6379f0-14f8-4d4a-8722-788a72b935b1">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -138,7 +138,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"XDS Metadata">
-					description = <"Addtional composition metadata aligned with IHE-XDS which is not already available from the Reference Model COMPOSITION class.">
+					description = <"Additional composition metadata aligned with IHE-XDS which is not already available from the Reference Model COMPOSITION class.">
 				>
 				["at0001"] = <
 					text = <"Author specialty">
@@ -174,7 +174,7 @@ Coded text is preferred, normally specific to an XDS Affinity Domain.">
 				>
 				["at0010"] = <
 					text = <"Document_media">
-					description = <"Additonal metadata about the document itself, inclusding size, url.">
+					description = <"Additional metadata about the document itself, including size, url.">
 				>
 				["at0011"] = <
 					text = <"Event code">
