@@ -5,7 +5,7 @@
   <description>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
-      <purpose />
+      <purpose>The primary intent is to support a continuously curated life-long ‘medication statement list ', as would be found in a GP system, PHR or other regional/national CDR but this should also be usable for episodic or departmental medication lists, which are generated at admission to a service e.g hospital admission, and maintained only during that episode of care or for that department.  For clarity, this is NOT intended to be used in a prescribing system for the actual process of prescribing / dispensing, but is a static list of medications the patient is currently using/taking. It is also NOT intended to be used directly for the process of medication reconciliation, which would require some additional metadata.</purpose>
       <use />
       <misuse />
     </details>
@@ -91,6 +91,10 @@
           <Rule path="/items[at0126]" max="0" />
           <Rule path="/items[at0133]" max="0" />
         </Items>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.therapeutic_direction.v1" concept_name="Therapeutic direction" path="/activities[at0001]/description[at0002]/items[at0177]" hide_on_form="true">
+          <Rule path="/items[at0057]" max="0" />
+          <Rule path="/items[at0172]" max="0" />
+        </Items>
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_order_summary.v0" concept_name="Medication order summary" max="1" path="/activities[at0001]/description[at0002]/items[at0113]/items[at0112]" name="Order summary">
           <Rule path="/items[at0002]" max="0" />
         </Items>
@@ -121,7 +125,7 @@
     <digest id="MD5-CAM-1.0.1">80E3D1CF64FE92C51E373442DE4EB9C4</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
-    <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
+    <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.medication_medical_devices_rcp.v1">
     <digest id="MD5-CAM-1.0.1">BA8A4CAF4F969BDC67687A8EF75D3523</digest>
@@ -131,6 +135,9 @@
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0">
     <digest id="MD5-CAM-1.0.1">7CC1056D3A26F3380FCCE2C7B0F9C2F7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.therapeutic_direction.v1">
+    <digest id="MD5-CAM-1.0.1">7E0B7E617F3E46A676CFA0C259FEAF96</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_order_summary.v0">
     <digest id="MD5-CAM-1.0.1">265C1CDDA945CB118C70D38BB4E9E0C2</digest>

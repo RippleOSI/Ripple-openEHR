@@ -1,0 +1,180 @@
+﻿archetype (adl_version=1.4; uid=0bc23421-daa9-4d47-a751-21a525f01c14)
+	openEHR-EHR-COMPOSITION.procedure_list.v0
+
+concept
+	[at0000]	-- Procedure list
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["es-ar"] = <
+			language = <[ISO_639-1::es-ar]>
+			author = <
+				["name"] = <"Alan March">
+				["organisation"] = <"Hospital Universitario Austral, Buenos Aires, Argentina.">
+				["alandmarch@gmail.com"] = <"alandmarch@gmail.com">
+			>
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			author = <
+				["name"] = <"Vladimir Pizzo">
+				["organisation"] = <"Hospital Sirio Libanes, Brazil">
+				["email"] = <"vladimir.pizzo@hsl.org.br">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Hildegard McNicoll">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2018-03-30">
+	>
+	details = <
+		["es-ar"] = <
+			language = <[ISO_639-1::es-ar]>
+			purpose = <"Para registar una lista persistente y administrada de todas las reacciones adversas previamente expermientadas por el sujeto o, alternativamente, aseveraciones positivas acerca de exclusiones conocidas o ausencia de información sobre reacciones adversas; todas las cuales puedan contribuir hacia o influenciar la toma de decisiones clínicas y la provisión de cuidados.">
+			use = <"Utilícese para registar una lista persistente y administrada de todas las reacciones adversas (incluyendo alergias, hipersensibilidades, efectos colaterales o intolerancias) expermientadas por el sujeto o, alternativamente, aseveraciones positivas acerca de exclusiones conocidas o ausencia de información sobre reacciones adversas. Estalista puede tambien ser utilizada como fuente de datos actualizados acerca de reacciones adversas a los fines de intercambio o como fundamento para la toma de decisiones.
+
+Esta lista puede incluir tres tipos de arquetipos que registran datos clínicos:
+- aseveraciones positivas acerca de la ocurrencia de reacciones adversas experimentadas por el sujeto a lo largo de su vida, que son registradas mediante el arquetipo EVALUATION.adverse_reaction; O
+- una aseveración positiva acerca de la exclusión de una reacción adversa previa, que es registrada utilizando el arquetipo específico EVALUATION.exclusion-adverse_reaction (por ejemplo: \"Sin reacciones adversas conocidas\"); O
+- una aseveración positiva acerca de la no disponibilidad de información (ya sea sobre reacciones adversas previas o exclusiones conocidas, que es registrada mediante en arquetipo EVALUATION.absence.
+
+Adicionalmente, es posible incluir un arquetipo SECTION a fin de ajustarse a jurisdicciones y prácticas clínicas locales. Por ejemplo: SECTION.adverse_reaction.
+
+A fin de que esta lista sea exacta y segura para el uso como fundamento de las actividades de toma de decisiones y el intercambio, lo ideal sería que la misma sea mantenida por el clínico responsable de la historia clínica, en lugar de adminstrada en forma automática por el sistema clínico solo sobre la base de reglas de negocio.
+
+En tanto es razonable que las reacciones adversas clínicamente verificadas sean persistidas a través del tiempo, el mismo enfoque no aplica a las aseveraciones sobre exclusiones o ausencias. Estas solo deberían ser consideradas válidasal momento de su registro. Por ejemplo, el registro de una aseveración que el sujeto no tiene alergia conocida a la penicilina pierde vigencia en el momento en que el clínico suministra una dosis de penicilina al sujeto y este presenta uan reacción.
+
+Este arquetipo es usualmente administrado como una lista persistente pero existen sin embargo situaciones en las cuales la lista pueden ser utilizada durante un episodio de cuidado y requiere de atributos adicionales tales como el contexto (u otros) para permitir un registro exacto. El modelo de referencia de openEHR actual solo permite registrar el contexto dentro de arquetipos de tipo COMPOSITION basados en eventos. Por esto este arquetipo ha sido modelado como una COMPOSITION representativa de un evento mas que como una persistente, lo cual otorga la flexibilidad para que ciertos sistemas clínicos puedan administrar una Lista de Reacciones Adversas para episodios de cuidado, en tanto que otros puedan optar por implementar esta COMPOSITION de modo tal que actue de modo persistente.">
+			keywords = <"adversa", "reacción", "alergia", "intolerancia", "efecto", "hipersensibilidad", "efecto colateral">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Para registrar uma lista de todas as reações adversas prévias experimentadas pelo indivíduo ou, alternativamente, afirmações sobre exclusões conhecidas ou ausência de informações sobre reações adversas; todas estas podem contribuir ou influenciar as decisões clínicas e provisão de cuidado.">
+			use = <"Utilizar para registrar uma lista de todas as reações adversas prévias (incluindo alergias, hipersensitividades, efeitos colaterais ou intolerâncias) experimentadas pelo indivíduo ou, alternativamente, afirmações sobre exclusões conhecidas ou ausência de informações sobre reações adversas. Esta lista também pode ser utilizada como uma fonte atualizada de dados de reações adversas para troca ou como base para tomada de decisões. 
+
+Esta lista pode incluir três tipos de arquétipos que registram dados clínicos:
+- afirmações sobre a ocorrência de reações aversas experimentadas pelo indivíduo durante sua vida são registradas utilizando o arquétipo EVALUATION.adverse_reaction; ou
+- afirmação sobre a exclusão de quaisquer reações adversas prévias conhecidas pode ser registrada utilizando o arquétipo específico EVALUATION.exclusion-adverse_reaction - por exemplo: \"Ausência de reações adversas conhecidas\"; ou
+- afirmação sobre a ausência de informações disponíveis - nem reações adverssas prévias conhecidas, nem exclusões conhecidas - pode ser registrada utilizando o arquétipo EVALUATION.absence.
+
+Em adição, um arquétipo SECTION pode ser incluído como um organizador que vai contemplar jurisdições locais e prática clínica. Por exemplo: SECTION.adverse_reaction.
+
+Afim de tornar esta lista acurada e segura para ser utilizada como base de atividades de suporte à decisão e troca, esta lista deve, idealmente, estar sob a curadoria de um clínico responsável pelo registro de saúde ao invés de gerenciada automaticamente por sistema clínico através de regras de negócio apenas.
+
+Enquanto é razoável para reações adversas verificadas clinicamente que estas permaneçam registradas, a mesma abordagem não se aplica às afirmações sobre exclusões ou ausências. Elas devem ser consideradas válidas somente se forem registradas. Por exemplo registrar uma afirmação de que não se sabe se o sujeito é alérgico à penicilina é inativada assim que o clínico der uma dose de penicilina e ocorrer uma reação.
+
+Este arquétipo normalmente é gerenciado como uma lista permanente, entretanto há situações em que a lista pode ser utilizada em episódios de cuidado e requeira atributos adicionais como contexto para permitir um registro acurado. Atualmente, o modelo de referência openEHR apenas permite que o contexto seja registrado em arquétipos COMPOSITION baseados em eventos. Como resultado, este arquétipo tem sido modelado como um Evento ao invés de COMPOSITION Persistente, para possibilitar esta flexibilidade é que alguns sistemas podem gerenciar de maneria segura Listas de Reações Adversas para episódios de cuidado, enquanto outros vão escolher implementar este COMPOSITION para atuar de maneira permanente.">
+			keywords = <"reação", "adversa", "alergia", "intolerância", "efeito", "hipersensibilidade", "efeito colateral">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a persistent and managed list of all procedures performed on the subject which may contribute to or influence clinical decision-making and care provision.">
+			use = <"Use to record a persistent and managed list of procedures performed on the subject.
+
+In order for this list to be accurate and safe to use as the basis for decision support activities and for exchange, this list should ideally be curated by a clinician responsible for the health record, rather than managed automatically by the clinical system through business rules alone.
+
+This archetype is usually managed as a persistent list, however there are situations where the list may be used within episodic care and require additional attributes such as context etc to enable accurate recording. The openEHR reference model currently only allows context to be recorded within Event-based COMPOSITION archetypes. As a result, this archetype has been modelled as an Event, rather than Persistent, COMPOSITION, to allow for flexibility so that some clinical systems can safely manage Procedure Lists for episodes of care, while others will choose to implement this COMPOSITION to act in a persistent manner.">
+			keywords = <"operation", "procedure", "surgery">
+			misuse = <"">
+			copyright = <"© Clinical Models UK">
+		>
+	>
+	lifecycle_state = <"NotSet">
+	other_contributors = <>
+	other_details = <
+		["revision"] = <"0.0.1-alpha">
+		["original_publisher"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard McNicoll freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["build_uid"] = <"c528115f-6aa8-4a7e-9a16-3067670fe89d">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["references"] = <"Derived from: <Add reference to original resource here>">
+		["MD5-CAM-1.0.1"] = <"204DF39E7926CCFBC0F4008E3FB749C4">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["custodian_organisation"] = <"UK Clinical Models">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Procedure list
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {	-- Extension
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Procedure list">
+					description = <"A persistent and managed list of procedures performed on the subject that may influence clinical decision-making and care provision.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"For example: Local hospital departmental infomation or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+		["es-ar"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Procedure list(en)">
+					description = <"*A persistent and managed list of procedures performed on the subject that may influence clinical decision-making and care provision.(en)">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"*Extension(en)">
+					description = <"*Additional information required to capture local context or to align with other reference models/formalisms.(en)">
+					comment = <"*For example: Local hospital departmental infomation or additional metadata to align with FHIR or CIMI equivalents.(en)">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Procedure list(en)">
+					description = <"*A persistent and managed list of procedures performed on the subject that may influence clinical decision-making and care provision.(en)">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Extensão">
+					description = <"Informações adicionais necessárias para capturar um contexto local ou para alinhar com outros modelos referenciais / formalismos .">
+					comment = <"Por exemplo : Informações departamentais de hospital local ou metadados adicionais para alinhar com FHIR ou CIMI equivalentes.">
+				>
+			>
+		>
+	>

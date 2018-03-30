@@ -5,7 +5,7 @@
   <description>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
-      <purpose>The primary intent is to support a continuously curated life-long ‘medication statement list ', as would be found in a GP system, PHR or other regional/national CDR but this should also be usable for episodic or departmental medication lists, which are generated at admission to a service e.g hospital admission, and maintained only during that episode of care or for that department. </purpose>
+      <purpose />
       <use />
       <misuse />
     </details>
