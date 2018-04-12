@@ -5,7 +5,7 @@
   <description>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
-      <purpose />
+      <purpose>The primary purpose is to support a typical face to face contact with a patient during which vital signs such as blood pressure, temperature, pulse rate etc are measured and recorded, including overall vital sign scores such as NEWS and Glasgow Coma Scale. The template can also be used for patient-reported vital signs and could be populated via external devices as well.</purpose>
       <use />
       <misuse />
     </details>
@@ -68,7 +68,6 @@
         <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/state[at0022]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/state[at0022]/items[at0056]" max="0" />
@@ -86,8 +85,8 @@
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0046]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0039]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0040]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0058]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0036]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/state[at0014]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0016]" max="0" />
         <Rule path="/protocol[at0007]" hide_on_form="true" />
@@ -107,6 +106,7 @@
           </nameConstraint>
         </Rule>
         <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0005]" max="0" />
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]" max="0" />
         <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]" max="0" />
         <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]" max="0" />
         <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]" max="0" />
@@ -118,24 +118,18 @@
         <Rule path="/protocol[at0010]/items[at1019]" max="0" />
         <Rule path="/protocol[at0010]/items[at1037]" max="0" />
       </Item>
-      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v1" concept_name="Body temperature" max="1" path="/items[at0001]">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2" concept_name="Body temperature" max="1" path="/items[at0001]">
         <Rule path="/data[at0002]" hide_on_form="true" />
-        <Rule path="/data[at0002]/events[at0003]" max="1" hide_on_form="true" />
-        <Rule path="/data[at0002]/events[at0003]/data[at0001]" hide_on_form="true" />
-        <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
-          <constraint xsi:type="quantityConstraint">
-            <excludedUnits>°F</excludedUnits>
-            <unitMagnitude>
-              <unit>°C</unit>
-              <minMagnitude>0</minMagnitude>
-              <includesMaximum>false</includesMaximum>
-              <includesMinimum>true</includesMinimum>
-            </unitMagnitude>
-          </constraint>
+        <Rule path="/data[at0002]/events[at0003]" hide_on_form="true">
+          <eventConstraint>
+            <allowedType>PointInTime</allowedType>
+          </eventConstraint>
         </Rule>
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]" hide_on_form="true" />
         <Rule path="/data[at0002]/events[at0003]/state[at0029]" hide_on_form="true" />
         <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0030]" max="0" />
         <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0041]" max="0" />
+        <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0065]" max="0" />
         <Rule path="/protocol[at0020]" hide_on_form="true" />
         <Rule path="/protocol[at0020]/items[at0021]" max="0" />
       </Item>
@@ -145,7 +139,6 @@
         <Rule path="/data[at0001]/events[at0006]/data[at0003]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]" max="0" />
         <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]" max="0" />
-        <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]" max="0" />
         <Rule path="/data[at0001]/events[at0006]/state[at0007]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]" max="0" />
         <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]" max="0" />
@@ -190,14 +183,6 @@
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.news_uk_rcp.v1" concept_name="NEWS (UK RCP)" max="1" path="/items[at0001]">
         <Rule path="/data[at0001]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0029]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0034]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]" max="0" />
-        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
         <Rule path="/data[at0001]/events[at0002]/state[at0041]" hide_on_form="true" />
         <Rule path="/protocol[at0045]" hide_on_form="true" />
       </Item>
@@ -214,28 +199,17 @@
           <Rule path="/items[at0057]" max="0" />
         </Items>
       </Item>
-      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pews_uk.v1" concept_name="Paediatric Early Warning Score (UK)" max="1" path="/items[at0001]" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.glasgow_coma_scale.v1" concept_name="Glasgow coma scale" max="1" path="/items[at0001]">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0040]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0040]/items[at0041]" max="0" />
+        <Rule path="/protocol[at0038]" hide_on_form="true" />
+      </Item>
       <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" path="/items[at0002]">
         <Rule path="/data[at0001]" hide_on_form="true" />
       </Item>
-    </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.bristol_stool_scale.v1" concept_name="Bristol stool scale" max="1" path="/content">
-      <Rule path="/data[at0001]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]/state[at0013]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
-    </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.waterlow_score.v1" concept_name="Waterlow score" max="1" path="/content">
-      <Rule path="/data[at0001]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
-        <eventConstraint>
-          <allowedType>PointInTime</allowedType>
-        </eventConstraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]/state[at0071]" hide_on_form="true" />
-      <Rule path="/protocol[at0132]" hide_on_form="true" />
     </Content>
     <Context>
       <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" concept_name="XDS Metadata" path="/context/other_context[at0001]/items[at0002]">
@@ -247,7 +221,7 @@
     <digest id="MD5-CAM-1.0.1">4DF6B3DE1A7F7899B4F88A97FED974E7</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
-    <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
+    <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.vital_signs.v0">
     <digest id="MD5-CAM-1.0.1">BFB0D72627B3F4C46CB5A8DA3678F1DE</digest>
@@ -261,8 +235,8 @@
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1">
     <digest id="MD5-CAM-1.0.1">7E0F17C058F5F85DB171D40C60FB28A4</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v1">
-    <digest id="MD5-CAM-1.0.1">5E2257CC252B591F41714621C597C910</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2">
+    <digest id="MD5-CAM-1.0.1">7D1C9AAF0C93C3F3C583405151EBD4C4</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1">
     <digest id="MD5-CAM-1.0.1">7341F7E8A07ACE883A5F541BA79F2B95</digest>
@@ -282,16 +256,10 @@
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.inspired_oxygen.v1">
     <digest id="MD5-CAM-1.0.1">1D03ABF2ED7D6734A8838BA7EF91DAD2</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pews_uk.v1">
-    <digest id="MD5-CAM-1.0.1">77EF9D60020502FB3BA274A150025CED</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.glasgow_coma_scale.v1">
+    <digest id="MD5-CAM-1.0.1">F96DF5407AD3C630AB9F3CA94F5886AB</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
     <digest id="MD5-CAM-1.0.1">2D066E7C501C2DAEC625DEE2ECD81DF4</digest>
-  </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.bristol_stool_scale.v1">
-    <digest id="MD5-CAM-1.0.1">DCC80A3C1D47C6D79DE0C2AA618943B6</digest>
-  </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.waterlow_score.v1">
-    <digest id="MD5-CAM-1.0.1">5648B8340272B1AC66E333AEFDA11A94</digest>
   </integrity_checks>
 </template>
