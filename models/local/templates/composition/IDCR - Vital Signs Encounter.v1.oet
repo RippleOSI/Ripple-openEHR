@@ -182,6 +182,7 @@
       </Item>
       <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.news_uk_rcp.v1" concept_name="NEWS (UK RCP)" max="1" path="/items[at0001]">
         <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
         <Rule path="/data[at0001]/events[at0002]/state[at0041]" hide_on_form="true" />
         <Rule path="/protocol[at0045]" hide_on_form="true" />
