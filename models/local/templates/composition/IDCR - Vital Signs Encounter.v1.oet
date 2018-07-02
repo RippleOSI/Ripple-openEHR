@@ -3,6 +3,17 @@
   <id>17789e76-0b97-4952-94a6-7da467d51ec5</id>
   <name>IDCR - Vital Signs Encounter.v1</name>
   <description>
+    <other_contributors>
+      <item>Alexander Davey</item>
+      <item>Tony Shannon</item>
+      <item>John Meredith</item>
+      <item>Shane McKee</item>
+      <item>Ian McNicoll</item>
+      <item>Hildi McNicoll</item>
+      <item>Paul Miller</item>
+      <item>Jason Scott</item>
+      <item>Susan Veitch</item>
+    </other_contributors>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
       <purpose>The primary purpose is to support a typical face to face contact with a patient during which vital signs such as blood pressure, temperature, pulse rate etc are measured and recorded, including overall vital sign scores such as NEWS and Glasgow Coma Scale. The template can also be used for patient-reported vital signs and could be populated via external devices as well.</purpose>

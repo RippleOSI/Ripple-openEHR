@@ -3,6 +3,17 @@
   <id>f473e2ed-7f0a-41c9-9ef6-01632fe6c78b</id>
   <name>IDCR -  Adverse Reaction List.v1</name>
   <description>
+    <original_author />
+    <other_contributors>
+      <item>John Meredith</item>
+      <item>Tony Shannon</item>
+      <item>Shane McKee</item>
+      <item>Ian McNicoll</item>
+      <item>Hildi McNicoll</item>
+      <item>Paul Miller</item>
+      <item>Susan Veitch</item>
+      <item>Mark Wardle</item>
+    </other_contributors>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
       <purpose>Updated Allergies list to use FHIR/openEHR allergies/adverse reaction risk models, aligned with AoMRC headings</purpose>
@@ -123,7 +134,7 @@
     <digest id="MD5-CAM-1.0.1">2A1D6E9F20099A022F8E0473B6A3C598</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
-    <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
+    <digest id="MD5-CAM-1.0.1">B2538EC96A6545E2E6F04CE532DA36E3</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1">
     <digest id="MD5-CAM-1.0.1">0C14C375A26F565DDE90E338FBDFAE8C</digest>

@@ -3,6 +3,15 @@
   <id>feb734a8-2f6e-4e4e-914f-db91a244a1c1</id>
   <name>IDCR - Medication Statement List.v1</name>
   <description>
+    <other_contributors>
+      <item>John Meredith</item>
+      <item>Tony Shannon</item>
+      <item>Shane McKee</item>
+      <item>Paul Miller</item>
+      <item>Susan Veitch</item>
+      <item>Ian McNicoll</item>
+      <item>Hildi McNicoll</item>
+    </other_contributors>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
       <purpose>The primary intent is to support a continuously curated life-long ‘medication statement list ', as would be found in a GP system, PHR or other regional/national CDR but this should also be usable for episodic or departmental medication lists, which are generated at admission to a service e.g hospital admission, and maintained only during that episode of care or for that department.  For clarity, this is NOT intended to be used in a prescribing system for the actual process of prescribing / dispensing, but is a static list of medications the patient is currently using/taking. It is also NOT intended to be used directly for the process of medication reconciliation, which would require some additional metadata.</purpose>
@@ -80,15 +89,20 @@
         <Rule path="/activities[at0001]/description[at0002]/items[at0129]" max="0" />
         <Rule path="/activities[at0001]/description[at0002]/items[at0167]" max="0" />
         <Rule path="/protocol[at0005]/items[at0004]" max="0" />
-        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0" concept_name="Medication component" path="/activities[at0001]/description[at0002]/items[at0143]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication.v0" concept_name="Medication" path="/activities[at0001]/description[at0002]/items[at0143]">
           <Rule path="/items[at0132]" max="0" />
           <Rule path="/items[at0142]" max="0" />
-          <Rule path="/items[at0160]" max="0" />
           <Rule path="/items[at0152]" max="0" />
+          <Rule path="/items[at0158]" max="0" />
+          <Rule path="/items[at0115]" max="0" />
           <Rule path="/items[at0151]" max="0" />
           <Rule path="/items[at0150]" max="0" />
           <Rule path="/items[at0003]" max="0" />
-          <Rule path="/items[at0126]" max="0" />
+          <Rule path="/items[at0139]" max="0" />
+          <Rule path="/items[at0008]" max="0" />
+          <Rule path="/items[at0148]" max="0" />
+          <Rule path="/items[at0007]" max="0" />
+          <Rule path="/items[at0127]" max="0" />
           <Rule path="/items[at0133]" max="0" />
         </Items>
         <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.therapeutic_direction.v1" concept_name="Therapeutic direction" path="/activities[at0001]/description[at0002]/items[at0177]" hide_on_form="true">
@@ -133,8 +147,8 @@
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v1">
     <digest id="MD5-CAM-1.0.1">23C66F34EE4EBC155366C66296221B99</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_substance.v0">
-    <digest id="MD5-CAM-1.0.1">7CC1056D3A26F3380FCCE2C7B0F9C2F7</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication.v0">
+    <digest id="MD5-CAM-1.0.1">4AA021E61C24455E34F3E13CEF0BB19F</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.therapeutic_direction.v1">
     <digest id="MD5-CAM-1.0.1">7E0B7E617F3E46A676CFA0C259FEAF96</digest>

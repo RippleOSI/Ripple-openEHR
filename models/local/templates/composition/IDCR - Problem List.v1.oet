@@ -3,6 +3,15 @@
   <id>93c39e9e-86b0-45c7-a1ed-9752d8270011</id>
   <name>IDCR - Problem List.v1</name>
   <description>
+    <other_contributors>
+      <item>Tony Shannon</item>
+      <item>John Meredith</item>
+      <item>Shane McKee</item>
+      <item>Susan Veitch</item>
+      <item>Paul Miller</item>
+      <item>Ian McNicoll</item>
+      <item>Hildi McNicoll</item>
+    </other_contributors>
     <lifecycle_state>Initial</lifecycle_state>
     <details>
       <purpose>The primary intent is to support a continuously curated life-long ‘problem list', as would be found in a GP system, PHR or other regional/national CDR but this should also be usable for episodic or departmental problem lists, which are generated at admission to a service e.g hospital admission, and maintained only during that episode of care or for that department. </purpose>
@@ -73,11 +82,10 @@
           </constraint>
         </Rule>
         <Rule path="/protocol[at0032]" hide_on_form="true" />
-        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.problem_status.v0" concept_name="Problem/Diagnosis status" max="1" path="/data[at0001]/items[at0046]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v0" concept_name="Problem/Diagnosis qualifier" path="/data[at0001]/items[at0046]">
           <Rule path="/items[at0060]" max="0" />
           <Rule path="/items[at0077]" max="0" />
           <Rule path="/items[at0073]" max="0" />
-          <Rule path="/items[at0082]" max="0" />
         </Items>
       </Item>
       <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Empty list info ">
@@ -114,8 +122,8 @@
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
     <digest id="MD5-CAM-1.0.1">88AF7BC619F0DF958D2F00293756F398</digest>
   </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.problem_status.v0">
-    <digest id="MD5-CAM-1.0.1">323CB19BAD44C7F7635717943BD3867E</digest>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.problem_qualifier.v0">
+    <digest id="MD5-CAM-1.0.1">BEFB08B9F33F5CEB5A92C9D12048C867</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
     <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>
