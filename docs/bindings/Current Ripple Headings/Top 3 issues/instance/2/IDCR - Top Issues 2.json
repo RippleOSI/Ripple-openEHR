@@ -1,0 +1,16 @@
+{
+  "ctx/composer_name": "Hildi McNicoll",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Home",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2017-07-11T00:13:02.518+02:00",
+    "top_issues/story_history:0/issue_1/issue_1_name": "Tired all the time",
+    "top_issues/story_history:0/issue_1/issue_1_detail": "I feel really tired all the time and can't get anything done",
+    "top_issues/story_history:0/issue_2/issue_2_name": "Not enjoying work",
+    "top_issues/story_history:0/issue_2/issue_2_detail": "I don't enjoy going my work as much as I used to",
+    "top_issues/story_history:0/issue_3/issue_3_name": "Feeling aggressive",
+    "top_issues/story_history:0/issue_3/issue_3_detail": "I feel aggressivve towards my friends and don't want to talk to them"
+}

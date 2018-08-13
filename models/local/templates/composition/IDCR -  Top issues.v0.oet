@@ -72,13 +72,16 @@
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
       <Rule path="/protocol[at0007]" hide_on_form="true" />
       <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.issue.v0" concept_name="Issue presented by a person" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" name="Issue 1">
-        <Rule path="/items[at0001]" name="Issue 1" />
+        <Rule path="/items[at0001]" name="Issue 1 Name" />
+        <Rule path="/items[at0002]" name="Issue 1 Detail" />
       </Items>
       <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.issue.v0" concept_name="Issue presented by a person" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" name="Issue 2">
-        <Rule path="/items[at0001]" name="Issue 2" />
+        <Rule path="/items[at0001]" name="Issue 2 Name" />
+        <Rule path="/items[at0002]" name="Issue 2 Detail" />
       </Items>
       <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.issue.v0" concept_name="Issue presented by a person" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" name="Issue 3">
-        <Rule path="/items[at0001]" name="Issue 3" />
+        <Rule path="/items[at0001]" name="Issue 3 Name" />
+        <Rule path="/items[at0002]" name="Issue 3 Detail" />
       </Items>
     </Content>
     <Context>

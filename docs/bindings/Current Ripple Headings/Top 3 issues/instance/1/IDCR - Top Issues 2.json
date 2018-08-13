@@ -1,0 +1,16 @@
+{
+  "ctx/composer_name": "Hildi McNicoll",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Home",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2017-07-11T00:13:02.518+02:00",
+    "top_issues/story_history:0/issue_1/issue_1_name": "Hot flushes",
+    "top_issues/story_history:0/issue_1/issue_1_detail": "I get lots of hot flushes especially at night",
+    "top_issues/story_history:0/issue_2/issue_2_name": "Pain in my joints",
+    "top_issues/story_history:0/issue_2/issue_2_detail": "My knees and elbows hurt when I move around too much",
+    "top_issues/story_history:0/issue_3/issue_3_name": "Little energy",
+    "top_issues/story_history:0/issue_3/issue_3_detail": "I feel tired and have very little energy"
+}
