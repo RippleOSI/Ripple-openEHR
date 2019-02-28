@@ -4,9 +4,9 @@
 
 #### Version:
 
-1.0.1
+1.1.1
 
-13-Aug-2018
+28 Feb 2019 - Corrected AQL query
 
 #### TemplateID:
 `IDCR - Top issues.v0`
@@ -20,12 +20,12 @@ select
     a/uid/value as uid,
     a/composer/name as author,
     a/context/start_time/value as date_created,
-	b_a/items[at0001, 'Issue 1 Name']/value/value as Issue_1_Name,
-    b_a/items[at0002, 'Issue 1 Detail']/value/value as Issue_1_Detail,
-    b_a/items[at0001, 'Issue 2 Name']/value/value as Issue_2_Name,
-    b_a/items[at0002, 'Issue 2 Detail']/value/value as Issue_2_Detail,
-    b_a/items[at0001, 'Issue 3 Name']/value/value as Issue_3_Name,
-    b_a/items[at0002, 'Issue 3 Detail']/value/value as Issue_3_Detail
+  b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 1']/items[at0001]/value/value as Issue_1_Name,
+    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 1']/items[at0002]/value/value as Issue_1_Detail,
+    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 2']/items[at0001]/value/value as Issue_2_Name,
+    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 2']/items[at0002]/value/value as Issue_2_Detail,
+    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 3']/items[at0001]/value/value as Issue_3_Name,
+    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 3']/items[at0002]/value/value as Issue_3_Detail
 from EHR e[ehr_id/value='{{ehrId}}']
 contains COMPOSITION a[openEHR-EHR-COMPOSITION.encounter.v1]
 contains CLUSTER b_a[openEHR-EHR-CLUSTER.issue.v0]
