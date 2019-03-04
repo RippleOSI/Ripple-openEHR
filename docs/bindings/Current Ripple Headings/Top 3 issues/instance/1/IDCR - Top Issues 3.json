@@ -1,0 +1,16 @@
+{
+  "ctx/composer_name": "Hildi McNicoll",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Home",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2018-01-13T00:15:32.518+02:00",
+    "top_issues/story_history:0/issue_1/issue_1_name": "Constipation",
+    "top_issues/story_history:0/issue_1/issue_1_detail": "I get constipated a lot",
+    "top_issues/story_history:0/issue_2/issue_2_name": "Problems concentrating",
+    "top_issues/story_history:0/issue_2/issue_2_detail": "I struggle to concentrate on anything for more than half an hour",
+    "top_issues/story_history:0/issue_3/issue_3_name": "My weight",
+    "top_issues/story_history:0/issue_3/issue_3_detail": "I am overweight and can't seem to able to shift it"
+}

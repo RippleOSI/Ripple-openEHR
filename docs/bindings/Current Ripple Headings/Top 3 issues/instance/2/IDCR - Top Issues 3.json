@@ -1,0 +1,16 @@
+{
+  "ctx/composer_name": "Hildi McNicoll",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Home",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2018-07-28T00:11:02.518+02:00",
+    "top_issues/story_history:0/issue_1/issue_1_name": "Nose bleeds",
+    "top_issues/story_history:0/issue_1/issue_1_detail": "I get a lot of nose bleeds and that causes me all sorts of trouble",
+    "top_issues/story_history:0/issue_2/issue_2_name": "Swollen ankles",
+    "top_issues/story_history:0/issue_2/issue_2_detail": "My ankles swell up in the course of the day",
+    "top_issues/story_history:0/issue_3/issue_3_name": "Buzzing in my ears",
+    "top_issues/story_history:0/issue_3/issue_3_detail": "I have a constant buzzing noise in my ears"
+}
