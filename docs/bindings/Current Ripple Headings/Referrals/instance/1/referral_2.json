@@ -16,6 +16,7 @@
     "request_for_service/referral_details/service_request:0/receiver/name_of_organisation": "Ripple DGH",
     "request_for_service/referral_details/service_request:0/narrative": "Chiropody",
  	  "request_for_service/referral_details/service:0/receiver_identifier": "3f74c2e6-2ae0-4680-b8b2-c6daec8f9309",
+        "request_for_service/referral_details/service:0/time": "2017-04-23T00:11:02.518+02:00",
     "request_for_service/referral_details/service:0/ism_transition/current_state|code": "526",
     "request_for_service/referral_details/service:0/ism_transition/careflow_step|code": "at0026",
     "request_for_service/referral_details/service:0/service_name": "Chiropody"

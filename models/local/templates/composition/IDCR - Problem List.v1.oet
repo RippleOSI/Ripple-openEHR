@@ -79,11 +79,33 @@
           <Rule path="/items[at0082]" max="0" />
         </Items>
       </Item>
+      <Item xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.adhoc.v1" concept_name="Ad hoc heading" max="1" path="/items" name="Empty list info ">
+        <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.exclusion_global.v1" concept_name="Exclusion - global" path="/items">
+          <Rule path="/data[at0001]/items[at0002]" default="No known significant problems">
+            <nameConstraint>
+              <excludedValues>local::at0004</excludedValues>
+              <excludedValues>local::at0005</excludedValues>
+              <excludedValues>local::at0006</excludedValues>
+              <excludedValues>local::at0007</excludedValues>
+            </nameConstraint>
+          </Rule>
+        </Item>
+        <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.absence.v1" concept_name="Absence of Information" path="/items">
+          <Rule path="/data[at0001]/items[at0002]" default="No information for known problems and issues" />
+        </Item>
+      </Item>
     </Content>
-    <Context />
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0" concept_name="XDS Metadata" path="/context/other_context[at0006]/items[at0008]">
+        <Rule path="/items[at0003]" default="SNOMED-CT::162991000000102::Problems and issues" />
+      </Items>
+    </Context>
   </definition>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.problem_list.v1">
     <digest id="MD5-CAM-1.0.1">7E4AFD8229E867F4255E77F0688127D6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.xds_metadata.v0">
+    <digest id="MD5-CAM-1.0.1">7FDA9FE6CA313093704EA352E45E2711</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.problems_issues_rcp.v1">
     <digest id="MD5-CAM-1.0.1">80D546B22F1720E6FE5AEE4216764A74</digest>
@@ -93,5 +115,14 @@
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.problem_status.v0">
     <digest id="MD5-CAM-1.0.1">323CB19BAD44C7F7635717943BD3867E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.adhoc.v1">
+    <digest id="MD5-CAM-1.0.1">833221C23E2B25AD3CB9B0B78EE33740</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.exclusion_global.v1">
+    <digest id="MD5-CAM-1.0.1">CBD3F597907DCC9BE51553069E405BB1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.absence.v1">
+    <digest id="MD5-CAM-1.0.1">608F256B2279433C062DFA7CAA847D41</digest>
   </integrity_checks>
 </template>
