@@ -4,9 +4,11 @@
 
 #### Version:
 
-1.0.0
+1.1.0 20-Mar-2019
+Re-Added Planning document support, inadvertantly constrained out
 
-4-Mar-2019
+1.0.0 4-Mar-2019
+Initial document
 
 #### TemplateID:
 RESPECT_NSS-v0
