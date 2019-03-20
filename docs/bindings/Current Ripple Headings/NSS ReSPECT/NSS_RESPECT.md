@@ -18,7 +18,7 @@ To retrieve All versions of the Respect composition for the single patoent with 
 
 ```
 select
-  a/uid as version_uid,
+  b/uid as version_uid,
   b/composer/name as authorName,
   b/context/start_time/value as dateUpdated
 from EHR e[ehr_id/value = {{ehrId}}] contains
@@ -109,6 +109,14 @@ After the first commit, every subsequent commit should be a PUT - so that the or
 
     //2. Summary of relevant information
     "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.0_relevant_information/respect_summary/narrative_summary": "Lung cancer with bone metastases",
+
+    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/name": "planning document",
+    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/location": "Patient's home",
+    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/link_to_document:0/link_to_document": "http://med.tube.com/sample",
+    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/link_to_document:0/link_to_document|mediatype": "application/pdf",
+    // I am not sure if this is mandatory
+    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/link_to_document:0/link_to_document|size": 504903212,
+
 
     // 3. Care Priority scale - current bug DO NOT POPULATE
     // This is not committing correctly, possibly due to a bug with the Marand .opt generator

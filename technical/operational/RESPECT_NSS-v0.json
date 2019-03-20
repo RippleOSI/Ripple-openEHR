@@ -1,6 +1,6 @@
 {
     "meta": {
-        "href": "http://test.operon.systems/rest/v1/template/RESPECT_NSS-v0"
+        "href": "https://cdr.code4health.org/rest/v1/template/RESPECT_NSS-v0"
     },
     "webTemplate": {
         "templateId": "RESPECT_NSS-v0",
@@ -75,7 +75,7 @@
                             "id": "start_time",
                             "name": "Start_time",
                             "rmType": "DV_DATE_TIME",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/context/start_time",
                             "inputs": [
@@ -89,7 +89,7 @@
                             "id": "setting",
                             "name": "Setting",
                             "rmType": "DV_CODED_TEXT",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/context/setting",
                             "inputs": [
@@ -195,7 +195,7 @@
                                                     "id": "language",
                                                     "name": "Language",
                                                     "rmType": "CODE_PHRASE",
-                                                    "min": 1,
+                                                    "min": 0,
                                                     "max": 1,
                                                     "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0013]/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'ReSPECT summary']/language",
                                                     "inContext": true
@@ -204,7 +204,7 @@
                                                     "id": "encoding",
                                                     "name": "Encoding",
                                                     "rmType": "CODE_PHRASE",
-                                                    "min": 1,
+                                                    "min": 0,
                                                     "max": 1,
                                                     "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0013]/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'ReSPECT summary']/encoding",
                                                     "inContext": true
@@ -213,9 +213,171 @@
                                                     "id": "subject",
                                                     "name": "Subject",
                                                     "rmType": "PARTY_PROXY",
-                                                    "min": 1,
+                                                    "min": 0,
                                                     "max": 1,
                                                     "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0013]/items[openEHR-EHR-EVALUATION.clinical_synopsis.v1,'ReSPECT summary']/subject",
+                                                    "inContext": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "a2.3_other_relevant_planning_documents",
+                                    "name": "2.3 Other relevant planning documents",
+                                    "localizedName": "2.3 Other relevant planning documents",
+                                    "rmType": "SECTION",
+                                    "nodeId": "at0005",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "2.3 Other relevant planning documents"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "Details of other relevant planning documents and where to find them (e.g. Advance Decision to Refuse Treatment, Advance Care Plan). Also include known wishes about organ donation."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]",
+                                    "children": [
+                                        {
+                                            "id": "advance_planning_documentation",
+                                            "name": "Advance planning documentation",
+                                            "localizedName": "Advance planning documentation",
+                                            "rmType": "EVALUATION",
+                                            "nodeId": "openEHR-EHR-EVALUATION.advance_planning_documentation.v0",
+                                            "min": 0,
+                                            "max": 1,
+                                            "localizedNames": {
+                                                "en": "Advance planning documentation"
+                                            },
+                                            "localizedDescriptions": {
+                                                "en": "Pointer to advance planning documentation."
+                                            },
+                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]",
+                                            "children": [
+                                                {
+                                                    "id": "advance_planning_document",
+                                                    "name": "Advance planning document",
+                                                    "localizedName": "Advance planning document",
+                                                    "rmType": "CLUSTER",
+                                                    "nodeId": "at0003",
+                                                    "min": 0,
+                                                    "max": -1,
+                                                    "localizedNames": {
+                                                        "en": "Advance planning document"
+                                                    },
+                                                    "localizedDescriptions": {
+                                                        "en": "Statement about presence and location of advance planning documents such as Advance Decision to Refuse Treatment or Anticipatory Care Planning."
+                                                    },
+                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]",
+                                                    "children": [
+                                                        {
+                                                            "id": "name",
+                                                            "name": "Name",
+                                                            "localizedName": "Name",
+                                                            "rmType": "DV_TEXT",
+                                                            "nodeId": "at0002",
+                                                            "min": 0,
+                                                            "max": 1,
+                                                            "localizedNames": {
+                                                                "en": "Name"
+                                                            },
+                                                            "localizedDescriptions": {
+                                                                "en": "Description or name of advance planning document such as advance decision to refuse treatment or anticipatory care planning."
+                                                            },
+                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[at0002]/value",
+                                                            "inputs": [
+                                                                {
+                                                                    "type": "TEXT"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "id": "location",
+                                                            "name": "Location",
+                                                            "localizedName": "Location",
+                                                            "rmType": "DV_TEXT",
+                                                            "nodeId": "at0004",
+                                                            "min": 0,
+                                                            "max": 1,
+                                                            "localizedNames": {
+                                                                "en": "Location"
+                                                            },
+                                                            "localizedDescriptions": {
+                                                                "en": "Location of advance planning document."
+                                                            },
+                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[at0004]/value",
+                                                            "inputs": [
+                                                                {
+                                                                    "type": "TEXT"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "id": "link_to_document",
+                                                            "name": "Link to document",
+                                                            "localizedName": "Link to document",
+                                                            "rmType": "CLUSTER",
+                                                            "nodeId": "openEHR-EHR-CLUSTER.multimedia.v0",
+                                                            "min": 0,
+                                                            "max": -1,
+                                                            "localizedNames": {
+                                                                "en": "Link to document"
+                                                            },
+                                                            "localizedDescriptions": {
+                                                                "en": "Details about an multimedia representation of the clinical data."
+                                                            },
+                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[openEHR-EHR-CLUSTER.multimedia.v0,'Link to document']",
+                                                            "children": [
+                                                                {
+                                                                    "id": "link_to_document",
+                                                                    "name": "Link to document",
+                                                                    "localizedName": "Link to document",
+                                                                    "rmType": "DV_MULTIMEDIA",
+                                                                    "nodeId": "at0001",
+                                                                    "min": 0,
+                                                                    "max": 1,
+                                                                    "localizedNames": {
+                                                                        "en": "Link to document"
+                                                                    },
+                                                                    "localizedDescriptions": {
+                                                                        "en": "Multimedia representation of the clinical observation or finding."
+                                                                    },
+                                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[openEHR-EHR-CLUSTER.multimedia.v0,'Link to document']/items[at0001,'Link to document']/value",
+                                                                    "inputs": [
+                                                                        {
+                                                                            "type": "TEXT"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "language",
+                                                    "name": "Language",
+                                                    "rmType": "CODE_PHRASE",
+                                                    "min": 0,
+                                                    "max": 1,
+                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/language",
+                                                    "inContext": true
+                                                },
+                                                {
+                                                    "id": "encoding",
+                                                    "name": "Encoding",
+                                                    "rmType": "CODE_PHRASE",
+                                                    "min": 0,
+                                                    "max": 1,
+                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/encoding",
+                                                    "inContext": true
+                                                },
+                                                {
+                                                    "id": "subject",
+                                                    "name": "Subject",
+                                                    "rmType": "PARTY_PROXY",
+                                                    "min": 0,
+                                                    "max": 1,
+                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/subject",
                                                     "inContext": true
                                                 }
                                             ]
@@ -313,7 +475,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0006]/items[openEHR-EHR-EVALUATION.care_preference_uk.v0]/language",
                                             "inContext": true
@@ -322,7 +484,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0006]/items[openEHR-EHR-EVALUATION.care_preference_uk.v0]/encoding",
                                             "inContext": true
@@ -331,7 +493,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0006]/items[openEHR-EHR-EVALUATION.care_preference_uk.v0]/subject",
                                             "inContext": true
@@ -439,7 +601,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0007]/items[openEHR-EHR-EVALUATION.recommendation.v1]/language",
                                             "inContext": true
@@ -448,7 +610,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0007]/items[openEHR-EHR-EVALUATION.recommendation.v1]/encoding",
                                             "inContext": true
@@ -457,7 +619,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0007]/items[openEHR-EHR-EVALUATION.recommendation.v1]/subject",
                                             "inContext": true
@@ -508,6 +670,20 @@
                                                             },
                                                             "localizedDescriptions": {
                                                                 "en": "Cardio-pulmonary resuscitation is recommended for adult or child."
+                                                            },
+                                                            "termBindings": {
+                                                                "SNOMED-CT": {
+                                                                    "value": "[SNOMED-CT::450475007]",
+                                                                    "terminologyId": "SNOMED-CT"
+                                                                },
+                                                                "RCD99": {
+                                                                    "value": "[RCD99::1R00.]",
+                                                                    "terminologyId": "RCD99"
+                                                                },
+                                                                "READ2": {
+                                                                    "value": "[READ2::1R0..]",
+                                                                    "terminologyId": "READ2"
+                                                                }
                                                             }
                                                         },
                                                         {
@@ -518,6 +694,20 @@
                                                             },
                                                             "localizedDescriptions": {
                                                                 "en": "Cardiopulmonary resuscitation is not recommended for adult or child."
+                                                            },
+                                                            "termBindings": {
+                                                                "SNOMED-CT": {
+                                                                    "value": "[SNOMED-CT::450476008]",
+                                                                    "terminologyId": "SNOMED-CT"
+                                                                },
+                                                                "RCD99": {
+                                                                    "value": "[RCD99::1R10.]",
+                                                                    "terminologyId": "RCD99"
+                                                                },
+                                                                "READ2": {
+                                                                    "value": "[READ2::1R1..]",
+                                                                    "terminologyId": "READ2"
+                                                                }
                                                             }
                                                         },
                                                         {
@@ -528,6 +718,20 @@
                                                             },
                                                             "localizedDescriptions": {
                                                                 "en": "There is no clear information on the outcome of the CPR decision."
+                                                            },
+                                                            "termBindings": {
+                                                                "SNOMED-CT": {
+                                                                    "value": "[SNOMED-CT::845151000000104]",
+                                                                    "terminologyId": "SNOMED-CT"
+                                                                },
+                                                                "RCD99": {
+                                                                    "value": "[RCD99::9NgV.]",
+                                                                    "terminologyId": "RCD99"
+                                                                },
+                                                                "READ2": {
+                                                                    "value": "[READ2::9NgV.]",
+                                                                    "terminologyId": "READ2"
+                                                                }
                                                             }
                                                         },
                                                         {
@@ -569,7 +773,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0007]/items[openEHR-EHR-EVALUATION.cpr_decision_uk.v0]/language",
                                             "inContext": true
@@ -578,7 +782,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0007]/items[openEHR-EHR-EVALUATION.cpr_decision_uk.v0]/encoding",
                                             "inContext": true
@@ -587,7 +791,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0007]/items[openEHR-EHR-EVALUATION.cpr_decision_uk.v0]/subject",
                                             "inContext": true
@@ -707,7 +911,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0008]/items[openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0]/language",
                                             "inContext": true
@@ -716,7 +920,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0008]/items[openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0]/encoding",
                                             "inContext": true
@@ -725,7 +929,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0008]/items[openEHR-EHR-ADMIN_ENTRY.capacity_respect.v0]/subject",
                                             "inContext": true
@@ -788,8 +992,8 @@
                                                     "localizedName": "Involvement",
                                                     "rmType": "DV_CODED_TEXT",
                                                     "nodeId": "at0002",
-                                                    "min": 1,
-                                                    "max": -1,
+                                                    "min": 0,
+                                                    "max": 1,
                                                     "localizedNames": {
                                                         "en": "Involvement"
                                                     },
@@ -893,30 +1097,6 @@
                                             ]
                                         },
                                         {
-                                            "id": "location_of_record_of_discussion",
-                                            "name": "Location of record of discussion",
-                                            "localizedName": "Location of record of discussion",
-                                            "rmType": "DV_TEXT",
-                                            "nodeId": "at0009",
-                                            "min": 0,
-                                            "max": 1,
-                                            "localizedNames": {
-                                                "en": "Location of record of discussion"
-                                            },
-                                            "localizedDescriptions": {
-                                                "en": "Details of location(s) of full documentation of conversations and decision-making process."
-                                            },
-                                            "annotations": {
-                                                "comment": "For example in GP Records dated xx/xx/xxxx."
-                                            },
-                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0009]/items[openEHR-EHR-ADMIN_ENTRY.involvement_respect.v0]/data[at0001]/items[at0009]/value",
-                                            "inputs": [
-                                                {
-                                                    "type": "TEXT"
-                                                }
-                                            ]
-                                        },
-                                        {
                                             "id": "date_recommendations_made",
                                             "name": "Date recommendations made",
                                             "localizedName": "Date recommendations made",
@@ -962,7 +1142,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0009]/items[openEHR-EHR-ADMIN_ENTRY.involvement_respect.v0]/language",
                                             "inContext": true
@@ -971,7 +1151,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0009]/items[openEHR-EHR-ADMIN_ENTRY.involvement_respect.v0]/encoding",
                                             "inContext": true
@@ -980,7 +1160,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0009]/items[openEHR-EHR-ADMIN_ENTRY.involvement_respect.v0]/subject",
                                             "inContext": true
@@ -1028,7 +1208,7 @@
                                             "id": "ism_transition",
                                             "name": "Ism_transition",
                                             "rmType": "ISM_TRANSITION",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/ism_transition",
                                             "children": [
@@ -1159,6 +1339,17 @@
                                             "inputs": [
                                                 {
                                                     "type": "TEXT",
+                                                    "list": [
+                                                        {
+                                                            "value": "ReSPECT clinician signature",
+                                                            "label": "ReSPECT clinician signature"
+                                                        },
+                                                        {
+                                                            "value": "ReSPECT Senior Responsible Clinician signature",
+                                                            "label": "ReSPECT Senior Responsible Clinician signature"
+                                                        }
+                                                    ],
+                                                    "listOpen": false,
                                                     "defaultValue": "ReSPECT clinician signature"
                                                 }
                                             ]
@@ -1170,7 +1361,7 @@
                                             "rmType": "CLUSTER",
                                             "nodeId": "openEHR-EHR-CLUSTER.practitioner_cc.v0",
                                             "min": 0,
-                                            "max": -1,
+                                            "max": 1,
                                             "localizedNames": {
                                                 "en": "Signing clinician"
                                             },
@@ -1369,36 +1560,40 @@
                                                     "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Signing clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]",
                                                     "children": [
                                                         {
-                                                            "id": "gmc-nmc-hcpc_number",
-                                                            "name": "GMC-NMC-HCPC number",
-                                                            "localizedName": "GMC-NMC-HCPC number",
+                                                            "id": "value",
+                                                            "name": "Value",
+                                                            "localizedName": "Value",
                                                             "rmType": "DV_IDENTIFIER",
                                                             "nodeId": "at0001",
                                                             "min": 0,
                                                             "max": 1,
                                                             "localizedNames": {
-                                                                "en": "GMC-NMC-HCPC number"
+                                                                "en": "Value"
                                                             },
                                                             "localizedDescriptions": {
                                                                 "en": "The identifier value."
                                                             },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Signing clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0001,'GMC-NMC-HCPC number']/value",
+                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Signing clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0001]/value",
                                                             "inputs": [
                                                                 {
                                                                     "suffix": "id",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID::ProfessionalID::null::ProfessionalID"
                                                                 },
                                                                 {
                                                                     "suffix": "type",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID"
                                                                 },
                                                                 {
                                                                     "suffix": "issuer",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID"
                                                                 },
                                                                 {
                                                                     "suffix": "assigner",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID"
                                                                 }
                                                             ]
                                                         },
@@ -1472,316 +1667,10 @@
                                             ]
                                         },
                                         {
-                                            "id": "senior_responsible_clinician",
-                                            "name": "Senior responsible Clinician",
-                                            "localizedName": "Senior responsible Clinician",
-                                            "rmType": "CLUSTER",
-                                            "nodeId": "openEHR-EHR-CLUSTER.practitioner_cc.v0",
-                                            "min": 0,
-                                            "max": -1,
-                                            "localizedNames": {
-                                                "en": "Senior responsible Clinician"
-                                            },
-                                            "localizedDescriptions": {
-                                                "en": "Practitioner details aligned with FHIR resource."
-                                            },
-                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']",
-                                            "children": [
-                                                {
-                                                    "id": "practitioner_role",
-                                                    "name": "Practitioner role",
-                                                    "localizedName": "Practitioner role",
-                                                    "rmType": "CLUSTER",
-                                                    "nodeId": "openEHR-EHR-CLUSTER.practitioner_role_cc.v0",
-                                                    "min": 0,
-                                                    "max": 1,
-                                                    "localizedNames": {
-                                                        "en": "Practitioner role"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Practitioner role details aligned with FHIR resource."
-                                                    },
-                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.practitioner_role_cc.v0]",
-                                                    "children": [
-                                                        {
-                                                            "id": "designation",
-                                                            "name": "Designation",
-                                                            "localizedName": "Designation",
-                                                            "rmType": "DV_TEXT",
-                                                            "nodeId": "at0007",
-                                                            "min": 0,
-                                                            "max": -1,
-                                                            "localizedNames": {
-                                                                "en": "Designation"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "Roles which this practitioner may perform."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.practitioner_role_cc.v0]/items[at0007,'Designation']/value",
-                                                            "inputs": [
-                                                                {
-                                                                    "type": "TEXT"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "id": "name",
-                                                    "name": "Name",
-                                                    "localizedName": "Name",
-                                                    "rmType": "CLUSTER",
-                                                    "nodeId": "openEHR-EHR-CLUSTER.name_cc.v0",
-                                                    "min": 0,
-                                                    "max": 1,
-                                                    "localizedNames": {
-                                                        "en": "Name"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Name details aligned with FHIR resource."
-                                                    },
-                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.name_cc.v0]",
-                                                    "children": [
-                                                        {
-                                                            "id": "use",
-                                                            "name": "Use",
-                                                            "localizedName": "Use",
-                                                            "rmType": "DV_CODED_TEXT",
-                                                            "nodeId": "at0001",
-                                                            "min": 1,
-                                                            "max": 1,
-                                                            "localizedNames": {
-                                                                "en": "Use"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "Identification of the purpose for the name."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.name_cc.v0]/items[at0001]/value",
-                                                            "inputs": [
-                                                                {
-                                                                    "suffix": "code",
-                                                                    "type": "CODED_TEXT",
-                                                                    "list": [
-                                                                        {
-                                                                            "value": "at0002",
-                                                                            "label": "Usual",
-                                                                            "localizedLabels": {
-                                                                                "en": "Usual"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "The usual name."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0003",
-                                                                            "label": "Official",
-                                                                            "localizedLabels": {
-                                                                                "en": "Official"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "The official name."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0004",
-                                                                            "label": "Temp",
-                                                                            "localizedLabels": {
-                                                                                "en": "Temp"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "A temporary name."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0005",
-                                                                            "label": "Nickname",
-                                                                            "localizedLabels": {
-                                                                                "en": "Nickname"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "A nickname."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0006",
-                                                                            "label": "Anonymous",
-                                                                            "localizedLabels": {
-                                                                                "en": "Anonymous"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "An anonymous name."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0007",
-                                                                            "label": "Old",
-                                                                            "localizedLabels": {
-                                                                                "en": "Old"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "An old name."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0008",
-                                                                            "label": "Maiden",
-                                                                            "localizedLabels": {
-                                                                                "en": "Maiden"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "The maiden name."
-                                                                            }
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "id": "text",
-                                                            "name": "Text",
-                                                            "localizedName": "Text",
-                                                            "rmType": "DV_TEXT",
-                                                            "nodeId": "at0009",
-                                                            "min": 0,
-                                                            "max": 1,
-                                                            "localizedNames": {
-                                                                "en": "Text"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "A text representation of the full name."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.name_cc.v0]/items[at0009]/value",
-                                                            "inputs": [
-                                                                {
-                                                                    "type": "TEXT"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "id": "identifier",
-                                                    "name": "Identifier",
-                                                    "localizedName": "Identifier",
-                                                    "rmType": "CLUSTER",
-                                                    "nodeId": "openEHR-EHR-CLUSTER.identifier_cc.v0",
-                                                    "min": 0,
-                                                    "max": 1,
-                                                    "localizedNames": {
-                                                        "en": "Identifier"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Identifier details aligned with FHIR resources or data types."
-                                                    },
-                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]",
-                                                    "children": [
-                                                        {
-                                                            "id": "gmc_nmc_number",
-                                                            "name": "GMC / NMC number",
-                                                            "localizedName": "GMC / NMC number",
-                                                            "rmType": "DV_IDENTIFIER",
-                                                            "nodeId": "at0001",
-                                                            "min": 0,
-                                                            "max": 1,
-                                                            "localizedNames": {
-                                                                "en": "GMC / NMC number"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "The identifier value."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0001,'GMC / NMC number']/value",
-                                                            "inputs": [
-                                                                {
-                                                                    "suffix": "id",
-                                                                    "type": "TEXT"
-                                                                },
-                                                                {
-                                                                    "suffix": "type",
-                                                                    "type": "TEXT"
-                                                                },
-                                                                {
-                                                                    "suffix": "issuer",
-                                                                    "type": "TEXT"
-                                                                },
-                                                                {
-                                                                    "suffix": "assigner",
-                                                                    "type": "TEXT"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "id": "use",
-                                                            "name": "Use",
-                                                            "localizedName": "Use",
-                                                            "rmType": "DV_CODED_TEXT",
-                                                            "nodeId": "at0002",
-                                                            "min": 0,
-                                                            "max": 1,
-                                                            "localizedNames": {
-                                                                "en": "Use"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "The purpose of the identifier."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Senior responsible Clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0002]/value",
-                                                            "inputs": [
-                                                                {
-                                                                    "suffix": "code",
-                                                                    "type": "CODED_TEXT",
-                                                                    "list": [
-                                                                        {
-                                                                            "value": "at0003",
-                                                                            "label": "Usual",
-                                                                            "localizedLabels": {
-                                                                                "en": "Usual"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "The usual identifier."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0004",
-                                                                            "label": "Official",
-                                                                            "localizedLabels": {
-                                                                                "en": "Official"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "The official identifier."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0005",
-                                                                            "label": "Temp",
-                                                                            "localizedLabels": {
-                                                                                "en": "Temp"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "A temporary identifier."
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "value": "at0006",
-                                                                            "label": "Secondary",
-                                                                            "localizedLabels": {
-                                                                                "en": "Secondary"
-                                                                            },
-                                                                            "localizedDescriptions": {
-                                                                                "en": "A secondary identifier."
-                                                                            }
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
                                             "id": "time",
                                             "name": "Time",
                                             "rmType": "DV_DATE_TIME",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/time",
                                             "inputs": [
@@ -1795,7 +1684,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/language",
                                             "inContext": true
@@ -1804,7 +1693,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/encoding",
                                             "inContext": true
@@ -1813,7 +1702,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0,'Clinician signature']/subject",
                                             "inContext": true
@@ -2248,7 +2137,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0011]/items[openEHR-EHR-ADMIN_ENTRY.careteam_cc.v0,'Emergency contacts']/language",
                                             "inContext": true
@@ -2257,7 +2146,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0011]/items[openEHR-EHR-ADMIN_ENTRY.careteam_cc.v0,'Emergency contacts']/encoding",
                                             "inContext": true
@@ -2266,7 +2155,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0011]/items[openEHR-EHR-ADMIN_ENTRY.careteam_cc.v0,'Emergency contacts']/subject",
                                             "inContext": true
@@ -2311,7 +2200,7 @@
                                             "id": "ism_transition",
                                             "name": "Ism_transition",
                                             "rmType": "ISM_TRANSITION",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/ism_transition",
                                             "children": [
@@ -2676,36 +2565,40 @@
                                                     "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Responsible clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]",
                                                     "children": [
                                                         {
-                                                            "id": "gmc-nmc-hcpc_number",
-                                                            "name": "GMC-NMC-HCPC number",
-                                                            "localizedName": "GMC-NMC-HCPC number",
+                                                            "id": "value",
+                                                            "name": "Value",
+                                                            "localizedName": "Value",
                                                             "rmType": "DV_IDENTIFIER",
                                                             "nodeId": "at0001",
                                                             "min": 0,
                                                             "max": 1,
                                                             "localizedNames": {
-                                                                "en": "GMC-NMC-HCPC number"
+                                                                "en": "Value"
                                                             },
                                                             "localizedDescriptions": {
                                                                 "en": "The identifier value."
                                                             },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Responsible clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0001,'GMC-NMC-HCPC number']/value",
+                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0,'Responsible clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0001]/value",
                                                             "inputs": [
                                                                 {
                                                                     "suffix": "id",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID::ProfessionalID::null::ProfessionalID"
                                                                 },
                                                                 {
                                                                     "suffix": "type",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID"
                                                                 },
                                                                 {
                                                                     "suffix": "issuer",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID"
                                                                 },
                                                                 {
                                                                     "suffix": "assigner",
-                                                                    "type": "TEXT"
+                                                                    "type": "TEXT",
+                                                                    "defaultValue": "ProfessionalID"
                                                                 }
                                                             ]
                                                         },
@@ -2782,7 +2675,7 @@
                                             "id": "time",
                                             "name": "Time",
                                             "rmType": "DV_DATE_TIME",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/time",
                                             "inputs": [
@@ -2796,7 +2689,7 @@
                                             "id": "language",
                                             "name": "Language",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/language",
                                             "inContext": true
@@ -2805,7 +2698,7 @@
                                             "id": "encoding",
                                             "name": "Encoding",
                                             "rmType": "CODE_PHRASE",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/encoding",
                                             "inContext": true
@@ -2814,7 +2707,7 @@
                                             "id": "subject",
                                             "name": "Subject",
                                             "rmType": "PARTY_PROXY",
-                                            "min": 1,
+                                            "min": 0,
                                             "max": 1,
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0012]/items[openEHR-EHR-ACTION.service.v0]/subject",
                                             "inContext": true
@@ -2826,10 +2719,51 @@
                     ]
                 },
                 {
+                    "id": "category",
+                    "rmType": "DV_CODED_TEXT",
+                    "min": 1,
+                    "max": 1,
+                    "aqlPath": "/category",
+                    "inputs": [
+                        {
+                            "suffix": "code",
+                            "type": "CODED_TEXT",
+                            "list": [
+                                {
+                                    "value": "433",
+                                    "label": "event",
+                                    "localizedLabels": {
+                                        "en": "event"
+                                    }
+                                }
+                            ],
+                            "terminology": "openehr"
+                        }
+                    ]
+                },
+                {
+                    "id": "language",
+                    "name": "Language",
+                    "rmType": "CODE_PHRASE",
+                    "min": 0,
+                    "max": 1,
+                    "aqlPath": "/language",
+                    "inContext": true
+                },
+                {
+                    "id": "territory",
+                    "name": "Territory",
+                    "rmType": "CODE_PHRASE",
+                    "min": 0,
+                    "max": 1,
+                    "aqlPath": "/territory",
+                    "inContext": true
+                },
+                {
                     "id": "composer",
                     "name": "Composer",
                     "rmType": "PARTY_PROXY",
-                    "min": 1,
+                    "min": 0,
                     "max": 1,
                     "aqlPath": "/composer",
                     "inContext": true
