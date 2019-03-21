@@ -190,10 +190,10 @@ After the first commit, every subsequent commit should be a PUT - so that the or
     "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/value|assigner": "ProfessionalID",
 
     //BOIlERPLATE
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician:0/identifier/value|type": "ProfessionalID",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/value|type": "ProfessionalID",
 
     //BOIlERPLATE
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician:0/identifier/use|code": "at0004",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/use|code": "at0004",
 
 
     // 7.Clinician Signatures - Date signed
@@ -213,7 +213,7 @@ After the first commit, every subsequent commit should be a PUT - so that the or
 
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/role": "GP",
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/name/use|code": "at0002",
-    "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/name:0/text": "Text 35",
+    "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/name/text": "Text 35",
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/telephone/system|code": "at0012",
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/telephone/telephone_number": "Telephone number 60",
 
