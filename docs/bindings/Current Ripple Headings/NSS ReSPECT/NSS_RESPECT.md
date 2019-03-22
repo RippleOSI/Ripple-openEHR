@@ -6,7 +6,7 @@
 
 1.2.0 22-Mar-2019
 Replace structured Advanced planning elements with simple Summary narrative element
- 
+
 1.1.0 20-Mar-2019
 Re-Added Planning document support, inadvertantly constrained out
 
@@ -72,6 +72,10 @@ After the first commit, every subsequent commit should be a PUT - so that the or
 
 ```json
 {
+  //BOILERPLATE
+  "ctx/language": "en",
+  //BOILERPLATE
+  "ctx/territory": "GB",
 
 
       //BOILERPLATE
