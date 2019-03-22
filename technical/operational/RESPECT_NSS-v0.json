@@ -255,101 +255,23 @@
                                             "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]",
                                             "children": [
                                                 {
-                                                    "id": "advance_planning_document",
-                                                    "name": "Advance planning document",
-                                                    "localizedName": "Advance planning document",
-                                                    "rmType": "CLUSTER",
-                                                    "nodeId": "at0003",
+                                                    "id": "summary",
+                                                    "name": "Summary",
+                                                    "localizedName": "Summary",
+                                                    "rmType": "DV_TEXT",
+                                                    "nodeId": "at0008",
                                                     "min": 0,
-                                                    "max": -1,
+                                                    "max": 1,
                                                     "localizedNames": {
-                                                        "en": "Advance planning document"
+                                                        "en": "Summary"
                                                     },
                                                     "localizedDescriptions": {
-                                                        "en": "Statement about presence and location of advance planning documents such as Advance Decision to Refuse Treatment or Anticipatory Care Planning."
+                                                        "en": "Narrative summary of advance planning documentation."
                                                     },
-                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]",
-                                                    "children": [
+                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0008]/value",
+                                                    "inputs": [
                                                         {
-                                                            "id": "name",
-                                                            "name": "Name",
-                                                            "localizedName": "Name",
-                                                            "rmType": "DV_TEXT",
-                                                            "nodeId": "at0002",
-                                                            "min": 0,
-                                                            "max": 1,
-                                                            "localizedNames": {
-                                                                "en": "Name"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "Description or name of advance planning document such as advance decision to refuse treatment or anticipatory care planning."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[at0002]/value",
-                                                            "inputs": [
-                                                                {
-                                                                    "type": "TEXT"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "id": "location",
-                                                            "name": "Location",
-                                                            "localizedName": "Location",
-                                                            "rmType": "DV_TEXT",
-                                                            "nodeId": "at0004",
-                                                            "min": 0,
-                                                            "max": 1,
-                                                            "localizedNames": {
-                                                                "en": "Location"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "Location of advance planning document."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[at0004]/value",
-                                                            "inputs": [
-                                                                {
-                                                                    "type": "TEXT"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "id": "link_to_document",
-                                                            "name": "Link to document",
-                                                            "localizedName": "Link to document",
-                                                            "rmType": "CLUSTER",
-                                                            "nodeId": "openEHR-EHR-CLUSTER.multimedia.v0",
-                                                            "min": 0,
-                                                            "max": -1,
-                                                            "localizedNames": {
-                                                                "en": "Link to document"
-                                                            },
-                                                            "localizedDescriptions": {
-                                                                "en": "Details about an multimedia representation of the clinical data."
-                                                            },
-                                                            "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[openEHR-EHR-CLUSTER.multimedia.v0,'Link to document']",
-                                                            "children": [
-                                                                {
-                                                                    "id": "link_to_document",
-                                                                    "name": "Link to document",
-                                                                    "localizedName": "Link to document",
-                                                                    "rmType": "DV_MULTIMEDIA",
-                                                                    "nodeId": "at0001",
-                                                                    "min": 0,
-                                                                    "max": 1,
-                                                                    "localizedNames": {
-                                                                        "en": "Link to document"
-                                                                    },
-                                                                    "localizedDescriptions": {
-                                                                        "en": "Multimedia representation of the clinical observation or finding."
-                                                                    },
-                                                                    "aqlPath": "/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0005]/items[openEHR-EHR-EVALUATION.advance_planning_documentation.v0]/data[at0001]/items[at0003]/items[openEHR-EHR-CLUSTER.multimedia.v0,'Link to document']/items[at0001,'Link to document']/value",
-                                                                    "inputs": [
-                                                                        {
-                                                                            "type": "TEXT"
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
+                                                            "type": "TEXT"
                                                         }
                                                     ]
                                                 },

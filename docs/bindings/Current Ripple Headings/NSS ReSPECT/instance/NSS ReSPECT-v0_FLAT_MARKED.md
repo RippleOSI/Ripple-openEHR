@@ -27,10 +27,9 @@
     //2. Summary of relevant information
     "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.0_relevant_information/respect_summary/narrative_summary": "Lung cancer with bone metastases",
 
-    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/name": "planning document",
-    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/location": "Patient's home",
-    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/link_to_document:0/link_to_document": "http://med.tube.com/sample",
-    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/advance_planning_document:0/link_to_document:0/link_to_document|mediatype": "application/pdf",
+    //2. Details of advanced planning documentation, organ donation etc
+    "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/summary": "Some kind of summary of advance planning documentation",
+  
 
     // 3. Care Priority scale - current bug do not populate
     // "nss_respect_form/respect_headings/a3._personal_preferences/preferred_priorities_of_care/care_priority_scale": 17,
