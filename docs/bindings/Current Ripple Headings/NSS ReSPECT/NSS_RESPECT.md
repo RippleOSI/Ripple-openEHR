@@ -4,6 +4,9 @@
 
 #### Version:
 
+1.2.0 22-Mar-2019
+Replace structured Advanced planning elements with simple Summary narrative element
+ 
 1.1.0 20-Mar-2019
 Re-Added Planning document support, inadvertantly constrained out
 
@@ -114,7 +117,7 @@ After the first commit, every subsequent commit should be a PUT - so that the or
 
     //2. Details of advanced planning documentation, organ donation etc
     "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/summary": "Some kind of summary of advance planning documentation",
-  
+
     // 3. Care Priority scale - current bug DO NOT POPULATE
     // This is not committing correctly, possibly due to a bug with the Marand .opt generator
     // "nss_respect_form/respect_headings/a3._personal_preferences/preferred_priorities_of_care/care_priority_scale": 17,
@@ -207,8 +210,11 @@ After the first commit, every subsequent commit should be a PUT - so that the or
     // Lead consultant
 
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/role": "GP",
-    "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/name/use|code": "at0002",
+    //BOILERPLATE
+    "nss_respect_form/respect_headings/a8._emergency_contacts/   
+    emergency_contacts/participant:0/contact/name/use|code": "at0002",
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/name/text": "Text 35",
+    //BOILERPLATE
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/telephone/system|code": "at0012",
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/telephone/telephone_number": "Telephone number 60",
 
@@ -219,6 +225,7 @@ After the first commit, every subsequent commit should be a PUT - so that the or
   // BOILERPLATE
     "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/service_name": "Respect form - confirmation of validity",
     "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/responsible_clinician/practitioner_role/designation": "Designation 26",
+    //BOILERPLATE
  "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/responsible_clinician/name/use|code": "at0002",
 
  "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/responsible_clinician/name/text": "Text 84",

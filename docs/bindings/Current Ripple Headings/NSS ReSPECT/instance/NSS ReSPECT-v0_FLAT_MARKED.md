@@ -1,6 +1,9 @@
 ```json
 {
-
+     //BOILERPLATE
+     "ctx/language": "en",
+     //BOILERPLATE
+     "ctx/territory": "GB",
 
       //BOILERPLATE
       "nss_respect_form/language|code": "en",
@@ -11,16 +14,32 @@
       //BOILERPLATE
       "nss_respect_form/territory|terminology": "ISO_3166-1",
 
-    //Author
-    "ctx/composer_name": "Dr Miller",
-    //Date created /updated
-    "ctx/time": "2019-03-03T23:09:53.119+01:00",
-    //BOILERPLATE
-    "ctx/id_namespace": "FV_DGH",
-    //BOILERPLATE
-    "ctx/id_scheme": "FV_DGH",
+      // Hospital / GP surgery identifier
+      "nss_respect_form/context/_health_care_facility|id": "FV-DGH",
+      //BOILERPLATE
+       "nss_respect_form/context/_health_care_facility|id_scheme": "NHSScotland",
+      //BOILERPLATE
+       "nss_respect_form/context/_health_care_facility|id_namespace": "NHSScotland",
+       "nss_respect_form/context/_health_care_facility|name": "Forth Valley DGH",
+      //Date created /updated
+         "nss_respect_form/context/start_time": "2016-12-20T00:11:02.518+02:00",
+       //BOILERPLATE
+       "nss_respect_form/context/setting|code": "238",
+       //BOILERPLATE     
+       "nss_respect_form/context/setting|value": "other care",
+       //BOILERPLATE     
+       "nss_respect_form/context/setting|terminology": "openehr",
 
-    //Form status
+       //Author name
+       "nss_respect_form/composer|name": "Dr Jonty Shannon",
+       //Author ID
+       "nss_respect_form/composer|id": "12345",
+       //BOILERPLATE            
+       "nss_respect_form/composer|id_scheme": "NHSScotland",
+       //BOILERPLATE     
+       "nss_respect_form/composer|id_namespace": "NHSScotland",
+
+     //Form status
     //Valueset: Started; Incomplete ; Complete and signed
     "nss_respect_form/context/status": "Complete and signed",
 
@@ -29,9 +48,9 @@
 
     //2. Details of advanced planning documentation, organ donation etc
     "nss_respect_form/respect_headings/a2._summary_of_relevant_information/a2.3_other_relevant_planning_documents/advance_planning_documentation/summary": "Some kind of summary of advance planning documentation",
-  
 
-    // 3. Care Priority scale - current bug do not populate
+    // 3. Care Priority scale - current bug DO NOT POPULATE
+    // This is not committing correctly, possibly due to a bug with the Marand .opt generator
     // "nss_respect_form/respect_headings/a3._personal_preferences/preferred_priorities_of_care/care_priority_scale": 17,
 
     // 3. What is most important to you?
@@ -122,8 +141,11 @@
     // Lead consultant
 
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/role": "GP",
-    "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/name/use|code": "at0002",
+    //BOILERPLATE
+    "nss_respect_form/respect_headings/a8._emergency_contacts/   
+    emergency_contacts/participant:0/contact/name/use|code": "at0002",
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/name/text": "Text 35",
+    //BOILERPLATE
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/telephone/system|code": "at0012",
     "nss_respect_form/respect_headings/a8._emergency_contacts/emergency_contacts/participant:0/contact/telephone/telephone_number": "Telephone number 60",
 
@@ -134,6 +156,7 @@
   // BOILERPLATE
     "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/service_name": "Respect form - confirmation of validity",
     "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/responsible_clinician/practitioner_role/designation": "Designation 26",
+    //BOILERPLATE
  "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/responsible_clinician/name/use|code": "at0002",
 
  "nss_respect_form/respect_headings/a9._confirmation_of_validity/service:0/responsible_clinician/name/text": "Text 84",
