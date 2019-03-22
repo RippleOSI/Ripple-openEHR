@@ -1,4 +1,6 @@
 {
+  "ctx/language": "en",
+  "ctx/territory": "GB",
    "nss_respect_form/language|code": "en",
   "nss_respect_form/language|terminology": "ISO_639-1",
   "nss_respect_form/territory|code": "GB",
