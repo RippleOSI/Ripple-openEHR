@@ -4,32 +4,20 @@
 
 #### Version:
 
-1.1.1
-
-28 Feb 2019 - Corrected AQL query
+1.2.0 - 1 Apr 2019 - updated templateId
+1.1.1- 28 Feb 2019 - Corrected AQL query
 
 #### TemplateID:
-`IDCR - Top issues.v0`
+`IDCR - Top3issues.v0`
 
 #### Summary AQL /query:
 
 To populate the list of items when the heading is selected.
 
 ```sql
-select
-    a/uid/value as uid,
-    a/composer/name as author,
-    a/context/start_time/value as date_created,
-  b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 1']/items[at0001]/value/value as Issue_1_Name,
-    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 1']/items[at0002]/value/value as Issue_1_Detail,
-    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 2']/items[at0001]/value/value as Issue_2_Name,
-    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 2']/items[at0002]/value/value as Issue_2_Detail,
-    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 3']/items[at0001]/value/value as Issue_3_Name,
-    b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 3']/items[at0002]/value/value as Issue_3_Detail
-from EHR e[ehr_id/value='{{ehrId}}']
-contains COMPOSITION a[openEHR-EHR-COMPOSITION.encounter.v1]
-contains CLUSTER b_a[openEHR-EHR-CLUSTER.issue.v0]
-where a/name/value='Top issues'
+
+select     a/uid/value as uid,     a/composer/name as author,     a/context/start_time/value as date_created,     b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 1']/items[at0001]/value/value as Issue_1_Name,     b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 1']/items[at0002]/value/value as Issue_1_Detail,     b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 2']/items[at0001]/value/value as Issue_2_Name,     b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 2']/items[at0002]/value/value as Issue_2_Detail,     b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 3']/items[at0001]/value/value as Issue_3_Name,     b/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.issue.v0,'Issue 3']/items[at0002]/value/value as Issue_3_Detail from EHR e[ehr_id/value='{{ehrId}}'] contains COMPOSITION a[openEHR-EHR-COMPOSITION.encounter.v1] contains OBSERVATION b[openEHR-EHR-OBSERVATION.story.v1] where a/name/value='Top issues'
+
 ```
 
 #### Detail AQL /query:
