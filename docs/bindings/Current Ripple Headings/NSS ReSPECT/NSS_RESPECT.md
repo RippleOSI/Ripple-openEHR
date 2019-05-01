@@ -23,10 +23,10 @@ To retrieve All versions of the Respect composition for the single patoent with 
 
 ```
 select
-  b/uid as version_uid,
+  b/uid/value as compositionUid,
   b/composer/name as authorName,
   b/context/start_time/value as dateUpdated
-from EHR e[ehr_id/value = {{ehrId}}] contains
+  from EHR e[ehr_id/value = '{{ehrId}}'] contains
   VERSIONED_OBJECT a contains
   VERSION v[all_versions]
   contains COMPOSITION b
@@ -43,9 +43,7 @@ select
   b/uid/value as compositionUid,
   b/composer/name as authorName,
   b/context/start_time/value as dateUpdated
-from EHR e[ehr_id/value = {{ehrId}}] contains
-  VERSIONED_OBJECT a contains
-  VERSION v[all_versions]
+from EHR e[ehr_id/value = '{{ehrId}}'] contains
   contains COMPOSITION b
   where b/name/value = 'NSS RESPECT Form'
   ORDER BY b/context/start_time/value DESC
@@ -168,38 +166,38 @@ After the first commit, every subsequent commit should be a PUT - so that the or
     //6. Details of those involved in decisio making and location of documents
     "nss_respect_form/respect_headings/a6._involvement_in_making_plan/involvement_respect/name_and_role_of_those_involved_in_decision_making": "Name and role of those involved in decision making 57",
     //BOILERPLATE
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/ism_transition/current_state|value": "completed",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/ism_transition/current_state|value": "completed",
 
     // 7.Clinician Signatures
     // Valueset:
     // ReSPECT clinician signature
     //ReSPECT Senior Responsible Clinician signature
 
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/service_name": "ReSPECT clinician signature",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/service_name": "ReSPECT clinician signature",
 
     // 7.Clinician Signatures - Designation
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/practitioner_role/designation": "Designation 48",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/practitioner_role/designation": "Designation 48",
 
       //BOILERPLATE
-      "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/name/use|code": "at0002",
+      "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/name/use|code": "at0002",
     // 7.Clinician Signatures - Clinician Name
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/name/text": "Dr Miller",
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/value": "12345",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/name/text": "Dr Miller",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/identifier/value": "12345",
 
     //BOIlERPLATE
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/value|issuer": "ProfessionalID",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/identifier/value|issuer": "ProfessionalID",
       //BOIlERPLATE
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/value|assigner": "ProfessionalID",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/identifier/value|assigner": "ProfessionalID",
 
     //BOIlERPLATE
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/value|type": "ProfessionalID",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/identifier/value|type": "ProfessionalID",
 
     //BOIlERPLATE
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/signing_clinician/identifier/use|code": "at0004",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/signing_clinician/identifier/use|code": "at0004",
 
 
     // 7.Clinician Signatures - Date signed
-    "nss_respect_form/respect_headings/a7._clinician_signatures/clinician_signature:0/time": "2019-03-03T23:09:53.12+01:00",
+    "nss_respect_form/respect_headings/a7._clinician_signatures/service:0/time": "2019-03-03T23:09:53.12+01:00",
 
 
     // 8. Emergency contacts

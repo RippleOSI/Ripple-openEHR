@@ -20,7 +20,7 @@
         <other_details id="Sign off"></other_details>
         <other_details id="Speciality"></other_details>
         <other_details id="User roles"></other_details>
-        <other_details id="MD5-CAM-1.0.1">7140da0ab4339f370933ef77edf15a8a</other_details>
+        <other_details id="MD5-CAM-1.0.1">80b8f4d6eaa60e08504d51d0289ec40b</other_details>
         <other_details id="PARENT:MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</other_details>
         <other_details id="build_uid">86532389-d405-3bdd-ba9d-c4af20f38a2c</other_details>
         <details>
@@ -4269,60 +4269,11 @@ Work addresses are not typically entered in this property as they are usually ro
                                         </attributes>
                                     </children>
                                 </attributes>
-                                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
-                                    <rm_attribute_name>name</rm_attribute_name>
-                                    <existence>
-                                        <lower_included>true</lower_included>
-                                        <upper_included>true</upper_included>
-                                        <lower_unbounded>false</lower_unbounded>
-                                        <upper_unbounded>false</upper_unbounded>
-                                        <lower>1</lower>
-                                        <upper>1</upper>
-                                    </existence>
-                                    <match_negated>false</match_negated>
-                                    <children xsi:type="C_COMPLEX_OBJECT">
-                                        <rm_type_name>DV_TEXT</rm_type_name>
-                                        <occurrences>
-                                            <lower_included>true</lower_included>
-                                            <upper_included>true</upper_included>
-                                            <lower_unbounded>false</lower_unbounded>
-                                            <upper_unbounded>false</upper_unbounded>
-                                            <lower>1</lower>
-                                            <upper>1</upper>
-                                        </occurrences>
-                                        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
-                                            <rm_attribute_name>value</rm_attribute_name>
-                                            <existence>
-                                                <lower_included>true</lower_included>
-                                                <upper_included>true</upper_included>
-                                                <lower_unbounded>false</lower_unbounded>
-                                                <upper_unbounded>false</upper_unbounded>
-                                                <lower>1</lower>
-                                                <upper>1</upper>
-                                            </existence>
-                                            <match_negated>false</match_negated>
-                                            <children xsi:type="C_PRIMITIVE_OBJECT">
-                                                <rm_type_name>STRING</rm_type_name>
-                                                <occurrences>
-                                                    <lower_included>true</lower_included>
-                                                    <upper_included>true</upper_included>
-                                                    <lower_unbounded>false</lower_unbounded>
-                                                    <upper_unbounded>false</upper_unbounded>
-                                                    <lower>1</lower>
-                                                    <upper>1</upper>
-                                                </occurrences>
-                                                <item xsi:type="C_STRING">
-                                                    <list>Clinician signature</list>
-                                                </item>
-                                            </children>
-                                        </attributes>
-                                    </children>
-                                </attributes>
                                 <archetype_id>
                                     <value>openEHR-EHR-ACTION.service.v0</value>
                                 </archetype_id>
                                 <term_definitions code="at0000">
-                                    <items id="text">Clinician signature</items>
+                                    <items id="text">Service</items>
                                     <items id="description">A general clinical activity carried out for the patient to receive a specified service, advice or care from an expert healthcare provider.</items>
                                 </term_definitions>
                                 <term_definitions code="at0001">
@@ -7289,7 +7240,7 @@ Work addresses are not typically entered in this property as they are usually ro
     <annotations path="[openEHR-EHR-COMPOSITION.report.v1]">
         <items id="Notes.Authors Note">This description may be useful to display in the UI: Document to communicate relevant patient information and summary recommendations from ReSPECT (Recommended Summary Plan for Emergency Care and Treatment) process.</items>
     </annotations>
-    <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0013]/items[openEHR-EHR-ADMIN_ENTRY.respect_summary.v0]/data[at0001]/items[openEHR-EHR-CLUSTER.interpreter_details_uk.v0]/items[openEHR-EHR-CLUSTER.language.v0]/items[at0001]">
+    <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0013]/items[openEHR-EHR-ADMIN_ENTRY.respect_summary.v0 and name/value='ReSPECT admin']/data[at0001]/items[openEHR-EHR-CLUSTER.interpreter_details_uk.v0 and name/value='Interpreter details']/items[openEHR-EHR-CLUSTER.language.v0]/items[at0001]">
         <items id="Notes.Authors Note">SNOMED CT Subset ID 80181000000131</items>
     </annotations>
     <annotations path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0001]/items[at0002]/items[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/data[at0001]/items[at0002]">
@@ -7321,7 +7272,7 @@ Work addresses are not typically entered in this property as they are usually ro
                     <value>ReSPECT clinician signature</value>
                 </default_value>
             </children>
-            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0, 'Clinician signature']/description[at0001]/items[at0011]</differential_path>
+            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0]/description[at0001]/items[at0011]</differential_path>
         </attributes>
         <attributes>
             <rm_attribute_name>value</rm_attribute_name>
@@ -7333,7 +7284,7 @@ Work addresses are not typically entered in this property as they are usually ro
                     </defining_code>
                 </default_value>
             </children>
-            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0, 'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0, 'Signing clinician']/items[openEHR-EHR-CLUSTER.name_cc.v0]/items[at0001]</differential_path>
+            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0]/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0, 'Signing clinician']/items[openEHR-EHR-CLUSTER.name_cc.v0]/items[at0001]</differential_path>
         </attributes>
         <attributes>
             <rm_attribute_name>value</rm_attribute_name>
@@ -7344,7 +7295,7 @@ Work addresses are not typically entered in this property as they are usually ro
                     <type>ProfessionalID</type>
                 </default_value>
             </children>
-            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0, 'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0, 'Signing clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0001]</differential_path>
+            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0]/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0, 'Signing clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0001]</differential_path>
         </attributes>
         <attributes>
             <rm_attribute_name>value</rm_attribute_name>
@@ -7356,7 +7307,7 @@ Work addresses are not typically entered in this property as they are usually ro
                     </defining_code>
                 </default_value>
             </children>
-            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0, 'Clinician signature']/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0, 'Signing clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0002]</differential_path>
+            <differential_path>[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-SECTION.respect_headings.v0]/items[at0010]/items[openEHR-EHR-ACTION.service.v0]/protocol[at0015]/items[openEHR-EHR-CLUSTER.practitioner_cc.v0, 'Signing clinician']/items[openEHR-EHR-CLUSTER.identifier_cc.v0]/items[at0002]</differential_path>
         </attributes>
         <attributes>
             <rm_attribute_name>value</rm_attribute_name>
