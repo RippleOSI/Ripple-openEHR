@@ -4,6 +4,9 @@
 
 #### Version:
 
+1.3.0 1-May-2019
+Removed ACTION.service local name 'Clinician signature' to workaround validation issue.
+
 1.2.0 22-Mar-2019
 Replace structured Advanced planning elements with simple Summary narrative element
 
@@ -19,9 +22,11 @@ RESPECT_NSS-v0
 
 #### Retrieve ALL versions of Respect composition:
 
-To retrieve All versions of the Respect composition for the single patoent with a given ehrId.
+To retrieve All versions of the Respect composition for the single patient with a given ehrId.
 
-```
+**(AQL query for Think!EHR only)**
+
+```sql
 select
   b/uid/value as compositionUid,
   b/composer/name as authorName,
@@ -32,6 +37,33 @@ select
   contains COMPOSITION b
   where b/name/value = 'NSS RESPECT Form'
   ORDER BY b/context/start_time/value DESC
+```
+
+**SQL query for Ethercis - note that this expects the root compositionID without the server and version suffixes.**
+
+```sql
+
+
+WITH compversion AS (
+          (select composition.id, event_context.start_time, composer_party.name as composer, facility_party.name as facility, composition.sys_transaction
+			   from "ehr"."composition"
+			   join ehr.event_context on event_context.composition_id=composition.id
+			   join ehr.party_identified as composer_party on composer_party.id=composition.composer
+		       join ehr.party_identified as facility_party on facility_party.id=event_context.facility
+			   where ehr.composition.id = '{{compositionRootUid}}'
+		  )
+       	UNION ALL
+	   (select composition_history.id, event_context_history.start_time, composer_party.name as composer, facility_party.name as facility, composition_history.sys_transaction
+	      from "ehr"."composition_history"
+	      join ehr.event_context_history on (event_context_history.composition_id=composition_history.id AND event_context_history.sys_transaction=composition_history.sys_transaction)
+ 		  join ehr.party_identified as composer_party on composer_party.id=composition_history.composer
+		  join ehr.party_identified as facility_party on facility_party.id=event_context_history.facility
+	      where ehr.composition_history.id = '{{compositionRootUid}}'
+		  ORDER BY composition_history.sys_transaction DESC
+	     )
+	)
+     SELECT row_number() over (order by sys_transaction) as version, compversion.id,    compversion.start_time, compversion.composer, compversion.facility, compversion.sys_transaction
+from compversion
 ```
 
 #### Retrieve current version of Respect composition:
@@ -49,7 +81,7 @@ from EHR e[ehr_id/value = '{{ehrId}}'] contains
   ORDER BY b/context/start_time/value DESC
 ```
 
-#### Retreive composition detail:
+#### Retrieve composition detail:
 To populate the detailed view / edit when a single record within the heading is selected.
 
 Suggest using the /composition GET cal which will retrieve the whole composition in a similar format to that committed.
