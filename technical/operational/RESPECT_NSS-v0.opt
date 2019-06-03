@@ -20,7 +20,7 @@
         <other_details id="Sign off"></other_details>
         <other_details id="Speciality"></other_details>
         <other_details id="User roles"></other_details>
-        <other_details id="MD5-CAM-1.0.1">80b8f4d6eaa60e08504d51d0289ec40b</other_details>
+        <other_details id="MD5-CAM-1.0.1">9a13f42b0636673c8c60c8fce22eebed</other_details>
         <other_details id="PARENT:MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</other_details>
         <other_details id="build_uid">86532389-d405-3bdd-ba9d-c4af20f38a2c</other_details>
         <details>
@@ -34,7 +34,7 @@
         </details>
     </description>
     <uid>
-        <value>bbfd510c-636b-40b4-b0f6-58eedb5da03d</value>
+        <value>fbfd510c-636b-40b4-b0f6-58eedb5da03d</value>
     </uid>
     <template_id>
         <value>RESPECT_NSS-v0</value>
